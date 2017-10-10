@@ -87,6 +87,7 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\Currency.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controller\ConvertFileController.cs" />
@@ -108,6 +109,9 @@
     </Compile>
     <None Include="App.config">
       <SubType>Designer</SubType>
+    </None>
+    <None Include="CMBPaymentFileFCY_template.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="CMBPaymentFile_template.xls">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

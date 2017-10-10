@@ -89,6 +89,83 @@ namespace CMBConversionTool
             return dt;
         }
 
+        public List<Currency> GetCRYList()
+        {
+            List<Currency> list = new List<Currency>();
+
+            string sql = @"
+                select cd as CRY, cd_nm as AccNo, value as AccComp
+                from cmb_m_code where type = 'DEBIT_ACCOUNT' and cd <> 'CNY'";
+
+            try
+            {
+                // DEBUG LOG START
+                LogUtil.WriteDebugStartMessage();
+
+                // 执行前，在LOG中输出SQL文。
+                LogUtil.WriteDebugMessage(base.GetLogSQL(sql, null));
+                DataTable dt = this.ExecuteWithDataTable(sql, null);
+                list = base.ConvertToList<Currency>(dt);
+
+                // 执行后，在LOG中输出执行结果。
+                LogUtil.WriteDebugMessage(base.GetExecuteLog(dt.Rows.Count));
+
+                // DEBUG LOG END
+                LogUtil.WriteDebugEndMessage();
+            }
+            catch (Exception ex)
+            {
+                DataAccessException dae = new DataAccessException(ex);
+                throw dae;
+            }
+
+            return list;
+        }
+
+        public string GetCountryCode(string name)
+        {
+            string countryCode = "";
+            
+            string sql = @"
+                select coun_num,coun_name from cmb_m_country
+                where coun_name like @name ";
+
+            try
+            {
+                // DEBUG LOG START
+                LogUtil.WriteDebugStartMessage();
+
+                List<SqlParameter> lsParas = new List<SqlParameter>();
+                SqlParameter[] paras;
+                lsParas.Add(new SqlParameter("@name", "%" + name + "%"));
+                paras = lsParas.ToArray();
+
+                // 执行前，在LOG中输出SQL文。
+                LogUtil.WriteDebugMessage(base.GetLogSQL(sql, paras));
+
+                DataTable dt = this.ExecuteWithDataTable(sql, paras);
+                if (dt != null)
+                {
+                    if (dt.Rows.Count > 0)
+                    {
+                        countryCode = dt.Rows[0]["coun_num"].ToString();
+                    }
+                }
+
+                // 执行后，在LOG中输出执行结果。
+                LogUtil.WriteDebugMessage(base.GetExecuteLog(dt.Rows.Count));
+
+                // DEBUG LOG END
+                LogUtil.WriteDebugEndMessage();
+            }
+            catch (Exception ex)
+            {
+                DataAccessException dae = new DataAccessException(ex);
+                throw dae;
+            }
+
+            return countryCode;
+        }
         #endregion
 
     }

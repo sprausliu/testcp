@@ -21,6 +21,7 @@ namespace CMBConversionTool
 
         #region "PROPERTY"
         public string TaskFilePath { get; set; }
+        public string TaskFilePathFCY { get; set; }
         #endregion
 
         #region "CONSTRUCTOR"
@@ -52,6 +53,19 @@ namespace CMBConversionTool
             }
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Filter = "Text File|*.txt";
+            dialog.RestoreDirectory = true;
+            dialog.InitialDirectory = ConfigurationManager.AppSettings["EXPORT_FOLDER"];
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                txtFilePathFCY.Text = dialog.FileName;
+                this.TaskFilePathFCY = txtFilePathFCY.Text;
+            }
+        }
+
         private void btnGenerateFile_Click(object sender, EventArgs e)
         {
 
@@ -74,8 +88,29 @@ namespace CMBConversionTool
 
             MessageBox.Show("Convert file Successful!");
         }
-        #endregion
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(this.TaskFilePathFCY))
+            {
+                MessageBox.Show("please select file.");
+                return;
+            }
+
+            this.OutputLog("Convert fcy file start.");
+
+            ConvertFileController ctrl = new ConvertFileController();
+            DataTable dt = ctrl.ConvertDecryptedFileFCY(this.TaskFilePathFCY);
+
+            string tempFile = Path.Combine(Directory.GetCurrentDirectory(), "CMBPaymentFileFCY_template.xlsx");
+            string outputFile = Path.Combine(Directory.GetCurrentDirectory(), string.Format(ConfigurationManager.AppSettings["OUTPUT_FILE_FCY"], DateTime.Now.ToString("yyyyMMdd")));
+            this.WriteDtToExcelCell(tempFile, outputFile, dt);
+
+            this.OutputLog("Convert fcy file end.");
+
+            MessageBox.Show("Convert fcy file Successful!");
+        }
+        #endregion
 
         #region "METHOD"
 
@@ -113,7 +148,7 @@ namespace CMBConversionTool
                         for (int j = 0; j < colCount; j++)
                         {
                             ICell cell = dataRow.CreateCell(j);
-                            cell.SetCellValue(GetDdData(dt.Rows[i][j].ToString()));
+                            cell.SetCellValue(GetDdData(dt.Rows[i][j]));
                         }
                     }
                     workbook.Write(wstr);

@@ -11,6 +11,7 @@ namespace CMBConversionTool
     public class ConvertFileController
     {
 
+        #region "本币"
         public DataTable ConvertDecryptedFile(string path)
         {
             try
@@ -104,6 +105,169 @@ namespace CMBConversionTool
                 // format error!
                 throw ex;
             }
+        }
+        #endregion
+
+        #region "外币"
+        public DataTable ConvertDecryptedFileFCY(string path)
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+
+                dt.Columns.Add(new DataColumn("汇款帐号分行名"));
+                dt.Columns.Add(new DataColumn("汇款帐号号码"));
+                dt.Columns.Add(new DataColumn("汇款帐号币种"));
+                dt.Columns.Add(new DataColumn("汇款帐号公司名"));
+                dt.Columns.Add(new DataColumn("汇款方式"));
+                dt.Columns.Add(new DataColumn("期望日"));
+                dt.Columns.Add(new DataColumn("期望时间"));
+                dt.Columns.Add(new DataColumn("电汇票汇信汇"));
+                dt.Columns.Add(new DataColumn("发电等级"));
+
+                dt.Columns.Add(new DataColumn("网上申请编号前缀"));
+                dt.Columns.Add(new DataColumn("网上申请编号"));
+
+                dt.Columns.Add(new DataColumn("汇款币种"));
+                dt.Columns.Add(new DataColumn("汇款金额"));
+                dt.Columns.Add(new DataColumn("到帐币种"));
+                dt.Columns.Add(new DataColumn("到帐币种对应金额"));
+
+                dt.Columns.Add(new DataColumn("现汇金额"));
+                dt.Columns.Add(new DataColumn("现汇账号"));
+                dt.Columns.Add(new DataColumn("购汇金额"));
+                dt.Columns.Add(new DataColumn("购汇账号"));
+                dt.Columns.Add(new DataColumn("其他金额"));
+                dt.Columns.Add(new DataColumn("其他账号"));
+
+                dt.Columns.Add(new DataColumn("扣费帐号分行名"));
+                dt.Columns.Add(new DataColumn("扣费帐号号码"));
+                dt.Columns.Add(new DataColumn("扣费帐号币种"));
+                dt.Columns.Add(new DataColumn("扣费帐号公司名"));
+                dt.Columns.Add(new DataColumn("其他注意事项"));
+                dt.Columns.Add(new DataColumn("代理行SWIFT代码"));
+                dt.Columns.Add(new DataColumn("收款银行之代理行名称及地址"));
+                dt.Columns.Add(new DataColumn("收款人开户银行在其代理行帐号"));
+
+                dt.Columns.Add(new DataColumn("收款行SWIFT代码"));
+                dt.Columns.Add(new DataColumn("收款人开户行名称及地址"));
+                dt.Columns.Add(new DataColumn("收款人帐号"));
+                dt.Columns.Add(new DataColumn("收款人名称"));
+                dt.Columns.Add(new DataColumn("收款人地址"));
+                dt.Columns.Add(new DataColumn("收款行类型"));
+                dt.Columns.Add(new DataColumn("汇款附言"));
+                dt.Columns.Add(new DataColumn("国内外费用承担"));
+                dt.Columns.Add(new DataColumn("收款人常驻国家(地区)代码"));
+                dt.Columns.Add(new DataColumn("本笔款项是否为保税货物项下付款"));
+                dt.Columns.Add(new DataColumn("结算方式"));
+
+                MainFormController ctrl = new MainFormController();
+                List<Currency> cryList = ctrl.GetCRYList();
+
+                List<string> fileRows = new List<string>();
+                if (File.Exists(path))
+                {
+                    using (FileStream fs = new FileStream(path, FileMode.Open, FileAccess.Read))
+                    {
+                        StreamReader sr = new StreamReader(fs);
+                        string s;
+                        while ((s = sr.ReadLine()) != null)
+                        {
+                            string first = s.Substring(0, 1);
+                            if (first.Equals("P"))
+                            {
+                                fileRows.Add(s);
+                            }
+                        }
+                    }
+
+                    for (int i = 0; i < fileRows.Count; i++)
+                    {
+                        string s = fileRows[i];
+                        string[] arr = s.Split(',');
+
+                        if (arr[0].Equals("P"))
+                        {
+
+                            DataRow dr = dt.NewRow();
+
+                            string cryCd = arr[37];             //Payment Currency
+                            Currency cry = MatchCRY(cryCd, cryList);
+
+                            dr["汇款帐号分行名"] = "天津";
+                            dr["汇款帐号号码"] = cry.AccNo;
+                            dr["汇款帐号币种"] = cry.CRY;
+                            dr["汇款帐号公司名"] = cry.AccComp;
+                            dr["汇款方式"] = cry.PayType;         //O:原币汇款, X:购汇后汇款
+                            dr["期望日"] = FormatDate(arr[9]);    //Payment Date DD/MM/YYYY
+                            dr["期望时间"] = "080000";
+                            dr["电汇票汇信汇"] = "TT";
+                            dr["发电等级"] = "N";
+
+                            dr["汇款币种"] = cryCd;
+                            dr["汇款金额"] = arr[38];           //Invoice/Gross Amount
+                            dr["到帐币种"] = cryCd;
+                            dr["到帐币种对应金额"] = arr[38];           //Invoice/Gross Amount
+
+                            dr["扣费帐号分行名"] = "天津";
+                            dr["扣费帐号号码"] = cry.AccNo;
+                            dr["扣费帐号币种"] = cry.CRY;
+                            dr["扣费帐号公司名"] = cry.AccComp;
+
+                            dr["收款行SWIFT代码"] = arr[15];     //Payee Bank Code
+                            dr["收款人开户行名称及地址"] = "";
+                            dr["收款人帐号"] = arr[19];          //Payee A/C No.
+                            dr["收款人名称"] = arr[10];          //Payee Name in BO
+                            string addr1 = arr[11].Trim();
+                            string addr2 = arr[12].Trim();
+                            string addr3 = arr[13].Trim();
+                            dr["收款人地址"] = addr1 + (string.IsNullOrEmpty(addr1) ? "" : " ") + addr1 + (string.IsNullOrEmpty(addr2) ? "" : " ") + addr3;
+                            dr["收款行类型"] = "O";      //O:招行系统外 
+                            dr["汇款附言"] = arr[56];
+                            dr["国内外费用承担"] = "S";       //O:汇款人, B:收款人, S:共同
+                            dr["收款人常驻国家(地区)代码"] = GetCountryCode(addr3);
+                            dr["本笔款项是否为保税货物项下付款"] = "N";    //N:否
+                            dr["结算方式"] = "O";       //O:其它
+
+                            dt.Rows.Add(dr);
+                        }
+                    }
+                }
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                // format error!
+                throw ex;
+            }
+        }
+        #endregion
+
+        #region "other"
+
+        private string GetCountryCode(string name)
+        {
+            string cd = "";
+            MainFormController ctrl = new MainFormController();
+            cd = ctrl.GetCountryCode(name);
+
+            return cd;
+        }
+
+        private Currency MatchCRY(string cryCd, List<Currency> list)
+        {
+            Currency cry = new Currency();
+            cry = list.First(x => x.CRY.ToUpper().Equals(cryCd.ToUpper()));
+            if (cry == null)
+            {
+                cry = list.First(x => x.CRY.ToUpper().Equals("USD"));
+                cry.PayType = "X";   //O:原币汇款, X:购汇后汇款
+            }
+            else
+            {
+                cry.PayType = "O";  //O:原币汇款, X:购汇后汇款
+            }
+            return cry;
         }
 
         private void GetBankName(string bankCd, out string bank, out string bankName, out string bankProv, out string bankCity)
@@ -220,5 +384,8 @@ namespace CMBConversionTool
             }
             return cd;
         }
+
+        #endregion
+
     }
 }
