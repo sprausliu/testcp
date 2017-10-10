@@ -194,7 +194,7 @@ namespace CMBConversionTool
                             string cryCd = arr[37];             //Payment Currency
                             Currency cry = MatchCRY(cryCd, cryList);
 
-                            dr["汇款帐号分行名"] = "天津";
+                            dr["汇款帐号分行名"] = ConfigurationManager.AppSettings["DEBIT_BANK"];
                             dr["汇款帐号号码"] = cry.AccNo;
                             dr["汇款帐号币种"] = cry.CRY;
                             dr["汇款帐号公司名"] = cry.AccComp;
