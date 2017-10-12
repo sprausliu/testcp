@@ -66,13 +66,18 @@ namespace CMBConversionTool
                             //PaymentReqt pay = new PaymentReqt();
                             DataRow dr = dt.NewRow();
 
+                            string bankCd = arr[15];
+                            if (bankCd.Equals("SCBLCNSXSHA"))
+                            {
+                                bankCd = "671110000017";
+                            }
                             string bank = "";
                             string bankName = "";
                             string bankProv = "";
                             string bankCity = "";
-                            GetBankName(arr[15], out bank, out bankName, out bankProv, out bankCity);
+                            GetBankName(bankCd, out bank, out bankName, out bankProv, out bankCity);
 
-                            dr["业务参考号"] = DateTime.Now.ToString("yyyyMMdd") + arr[4];   //Customer Reference
+                            dr["业务参考号"] = DateTime.Now.ToString("yyyyMMdd") + GetRandom();   //Customer Reference
                             dr["收款人编号"] = "";
                             dr["收款人帐号"] = arr[19];   //Payee A/C No.
                             dr["收款人名称"] = arr[49];   //Payee Name
@@ -90,7 +95,7 @@ namespace CMBConversionTool
                             dr["期望时间"] = "080000";       //
                             dr["用途"] = ConfigurationManager.AppSettings["USAGE"];
                             dr["金额"] = arr[38];           //Invoice/Gross Amount
-                            dr["收方行号"] = arr[15];       //
+                            dr["收方行号"] = bankCd;
                             dr["收方开户银行"] = bank;
                             dr["业务摘要"] = arr[56];
 
@@ -161,6 +166,18 @@ namespace CMBConversionTool
                 dt.Columns.Add(new DataColumn("本笔款项是否为保税货物项下付款"));
                 dt.Columns.Add(new DataColumn("结算方式"));
 
+                dt.Columns.Add(new DataColumn("交易编码1"));
+                dt.Columns.Add(new DataColumn("相应币种金额1"));
+                dt.Columns.Add(new DataColumn("交易附言1"));
+                dt.Columns.Add(new DataColumn("交易编码2"));
+                dt.Columns.Add(new DataColumn("相应币种金额2"));
+                dt.Columns.Add(new DataColumn("交易附言2"));
+                dt.Columns.Add(new DataColumn("合同号"));
+                dt.Columns.Add(new DataColumn("发票号"));
+                dt.Columns.Add(new DataColumn("外汇局批件号"));
+                dt.Columns.Add(new DataColumn("申请人姓名"));
+                dt.Columns.Add(new DataColumn("申请人电话"));
+
                 MainFormController ctrl = new MainFormController();
                 List<Currency> cryList = ctrl.GetCRYList();
 
@@ -174,7 +191,7 @@ namespace CMBConversionTool
                         while ((s = sr.ReadLine()) != null)
                         {
                             string first = s.Substring(0, 1);
-                            if (first.Equals("P"))
+                            if (first.Equals("P") || first.Equals("I"))
                             {
                                 fileRows.Add(s);
                             }
@@ -188,6 +205,24 @@ namespace CMBConversionTool
 
                         if (arr[0].Equals("P"))
                         {
+
+                            // get invoices
+                            //List<string> invoiceList = new List<string>();
+                            string invoice = "";
+                            for (int j = i + 1; j < fileRows.Count; j++)
+                            {
+                                string s2 = fileRows[j];
+                                if (s2.Substring(0, 1).Equals("I"))
+                                {
+                                    //invoiceList.Add(s2);
+                                    invoice = invoice + " " + s2.Split(',')[1];
+                                    i++;
+                                }
+                                else
+                                {
+                                    break;
+                                }
+                            }
 
                             DataRow dr = dt.NewRow();
 
@@ -203,6 +238,9 @@ namespace CMBConversionTool
                             dr["期望时间"] = "080000";
                             dr["电汇票汇信汇"] = "TT";
                             dr["发电等级"] = "N";
+
+                            dr["网上申请编号前缀"] = ConfigurationManager.AppSettings["NUM_PREFIX"];
+                            dr["网上申请编号"] = DateTime.Now.ToString("yyyyMMdd") + GetRandom();
 
                             dr["汇款币种"] = cryCd;
                             dr["汇款金额"] = arr[38];           //Invoice/Gross Amount
@@ -229,6 +267,8 @@ namespace CMBConversionTool
                             dr["本笔款项是否为保税货物项下付款"] = "N";    //N:否
                             dr["结算方式"] = "O";       //O:其它
 
+                            dr["发票号"] = invoice.Trim();
+
                             dt.Rows.Add(dr);
                         }
                     }
@@ -244,6 +284,16 @@ namespace CMBConversionTool
         #endregion
 
         #region "other"
+
+        private string GetRandom()
+        {
+            //Random ro = new Random(10);
+            long tick = DateTime.Now.Ticks;
+            Random ran = new Random((int)(tick & 0xffffffffL) | (int)(tick >> 32));
+
+            int red = ran.Next(0, 99999999);
+            return red.ToString().PadLeft(10, '0');
+        }
 
         private string GetCountryCode(string name)
         {
