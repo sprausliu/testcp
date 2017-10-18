@@ -77,7 +77,7 @@ namespace CMBConversionTool
                             string bankCity = "";
                             GetBankName(bankCd, out bank, out bankName, out bankProv, out bankCity);
 
-                            dr["业务参考号"] = DateTime.Now.ToString("yyyyMMdd") + GetRandom();   //Customer Reference
+                            dr["业务参考号"] = DateTime.Now.ToString("yyyyMMdd") + GetRandom(i);   //Customer Reference
                             dr["收款人编号"] = "";
                             dr["收款人帐号"] = arr[19];   //Payee A/C No.
                             dr["收款人名称"] = arr[49];   //Payee Name
@@ -93,7 +93,15 @@ namespace CMBConversionTool
                             dr["付方帐号"] = ConfigurationManager.AppSettings["DEBIT_ACC"];
                             dr["期望日"] = FormatDate(arr[9]);    //Payment Date DD/MM/YYYY
                             dr["期望时间"] = "080000";       //
-                            dr["用途"] = ConfigurationManager.AppSettings["USAGE"];
+                            string comment = arr[56].Trim();
+                            if (comment.Contains("个人报销"))
+                            {
+                                dr["用途"] = comment;
+                            }
+                            else
+                            {
+                                dr["用途"] = ConfigurationManager.AppSettings["USAGE"];
+                            }
                             dr["金额"] = arr[38];           //Invoice/Gross Amount
                             dr["收方行号"] = bankCd;
                             dr["收方开户银行"] = bank;
@@ -228,10 +236,11 @@ namespace CMBConversionTool
 
                             string cryCd = arr[37];             //Payment Currency
                             Currency cry = MatchCRY(cryCd, cryList);
+                            string cryName = GetCRYName(cry.CRY);
 
                             dr["汇款帐号分行名"] = ConfigurationManager.AppSettings["DEBIT_BANK"];
                             dr["汇款帐号号码"] = cry.AccNo;
-                            dr["汇款帐号币种"] = cry.CRY;
+                            dr["汇款帐号币种"] = cryName;
                             dr["汇款帐号公司名"] = cry.AccComp;
                             dr["汇款方式"] = cry.PayType;         //O:原币汇款, X:购汇后汇款
                             dr["期望日"] = FormatDate(arr[9]);    //Payment Date DD/MM/YYYY
@@ -240,16 +249,16 @@ namespace CMBConversionTool
                             dr["发电等级"] = "N";
 
                             dr["网上申请编号前缀"] = ConfigurationManager.AppSettings["NUM_PREFIX"];
-                            dr["网上申请编号"] = DateTime.Now.ToString("yyyyMMdd") + GetRandom();
+                            dr["网上申请编号"] = DateTime.Now.ToString("yyyyMMdd") + GetRandom(i);
 
-                            dr["汇款币种"] = cryCd;
+                            dr["汇款币种"] = GetCRYName(cryCd);
                             dr["汇款金额"] = arr[38];           //Invoice/Gross Amount
-                            dr["到帐币种"] = cryCd;
-                            dr["到帐币种对应金额"] = arr[38];           //Invoice/Gross Amount
+                            dr["现汇金额"] = arr[38];
+                            dr["现汇账号"] = cry.AccNo;        
 
-                            dr["扣费帐号分行名"] = "天津";
+                            dr["扣费帐号分行名"] = ConfigurationManager.AppSettings["DEBIT_BANK"];
                             dr["扣费帐号号码"] = cry.AccNo;
-                            dr["扣费帐号币种"] = cry.CRY;
+                            dr["扣费帐号币种"] = GetCRYName(cry.CRY);
                             dr["扣费帐号公司名"] = cry.AccComp;
 
                             dr["收款行SWIFT代码"] = arr[15];     //Payee Bank Code
@@ -285,14 +294,16 @@ namespace CMBConversionTool
 
         #region "other"
 
-        private string GetRandom()
+        private string GetRandom(int idx)
         {
-            //Random ro = new Random(10);
-            long tick = DateTime.Now.Ticks;
-            Random ran = new Random((int)(tick & 0xffffffffL) | (int)(tick >> 32));
+            int hour = DateTime.Now.Hour;
+            int Minute =  DateTime.Now.Minute;
+            int Second = DateTime.Now.Second;
+            int Ms = DateTime.Now.Millisecond;
 
-            int red = ran.Next(0, 99999999);
-            return red.ToString().PadLeft(10, '0');
+            string Ran = DateTime.Now.ToString("HHmmssfff") + (idx+1).ToString();
+
+            return Ran;
         }
 
         private string GetCountryCode(string name)
@@ -433,6 +444,56 @@ namespace CMBConversionTool
                     break;
             }
             return cd;
+        }
+
+        private string GetCRYName(string cry)
+        {
+            string name = "";
+            switch (cry.ToUpper())
+            {
+                case "CNY":
+                    name = "人民币";
+                    break;
+                case "HKD":
+                    name = "港币";
+                    break;
+                case "AUD":
+                    name = "澳元";
+                    break;
+                case "USD":
+                    name = "美元";
+                    break;
+                case "EUR":
+                    name = "欧元";
+                    break;
+                case "CAD":
+                    name = "加拿大元";
+                    break;
+                case "GBP":
+                    name = "英镑";
+                    break;
+                case "JPY":
+                    name = "日元";
+                    break;
+                case "SGD":
+                    name = "新加坡元";
+                    break;
+                case "NOK":
+                    name = "挪威克朗";
+                    break;
+                case "DKK":
+                    name = "丹麦克朗";
+                    break;
+                case "CHF":
+                    name = "瑞士法郎";
+                    break;
+                case "SEK":
+                    name = "瑞典克朗";
+                    break;
+                default:
+                    break;
+            }
+            return name;
         }
 
         #endregion

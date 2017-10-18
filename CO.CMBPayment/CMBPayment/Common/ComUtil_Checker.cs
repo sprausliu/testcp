@@ -165,25 +165,5 @@ namespace Common {
             }
             return true;
         }
-
-        /// <summary>
-        /// 数字的变换(检索用)
-        /// 数字以外的場合、空
-        /// </summary>
-        /// <param name="inNum">变换数字</param>
-        ///  <returns></returns>
-        public static bool IsNumberStringFormat (String inNum) {
-            //空的場合
-            if (string.IsNullOrEmpty(inNum)) {
-                return true;
-            }
-            try {
-                Convert.ToInt32(inNum.Trim().Replace(Constant.FormatInfo.COMMA, ""));
-                return true;
-            } catch {
-                return false;
-            }
-        }
-
     }
 }

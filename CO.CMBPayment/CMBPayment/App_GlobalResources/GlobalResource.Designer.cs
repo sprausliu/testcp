@@ -1015,7 +1015,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 请输入{0}。.
+        ///   Looks up a localized string similar to 请填写{0}。.
         /// </summary>
         internal static string WMSG0001 {
             get {

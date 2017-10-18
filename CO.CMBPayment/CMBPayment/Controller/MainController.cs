@@ -423,6 +423,88 @@ namespace CMBPayment
             }
 
         }
+
+        public void UpdatePaymentUsage(PaymentReqt pay)
+        {
+            try
+            {
+                // DEBUG LOG START
+                LogUtil.WriteDebugStartMessage();
+
+                SqlConnection cnn = this.GetConnection();
+                this.OpenConnection();
+                base.BeginTrans();
+
+                MainDataAccess dac = new MainDataAccess(cnn, this.Trans);
+
+                dac.UpdatePaymentUsage(pay);
+
+                base.CommitTrans();
+
+                // DEBUG LOG END
+                LogUtil.WriteDebugEndMessage();
+            }
+            catch (DataAccessException daex)
+            {
+                base.RollbackTrans();
+                throw daex;
+            }
+            catch (Exception ex)
+            {
+                base.RollbackTrans();
+                LogicException le = new LogicException(ex);
+                throw le;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+
+        }
+
+        public void DeletePaymentInfo(List<string> list, string batchId)
+        {
+            try
+            {
+                // DEBUG LOG START
+                LogUtil.WriteDebugStartMessage();
+
+                SqlConnection cnn = this.GetConnection();
+                this.OpenConnection();
+                base.BeginTrans();
+
+                MainDataAccess dac = new MainDataAccess(cnn, this.Trans);
+
+                for (int i = 0; i < list.Count; i++)
+                {
+                    string payId = list[i];
+                    dac.DeletePaymentInfo(payId);
+                }
+
+                dac.UpdateBatchPayCnt(batchId);
+
+                base.CommitTrans();
+
+                // DEBUG LOG END
+                LogUtil.WriteDebugEndMessage();
+            }
+            catch (DataAccessException daex)
+            {
+                base.RollbackTrans();
+                throw daex;
+            }
+            catch (Exception ex)
+            {
+                base.RollbackTrans();
+                LogicException le = new LogicException(ex);
+                throw le;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+
+        }
         #endregion
 
         #region "Get other info"

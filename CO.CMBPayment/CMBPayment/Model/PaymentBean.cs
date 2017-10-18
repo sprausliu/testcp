@@ -9,6 +9,8 @@ namespace CMBPayment
     public class PaymentBean : BasePagingBean
     {
         public string BatchId { get; set; }
+        public string PaymentId { get; set; }
+        public string Usage { get; set; }
     }
 
     public class PaymentItemBean : BaseInfoBean

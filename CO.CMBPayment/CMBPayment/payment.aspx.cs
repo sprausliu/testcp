@@ -11,7 +11,7 @@ using System.Threading;
 
 namespace CMBPayment
 {
-    public partial class payments : BasePage
+    public partial class payment : BasePage
     {
         #region "属性"
         public PaymentBean CurrentBean
@@ -32,26 +32,45 @@ namespace CMBPayment
                 Session[Constant.SessionKey.KEY_Payment_SEARCH_KEYWORD] = value;
             }
         }
+        //public List<string> DeletePayList
+        //{
+        //    get
+        //    {
+        //        if (Session[Constant.SessionKey.KEY_Payment_DELETE_LIST_KEYWORD] != null)
+        //        {
+        //            return (List<string>)Session[Constant.SessionKey.KEY_Payment_DELETE_LIST_KEYWORD];
+        //        }
+        //        else
+        //        {
+        //            return new List<string>();
+        //        }
+        //    }
+        //    set
+        //    {
+        //        Session[Constant.SessionKey.KEY_Payment_SEARCH_KEYWORD] = value;
+        //    }
+        //}
         #endregion
 
         #region "事件"
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            this.PageID = Constant.PagesURL.URL_LOGIN;
-
             if (!IsPostBack)
             {
                 UserInfoBean user = base.LoginUser;
 
                 InitDisplayInfo();
-
-                // 操作履歴
-                LogUtil.WriteInfoMessage(
-                    string.Format(ComUtil.GetGlobalResource(Constant.ResourcesKey.KEY_LMSG0003), base.LoginUser.UserId, base.PageID)
-                );
             }
 
+            if (this.CurrentBean.IsSaved)
+            {
+                lblError.Text = ComUtil.GetGlobalResource(Constant.ResourcesKey.KEY_IMSG0001);
+            }
+            else
+            {
+                lblError.Text = "";
+            }
             // 添加分页事件
             this.GPG00001.PageChanged += new GPG0000.PageChangedHander(GPG00001_PageChanged);
         }
@@ -96,10 +115,42 @@ namespace CMBPayment
 
         protected void gvPaymentInfo_RowCommand(object sender, GridViewCommandEventArgs e)
         {
+            GridViewRow row = null;
+
+            if (e.CommandName.Equals("Edit"))
+            {
+                row = (GridViewRow)((Button)e.CommandSource).Parent.Parent;
+                string paymentId = ((HiddenField)row.FindControl("hidPaymentId")).Value;
+                string usage = ((Label)row.FindControl("lblNUSAGE")).Text;
+                PaymentBean infoBean = this.CurrentBean;
+                infoBean.PaymentId = paymentId;
+                infoBean.Usage = usage;
+                infoBean.IsEditMode = true;
+                this.CurrentBean = infoBean;
+                Response.Redirect(ComUtil.GetPageURL(Constant.PagesURL.URL_PAYEDIT));
+            }
         }
 
         protected void gvPaymentInfo_RowDataBound(object sender, GridViewRowEventArgs e)
         {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                UserInfoBean user = base.LoginUser;
+                if (user.RoleId.Equals(Constant.ConstantInfo.ROLE_MAKER))
+                {
+                    //(e.Row.Cells[0].FindControl("txtUsage") as TextBox).Enabled = true;
+                    (e.Row.Cells[0].FindControl("chkSelected") as CheckBox).Enabled = true;
+                    (e.Row.Cells[0].FindControl("btnEdit") as Button).Visible = true;
+                    
+                }
+                else if (user.RoleId.Equals(Constant.ConstantInfo.ROLE_CHEKER1) || user.RoleId.Equals(Constant.ConstantInfo.ROLE_CHEKER2))
+                {
+                    //(e.Row.Cells[0].FindControl("txtUsage") as TextBox).Enabled = false;
+                    (e.Row.Cells[0].FindControl("chkSelected") as CheckBox).Enabled = false;
+                    (e.Row.Cells[0].FindControl("btnEdit") as Button).Visible = false;
+                }
+
+            }
         }
 
         protected void btnReturn_Click(object sender, EventArgs e)
@@ -117,16 +168,47 @@ namespace CMBPayment
                 this.Response.Redirect("batch.aspx");
             }
 
-            // 操作履歴
-            LogUtil.WriteInfoMessage(
-                    string.Format(ComUtil.GetGlobalResource(Constant.ResourcesKey.KEY_LMSG0004), base.LoginUser.UserId,
-                    ComUtil.GetGlobalResource(Constant.ResourcesKey.KEY_BUTTON_CANCEL))
-                );
             LogUtil.WriteDebugEndMessage();
         }
+
+        protected void btnDelete_Click(object sender, EventArgs e)
+        {
+            LogUtil.WriteDebugStartMessage();
+
+            this.DeletePayment();
+
+            LogUtil.WriteDebugEndMessage();
+        }
+
         #endregion
 
         #region "方法"
+
+        private void DeletePayment()
+        {
+            List<string> delPayList = new List<string>();//this.DeletePayList;
+
+            for (int i = 0; i < gvPaymentInfo.Rows.Count; i++)
+            {
+                if ((gvPaymentInfo.Rows[i].FindControl("chkSelected") as CheckBox).Checked)
+                {
+                    string paId = ((HiddenField)gvPaymentInfo.Rows[i].FindControl("hidPaymentId")).Value;
+                    delPayList.Add(paId);
+                }
+            }
+
+            if (delPayList.Count > 0)
+            {
+                string batchId = this.CurrentBean.BatchId;
+                MainController ctrl = new MainController();
+                ctrl.DeletePaymentInfo(delPayList, batchId);
+            }
+
+            lblError.Text = ComUtil.GetGlobalResource(Constant.ResourcesKey.KEY_IMSG0001);
+
+            SearchPayment();
+        }
+
         private void InitDisplayInfo()
         {
             BatchBean batchBean = (BatchBean)Session[Constant.SessionKey.KEY_Batch_SEARCH_KEYWORD];
@@ -165,6 +247,15 @@ namespace CMBPayment
         {
             infoBean.PageIndex = 1;
             infoBean.PageSize = SystemInfoController.GetControlInfo(Constant.SystemControlInfo.KEY_MAX_PAGE_CNT).ToInt();
+        }
+
+        private void SearchPayment()
+        {
+            PaymentBean infoBean = this.CurrentBean;
+            // 画面再检索
+            DisplayInfo(infoBean);
+            // 分页设定
+            base.SetChangePage(infoBean, infoBean.PageIndex, this.GPG00001);
         }
 
         private void DisplayInfo(PaymentBean infoBean)

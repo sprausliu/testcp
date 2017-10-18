@@ -54,9 +54,9 @@
                                     <th class="text-left" style="width: 120px;">
                                         <asp:Label ID="Label2" runat="server" Text="查询日期:"></asp:Label>
                                     </th>
-                                    <td class="text-left" style="width: 300px;">
+                                    <td class="text-left">
                                         <asp:TextBox ID="txtDayStart" runat="server" MaxLength="8" Width="70px" Text=""></asp:TextBox>&nbsp;&nbsp;<asp:TextBox ID="txtDayEnd" runat="server" MaxLength="8" Width="70px" Text=""></asp:TextBox>&nbsp;&nbsp;
-                                        <asp:Button ID="btnPayResult" Style="width: 110px;" runat="server" CssClass="btn btn-success" Text="查询支付结果" OnClick="btnPayResult_Click" />
+                                        <asp:Button ID="btnPayResult" Style="width: 110px;" runat="server" CssClass="btn btn-success" Text="查询支付结果" OnClick="btnPayResult_Click" Visible="false" />
                                     </td>
                                 </tr>
                             </table>
@@ -118,7 +118,7 @@
                                 <asp:TemplateField HeaderText="授权人1" HeaderStyle-Width="7%" ItemStyle-CssClass="text-center">
                                     <ItemTemplate>
                                         <asp:Label ID="lblApprId1" runat="server" Text='<%#Eval("appr1_id") %>' Visible="false"></asp:Label>
-                                        <asp:Button CssClass="btn btn-block btn-success btn-sm" CommandName="Appr1" ID="btnAppr1" runat="server" Text="授权1" Visible="false"></asp:Button>
+                                        <asp:Button CssClass="btn btn-block btn-success btn-sm" CommandName="Appr1" ID="btnAppr1" runat="server" Text="授权1" Visible="false" OnClientClick="javascript:return fn.ApprConfirm();"></asp:Button>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                             </Columns>
@@ -133,7 +133,7 @@
                                     <ItemTemplate>
                                         <asp:Label ID="lblApprId2" runat="server" Text='<%#Eval("appr2_id") %>' Visible="false"></asp:Label>
                                         <asp:Label ID="lblOver" runat="server" Text='超上限' Visible="false"></asp:Label>
-                                        <asp:Button CssClass="btn btn-block btn-success btn-sm" CommandName="Appr2" ID="btnAppr2" runat="server" Text="授权2" Visible="false"></asp:Button>
+                                        <asp:Button CssClass="btn btn-block btn-success btn-sm" CommandName="Appr2" ID="btnAppr2" runat="server" Text="授权2" Visible="false" OnClientClick="javascript:return fn.ApprConfirm();"></asp:Button>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                             </Columns>
@@ -147,7 +147,7 @@
                                 <asp:TemplateField HeaderText="拒绝" HeaderStyle-Width="7%" ItemStyle-CssClass="text-center">
                                     <ItemTemplate>
                                         <asp:Label ID="lblRejcId" runat="server" Text='<%#Eval("rejc_id") %>' Visible="false"></asp:Label>
-                                        <asp:Button CssClass="btn btn-block btn-warning btn-sm" CommandName="Rejt" ID="btnRejt" runat="server" Text="拒绝" Visible="false"></asp:Button>
+                                        <asp:Button CssClass="btn btn-block btn-warning btn-sm" CommandName="Rejt" ID="btnRejt" runat="server" Text="拒绝" Visible="false" OnClientClick="javascript:return fn.RectConfirm();"></asp:Button>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                             </Columns>
@@ -166,4 +166,14 @@
             <!-- /.box -->
         </ContentTemplate>
     </asp:UpdatePanel>
+
+
+    <script type="text/javascript">
+        $.fn.ApprConfirm = function () {
+            return confirm("确定要对当前的数据授权吗？");
+        };
+        $.fn.RectConfirm = function () {
+            return confirm("确定拒绝当前的数据吗？");
+        };
+    </script>
 </asp:Content>

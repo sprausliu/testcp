@@ -19,5 +19,8 @@ namespace Constant
         public const string KEY_Batch_SEARCH_KEYWORD = "KEY_Batch_SEARCH_KEYWORD";
         public const string KEY_Payment_SEARCH_KEYWORD = "KEY_Payment_SEARCH_KEYWORD";
 
+        public const string KEY_Payment_DELETE_LIST_KEYWORD = "KEY_Payment_DELETE_LIST_KEYWORD";
+
+
     }
 }

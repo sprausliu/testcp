@@ -133,12 +133,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="lib\ICSharpCode.SharpZipLib.dll" />
-    <None Include="lib\log4net.dll" />
-    <None Include="lib\NPOI.dll" />
-    <None Include="lib\NPOI.OOXML.dll" />
-    <None Include="lib\NPOI.OpenXml4Net.dll" />
-    <None Include="lib\NPOI.OpenXmlFormats.dll" />
+    <Content Include="lib\ICSharpCode.SharpZipLib.dll" />
+    <Content Include="lib\log4net.dll" />
+    <Content Include="lib\NPOI.dll" />
+    <Content Include="lib\NPOI.OOXML.dll" />
+    <Content Include="lib\NPOI.OpenXml4Net.dll" />
+    <Content Include="lib\NPOI.OpenXmlFormats.dll" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

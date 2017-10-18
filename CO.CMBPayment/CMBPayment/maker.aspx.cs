@@ -77,19 +77,14 @@ namespace CMBPayment
             try
             {
 
-                this.PageID = Constant.PagesURL.URL_BATCH;
-
                 if (!IsPostBack)
                 {
                     UserInfoBean user = base.LoginUser;
 
                     InitDisplayInfo();
-
-                    // 操作履歴
-                    LogUtil.WriteInfoMessage(
-                        string.Format(ComUtil.GetGlobalResource(Constant.ResourcesKey.KEY_LMSG0003), base.LoginUser.UserId, base.PageID)
-                    );
                 }
+
+                lblError.Text = "";
 
                 // 添加分页事件
                 this.GPG00001.PageChanged += new GPG0000.PageChangedHander(GPG00001_PageChanged);
@@ -272,8 +267,9 @@ namespace CMBPayment
                 BatchBean infoBean = this.CurrentBean;
                 infoBean.BatchId = lkBatchId.Text;
                 infoBean.IsEditMode = true;
+                Session[Constant.SessionKey.KEY_Payment_SEARCH_KEYWORD] = null;
                 this.CurrentBean = infoBean;
-                Response.Redirect(ComUtil.GetPageURL(Constant.PagesURL.URL_PAYMENTS));
+                Response.Redirect(ComUtil.GetPageURL(Constant.PagesURL.URL_PAYMENT));
             }
         }
 
@@ -289,8 +285,9 @@ namespace CMBPayment
             BatchBean infoBean = this.CurrentBean;
             infoBean.BatchId = lkBatchId.Text;
             infoBean.IsEditMode = true;
+            Session[Constant.SessionKey.KEY_Payment_SEARCH_KEYWORD] = null;
             this.CurrentBean = infoBean;
-            Response.Redirect(ComUtil.GetPageURL(Constant.PagesURL.URL_PAYMENTS));
+            Response.Redirect(ComUtil.GetPageURL(Constant.PagesURL.URL_PAYMENT));
         }
 
         protected void gvFailBatchInfo_RowDataBound(object sender, GridViewRowEventArgs e)

@@ -145,13 +145,14 @@
     <Content Include="dist\js\pages\dashboard.js" />
     <Content Include="dist\js\pages\dashboard2.js" />
     <Content Include="maker.aspx" />
+    <Content Include="payedit.aspx" />
     <Content Include="timeout.aspx" />
     <Content Include="GPG0000.ascx" />
     <Content Include="log4net.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="login.aspx" />
-    <Content Include="payments.aspx" />
+    <Content Include="payment.aspx" />
     <Content Include="plugins\bootstrap-slider\bootstrap-slider.js" />
     <Content Include="plugins\bootstrap-slider\slider.css" />
     <Content Include="plugins\bootstrap-wysihtml5\bootstrap3-wysihtml5.all.js" />
@@ -1028,6 +1029,13 @@
     <Compile Include="Model\PaymentBean.cs" />
     <Compile Include="Model\PaymentModel.cs" />
     <Compile Include="Model\UserInfoBean.cs" />
+    <Compile Include="payedit.aspx.cs">
+      <DependentUpon>payedit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="payedit.aspx.designer.cs">
+      <DependentUpon>payedit.aspx</DependentUpon>
+    </Compile>
     <Compile Include="timeout.aspx.cs">
       <DependentUpon>timeout.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1050,13 +1058,12 @@
       <DependentUpon>login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Model\BatchBean.cs" />
-    <Compile Include="Model\PaymentsBean.cs" />
-    <Compile Include="payments.aspx.cs">
-      <DependentUpon>payments.aspx</DependentUpon>
+    <Compile Include="payment.aspx.cs">
+      <DependentUpon>payment.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="payments.aspx.designer.cs">
-      <DependentUpon>payments.aspx</DependentUpon>
+    <Compile Include="payment.aspx.designer.cs">
+      <DependentUpon>payment.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">

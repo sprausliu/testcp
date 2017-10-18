@@ -11,10 +11,18 @@
             try { $("#tooltip").css("display", "none"); } catch (e) { }
         }, 500);
     };
+
+    $.fn.AlertMsg = function (inMsg) {
+        alert(inMsg);
+        $(this).focus();
+        return false;
+    };
 })(jQuery);
 
 function MovePageWithNoHistory(url) {
     window.location.replace(url);
     return false;
 }
+
+
 

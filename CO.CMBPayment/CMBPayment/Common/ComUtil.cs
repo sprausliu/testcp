@@ -4,6 +4,7 @@ using System.Reflection;
 using System.Configuration;
 using System.IO;
 using System.Globalization;
+using System.Text;
 
 
 namespace Common
@@ -187,6 +188,22 @@ namespace Common
                     }
                 }
             }
+        }
+
+        public static int GetStringByteLength(string str)
+        {
+            if (str.Equals(string.Empty))
+                return 0;
+            int strlen = 0;
+            ASCIIEncoding strData = new ASCIIEncoding();
+            byte[] strBytes = strData.GetBytes(str);
+            for (int i = 0; i <= strBytes.Length - 1; i++)
+            {
+                if (strBytes[i] == 63)  //中文都将编码为ASCII编码63,即"?"号
+                    strlen++;
+                strlen++;
+            }
+            return strlen;
         }
 
     }

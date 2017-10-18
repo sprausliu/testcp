@@ -31,7 +31,8 @@ namespace Constant {
         // -------------------------
         public const string URL_MAKER = "maker";
         public const string URL_BATCH = "batch";
-        public const string URL_PAYMENTS = "payments";
+        public const string URL_PAYMENT = "payment";
+        public const string URL_PAYEDIT = "payedit";
 
     }
 

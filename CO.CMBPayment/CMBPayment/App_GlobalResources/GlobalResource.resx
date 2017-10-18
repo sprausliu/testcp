@@ -436,7 +436,7 @@
     <value>件</value>
   </data>
   <data name="WMSG0001" xml:space="preserve">
-    <value>请输入{0}。</value>
+    <value>请填写{0}。</value>
   </data>
   <data name="WMSG0002" xml:space="preserve">
     <value>{0}和{1}不一致。</value>

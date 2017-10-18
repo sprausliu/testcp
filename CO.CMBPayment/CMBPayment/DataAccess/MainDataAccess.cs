@@ -399,7 +399,7 @@ namespace CMBPayment
         private string GetPaymentInfoConditon(PaymentBean infoBean)
         {
             StringBuilder condition = new StringBuilder();
-            condition.Append(" 1 = 1 ");
+            condition.Append(" 1 = 1 and a.del_flg = '0' ");
 
             if (!string.IsNullOrEmpty(infoBean.BatchId))
             {
@@ -441,7 +441,7 @@ namespace CMBPayment
             sb.AppendLine("	, A.CRTADR");
             sb.AppendLine("	, A.NTFCH1");
             sb.AppendLine(" from cmb_t_payment a");
-            sb.AppendLine(" where A.batch_id  = @batch_id");
+            sb.AppendLine(" where A.batch_id  = @batch_id and a.del_flg = '0' ");
             string sql = sb.ToString();
 
             try
@@ -869,6 +869,120 @@ namespace CMBPayment
                 throw dae;
             }
 
+        }
+
+        public int UpdatePaymentUsage(PaymentReqt pay)
+        {
+            int effectCount = 0;
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine(" UPDATE cmb_t_payment");
+            sb.AppendLine(" SET update_time = GETDATE()");
+            sb.AppendLine("    ,update_id = @UPD_ID");
+            sb.AppendLine("    ,NUSAGE = @NUSAGE");
+            sb.AppendLine(" WHERE YURREF = @YURREF ");
+
+            string updateSql = sb.ToString();
+
+            try
+            {
+                // DEBUG LOG START
+                LogUtil.WriteDebugStartMessage();
+
+                List<SqlParameter> lsParas = new List<SqlParameter>();
+                SqlParameter[] paras;
+
+                lsParas.Add(new SqlParameter("@YURREF", pay.YURREF));
+                lsParas.Add(new SqlParameter("@NUSAGE", pay.NUSAGE));
+                lsParas.Add(new SqlParameter("@UPD_ID", pay.user_id));
+                paras = lsParas.ToArray();
+
+                effectCount = base.ExecuteNonQuery(updateSql, paras);
+
+                // DEBUG LOG END
+                LogUtil.WriteDebugEndMessage();
+            }
+            catch (Exception ex)
+            {
+                DataAccessException dae = new DataAccessException(ex);
+                throw dae;
+            }
+
+            return effectCount;
+        }
+
+        public int DeletePaymentInfo(string payId)
+        {
+            int effectCount = 0;
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine(" UPDATE cmb_t_payment");
+            sb.AppendLine(" SET update_time = GETDATE()");
+            sb.AppendLine("    ,update_id = @UPD_ID");
+            sb.AppendLine("    ,del_flg = '1'");
+            sb.AppendLine(" WHERE YURREF = @YURREF ");
+
+            string updateSql = sb.ToString();
+
+            try
+            {
+                // DEBUG LOG START
+                LogUtil.WriteDebugStartMessage();
+
+                List<SqlParameter> lsParas = new List<SqlParameter>();
+                SqlParameter[] paras;
+
+                lsParas.Add(new SqlParameter("@YURREF", payId));
+                lsParas.Add(new SqlParameter("@UPD_ID", base.LoginUser.UserId));
+                paras = lsParas.ToArray();
+
+                effectCount = base.ExecuteNonQuery(updateSql, paras);
+
+                // DEBUG LOG END
+                LogUtil.WriteDebugEndMessage();
+            }
+            catch (Exception ex)
+            {
+                DataAccessException dae = new DataAccessException(ex);
+                throw dae;
+            }
+
+            return effectCount;
+        }
+
+        public int UpdateBatchPayCnt(string batchId)
+        {
+            int effectCount = 0;
+            string updateSql = @"update cmb_t_batch
+                set pay_cnt = (
+	                select count(1) from 
+	                cmb_t_payment where batch_id = @batch_id and del_flg = '0')
+                    ,update_time = GETDATE()
+                    ,update_id = @UPD_ID
+                where batch_id = @batch_id ";
+
+            try
+            {
+                // DEBUG LOG START
+                LogUtil.WriteDebugStartMessage();
+
+                List<SqlParameter> lsParas = new List<SqlParameter>();
+                SqlParameter[] paras;
+
+                lsParas.Add(new SqlParameter("@batch_id", batchId));
+                lsParas.Add(new SqlParameter("@UPD_ID", base.LoginUser.UserId));
+                paras = lsParas.ToArray();
+
+                effectCount = base.ExecuteNonQuery(updateSql, paras);
+
+                // DEBUG LOG END
+                LogUtil.WriteDebugEndMessage();
+            }
+            catch (Exception ex)
+            {
+                DataAccessException dae = new DataAccessException(ex);
+                throw dae;
+            }
+
+            return effectCount;
         }
         #endregion
 

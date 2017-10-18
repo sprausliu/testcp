@@ -37,18 +37,12 @@ namespace CMBPayment
         #region "事件"
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.PageID = Constant.PagesURL.URL_BATCH;
-
             if (!IsPostBack)
             {
                 UserInfoBean user = base.LoginUser;
 
                 InitDisplayInfo();
 
-                // 操作履歴
-                LogUtil.WriteInfoMessage(
-                    string.Format(ComUtil.GetGlobalResource(Constant.ResourcesKey.KEY_LMSG0003), base.LoginUser.UserId, base.PageID)
-                );
             }
 
             lblError.Text = "";
@@ -70,11 +64,6 @@ namespace CMBPayment
             infoBean.IsSearched = true;
             this.CurrentBean = infoBean;
 
-            // 操作履歴
-            LogUtil.WriteInfoMessage(
-                    string.Format(ComUtil.GetGlobalResource(Constant.ResourcesKey.KEY_LMSG0004), base.LoginUser.UserId,
-                    ComUtil.GetGlobalResource(Constant.ResourcesKey.KEY_BUTTON_SEARCH))
-                );
             LogUtil.WriteDebugEndMessage();
         }
 
@@ -127,8 +116,9 @@ namespace CMBPayment
                 BatchBean infoBean = this.CurrentBean;
                 infoBean.BatchId = lkBatchId.Text;
                 infoBean.IsEditMode = true;
+                Session[Constant.SessionKey.KEY_Payment_SEARCH_KEYWORD] = null;
                 this.CurrentBean = infoBean;
-                Response.Redirect(ComUtil.GetPageURL(Constant.PagesURL.URL_PAYMENTS));
+                Response.Redirect(ComUtil.GetPageURL(Constant.PagesURL.URL_PAYMENT));
             }
             else if (e.CommandName.Equals("Appr1"))
             {
