@@ -25,8 +25,6 @@ insert into cmb_m_code values ('BATCH_STATUS','','02',N'部分授权','',2,'');
 insert into cmb_m_code values ('BATCH_STATUS','','03',N'已授权','',3,'');
 insert into cmb_m_code values ('BATCH_STATUS','','04',N'已发送','',4,'');
 insert into cmb_m_code values ('BATCH_STATUS','','05',N'已完成','',5,'');
---insert into cmb_m_code values ('BATCH_STATUS','','06',N'已发送部分错误','',6,'');
---insert into cmb_m_code values ('BATCH_STATUS','','07',N'已完成部分错误','',7,'');
 insert into cmb_m_code values ('BATCH_STATUS','','97',N'被拒绝','',97,'');
 insert into cmb_m_code values ('BATCH_STATUS','','98',N'超上限','',98,'');
 insert into cmb_m_code values ('BATCH_STATUS','','99',N'未成功','',99,'');
