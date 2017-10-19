@@ -56,7 +56,7 @@
                                     </th>
                                     <td class="text-left">
                                         <asp:TextBox ID="txtDayStart" runat="server" MaxLength="8" Width="70px" Text=""></asp:TextBox>&nbsp;&nbsp;<asp:TextBox ID="txtDayEnd" runat="server" MaxLength="8" Width="70px" Text=""></asp:TextBox>&nbsp;&nbsp;
-                                        <asp:Button ID="btnPayResult" Style="width: 110px;" runat="server" CssClass="btn btn-success" Text="查询支付结果" OnClick="btnPayResult_Click" Visible="false" />
+                                        <asp:Button ID="btnPayResult" Style="width: 110px;" runat="server" CssClass="btn btn-success" Text="查询支付结果" OnClick="btnPayResult_Click" Visible="true" />
                                     </td>
                                 </tr>
                             </table>
