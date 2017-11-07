@@ -26,16 +26,3 @@ CREATE TABLE [dbo].[cmb_t_batch](
 
 GO
 
-delete from cmb_t_batch;
-insert into cmb_t_batch values ('0000000001',20,2000000.11,'01','1560003',getdate(),null,null,null,null,null,null,'1560003',getdate());
-insert into cmb_t_batch values ('0000000002',20,2000000.11,'01','1560003',getdate(),null,null,null,null,null,null,'1560003',getdate());
-insert into cmb_t_batch values ('0000000003',20,2000000.11,'01','1560003',getdate(),null,null,null,null,null,null,'1560003',getdate());
-insert into cmb_t_batch values ('0000000004',20,2000000.11,'01','1560003',getdate(),null,null,null,null,null,null,'1560003',getdate());
-insert into cmb_t_batch values ('0000000005',20,2000000.11,'01','1560003',getdate(),null,null,null,null,null,null,'1560003',getdate());
-insert into cmb_t_batch values ('0000000006',20,2000000.11,'01','1560003',getdate(),null,null,null,null,null,null,'1560003',getdate());
-insert into cmb_t_batch values ('0000000007',20,2000000.11,'01','1560003',getdate(),null,null,null,null,null,null,'1560003',getdate());
-insert into cmb_t_batch values ('0000000008',20,2000000.11,'01','1560003',getdate(),null,null,null,null,null,null,'1560003',getdate());
-insert into cmb_t_batch values ('0000000009',20,2000000.11,'01','1560003',getdate(),null,null,null,null,null,null,'1560003',getdate());
-insert into cmb_t_batch values ('0000000010',20,2000000.11,'01','1560003',getdate(),null,null,null,null,null,null,'1560003',getdate());
-insert into cmb_t_batch values ('0000000011',20,2000000.11,'01','1560003',getdate(),null,null,null,null,null,null,'1560003',getdate());
-insert into cmb_t_batch values ('0000000012',20,2000000.11,'01','1560003',getdate(),null,null,null,null,null,null,'1560003',getdate());

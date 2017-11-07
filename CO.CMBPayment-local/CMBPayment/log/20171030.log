@@ -1,0 +1,1466 @@
+[Header]
+2017-10-30 09:18:08,963 [1002] DEBUG - InitUserInfo(CMBPayment.CommonController) Start
+2017-10-30 09:18:09,043 [1002] DEBUG - GetUserBaseInfo(CMBPayment.CommonDataAccess) Start
+2017-10-30 09:18:09,043 [1002] DEBUG - SELECT 
+                            U.USER_ID,  
+                            U.ROLE_ID,
+                            R.ROLE_NM,
+                            U.cmb_account,
+                            R.amount_limit
+                       FROM 
+                            CMB_M_USER U
+                       LEFT JOIN CMB_M_ROLE R
+                       ON U.ROLE_ID = R.ROLE_ID
+                       WHERE 
+                            UPPER(U.USER_ID) = UPPER('1560004')
+@USER_ID:'1560004'
+
+2017-10-30 09:18:09,046 [1002] DEBUG - 1行处理完成。
+2017-10-30 09:18:09,046 [1002] DEBUG - GetUserBaseInfo(CMBPayment.CommonDataAccess) End
+2017-10-30 09:18:09,046 [1002] DEBUG - InitUserInfo(CMBPayment.CommonController) End
+2017-10-30 09:18:09,119 [1001] DEBUG - GetBatchList(CMBPayment.MainController) Start
+2017-10-30 09:18:09,119 [1001] DEBUG - GetBatchList(CMBPayment.MainDataAccess) Start
+2017-10-30 09:18:09,119 [1001] DEBUG - SP_WEB_PAGING(@TABLENAMES='	cmb_t_batch a
+ left join cmb_m_code mc1 ON mc1.type = 'BATCH_STATUS' AND mc1.cd = a.status_id
+',@COLUMNS='	  A.batch_id
+	, A.pay_cnt
+	, A.ttl_amt
+	, A.status_id
+	, MC1.CD_NM AS status
+	, A.maker_id
+	, convert(varchar,A.maker_time,103) maker_time
+	, A.appr1_id
+	, convert(varchar,A.appr1_time,103) appr1_time
+	, A.appr2_id
+	, convert(varchar,A.appr2_time,103) appr2_time
+	, A.rejc_id
+	, convert(varchar,A.rejc_time,103) rejc_time
+	, convert(varchar,A.update_time,121) update_time
+',@ORDERCOLUMNNAME='a.batch_id desc',@WHERE=' 1 = 1 ',@PAGECURRENTINDEX='1',@PAGEEACHSIZE='10',@PAGECOUNT='0',@ITEMSCOUNT='0',)
+@TABLENAMES:'	cmb_t_batch a
+ left join cmb_m_code mc1 ON mc1.type = 'BATCH_STATUS' AND mc1.cd = a.status_id
+'
+@COLUMNS:'	  A.batch_id
+	, A.pay_cnt
+	, A.ttl_amt
+	, A.status_id
+	, MC1.CD_NM AS status
+	, A.maker_id
+	, convert(varchar,A.maker_time,103) maker_time
+	, A.appr1_id
+	, convert(varchar,A.appr1_time,103) appr1_time
+	, A.appr2_id
+	, convert(varchar,A.appr2_time,103) appr2_time
+	, A.rejc_id
+	, convert(varchar,A.rejc_time,103) rejc_time
+	, convert(varchar,A.update_time,121) update_time
+'
+@ORDERCOLUMNNAME:'a.batch_id desc'
+@WHERE:' 1 = 1 '
+@PAGECURRENTINDEX:'1'
+@PAGEEACHSIZE:'10'
+@PAGECOUNT:'0'
+@ITEMSCOUNT:'0'
+
+2017-10-30 09:18:09,133 [1001] DEBUG - 5行处理完成。
+2017-10-30 09:18:09,133 [1001] DEBUG - GetBatchList(CMBPayment.MainDataAccess) End
+2017-10-30 09:18:09,133 [1001] DEBUG - GetBatchList(CMBPayment.MainController) End
+2017-10-30 09:19:42,849 [1002] DEBUG - GetBatchList(CMBPayment.MainController) Start
+2017-10-30 09:19:42,849 [1002] DEBUG - GetBatchList(CMBPayment.MainDataAccess) Start
+2017-10-30 09:19:42,849 [1002] DEBUG - SP_WEB_PAGING(@TABLENAMES='	cmb_t_batch a
+ left join cmb_m_code mc1 ON mc1.type = 'BATCH_STATUS' AND mc1.cd = a.status_id
+',@COLUMNS='	  A.batch_id
+	, A.pay_cnt
+	, A.ttl_amt
+	, A.status_id
+	, MC1.CD_NM AS status
+	, A.maker_id
+	, convert(varchar,A.maker_time,103) maker_time
+	, A.appr1_id
+	, convert(varchar,A.appr1_time,103) appr1_time
+	, A.appr2_id
+	, convert(varchar,A.appr2_time,103) appr2_time
+	, A.rejc_id
+	, convert(varchar,A.rejc_time,103) rejc_time
+	, convert(varchar,A.update_time,121) update_time
+',@ORDERCOLUMNNAME='a.batch_id desc',@WHERE=' 1 = 1 ',@PAGECURRENTINDEX='1',@PAGEEACHSIZE='10',@PAGECOUNT='0',@ITEMSCOUNT='0',)
+@TABLENAMES:'	cmb_t_batch a
+ left join cmb_m_code mc1 ON mc1.type = 'BATCH_STATUS' AND mc1.cd = a.status_id
+'
+@COLUMNS:'	  A.batch_id
+	, A.pay_cnt
+	, A.ttl_amt
+	, A.status_id
+	, MC1.CD_NM AS status
+	, A.maker_id
+	, convert(varchar,A.maker_time,103) maker_time
+	, A.appr1_id
+	, convert(varchar,A.appr1_time,103) appr1_time
+	, A.appr2_id
+	, convert(varchar,A.appr2_time,103) appr2_time
+	, A.rejc_id
+	, convert(varchar,A.rejc_time,103) rejc_time
+	, convert(varchar,A.update_time,121) update_time
+'
+@ORDERCOLUMNNAME:'a.batch_id desc'
+@WHERE:' 1 = 1 '
+@PAGECURRENTINDEX:'1'
+@PAGEEACHSIZE:'10'
+@PAGECOUNT:'0'
+@ITEMSCOUNT:'0'
+
+2017-10-30 09:19:42,855 [1002] DEBUG - 5行处理完成。
+2017-10-30 09:19:42,855 [1002] DEBUG - GetBatchList(CMBPayment.MainDataAccess) End
+2017-10-30 09:19:42,855 [1002] DEBUG - GetBatchList(CMBPayment.MainController) End
+2017-10-30 09:19:59,299 [1002] DEBUG - btnSearch_Click(CMBPayment.batch) Start
+2017-10-30 09:19:59,299 [1002] DEBUG - GetBatchList(CMBPayment.MainController) Start
+2017-10-30 09:19:59,299 [1002] DEBUG - GetBatchList(CMBPayment.MainDataAccess) Start
+2017-10-30 09:19:59,299 [1002] DEBUG - SP_WEB_PAGING(@TABLENAMES='	cmb_t_batch a
+ left join cmb_m_code mc1 ON mc1.type = 'BATCH_STATUS' AND mc1.cd = a.status_id
+',@COLUMNS='	  A.batch_id
+	, A.pay_cnt
+	, A.ttl_amt
+	, A.status_id
+	, MC1.CD_NM AS status
+	, A.maker_id
+	, convert(varchar,A.maker_time,103) maker_time
+	, A.appr1_id
+	, convert(varchar,A.appr1_time,103) appr1_time
+	, A.appr2_id
+	, convert(varchar,A.appr2_time,103) appr2_time
+	, A.rejc_id
+	, convert(varchar,A.rejc_time,103) rejc_time
+	, convert(varchar,A.update_time,121) update_time
+',@ORDERCOLUMNNAME='a.batch_id desc',@WHERE=' 1 = 1 ',@PAGECURRENTINDEX='1',@PAGEEACHSIZE='10',@PAGECOUNT='0',@ITEMSCOUNT='0',)
+@TABLENAMES:'	cmb_t_batch a
+ left join cmb_m_code mc1 ON mc1.type = 'BATCH_STATUS' AND mc1.cd = a.status_id
+'
+@COLUMNS:'	  A.batch_id
+	, A.pay_cnt
+	, A.ttl_amt
+	, A.status_id
+	, MC1.CD_NM AS status
+	, A.maker_id
+	, convert(varchar,A.maker_time,103) maker_time
+	, A.appr1_id
+	, convert(varchar,A.appr1_time,103) appr1_time
+	, A.appr2_id
+	, convert(varchar,A.appr2_time,103) appr2_time
+	, A.rejc_id
+	, convert(varchar,A.rejc_time,103) rejc_time
+	, convert(varchar,A.update_time,121) update_time
+'
+@ORDERCOLUMNNAME:'a.batch_id desc'
+@WHERE:' 1 = 1 '
+@PAGECURRENTINDEX:'1'
+@PAGEEACHSIZE:'10'
+@PAGECOUNT:'0'
+@ITEMSCOUNT:'0'
+
+2017-10-30 09:19:59,305 [1002] DEBUG - 5行处理完成。
+2017-10-30 09:19:59,305 [1002] DEBUG - GetBatchList(CMBPayment.MainDataAccess) End
+2017-10-30 09:19:59,305 [1002] DEBUG - GetBatchList(CMBPayment.MainController) End
+2017-10-30 09:19:59,306 [1002] DEBUG - btnSearch_Click(CMBPayment.batch) End
+2017-10-30 09:23:17,682 [1003] DEBUG - InsertXmlLog(CMBPayment.MainController) Start
+2017-10-30 09:23:17,833 [1003] DEBUG - InsertXmlLog(CMBPayment.MainDataAccess) Start
+2017-10-30 09:23:17,833 [1003] DEBUG - insert into cmb_t_swift_log
+                   (swift_type,
+	                content,
+	                ins_id,
+	                ins_time)
+                values (
+	                'GetPaymentInfo_REQUEST',
+	                '<?xml version="1.0" encoding="gb2312"?>
+<CMBSDKPGK>
+  <INFO>
+    <FUNNAM>GetPaymentInfo</FUNNAM>
+    <DATTYP>2</DATTYP>
+    <LGNNAM>银企直连测试用户110</LGNNAM>
+  </INFO>
+  <SDKPAYQYX>
+    <BUSCOD>N02031</BUSCOD>
+    <BGNDAT>20161109</BGNDAT>
+    <ENDDAT>20161109</ENDDAT>
+  </SDKPAYQYX>
+</CMBSDKPGK>',
+	                '1560004',
+	                getdate()
+                );
+@swift_type:'GetPaymentInfo_REQUEST'
+@ins_id:'1560004'
+@content:'<?xml version="1.0" encoding="gb2312"?>
+<CMBSDKPGK>
+  <INFO>
+    <FUNNAM>GetPaymentInfo</FUNNAM>
+    <DATTYP>2</DATTYP>
+    <LGNNAM>银企直连测试用户110</LGNNAM>
+  </INFO>
+  <SDKPAYQYX>
+    <BUSCOD>N02031</BUSCOD>
+    <BGNDAT>20161109</BGNDAT>
+    <ENDDAT>20161109</ENDDAT>
+  </SDKPAYQYX>
+</CMBSDKPGK>'
+
+2017-10-30 09:23:17,866 [1003] DEBUG - InsertXmlLog(CMBPayment.MainDataAccess) End
+2017-10-30 09:23:17,884 [1003] DEBUG - InsertXmlLog(CMBPayment.MainController) End
+2017-10-30 09:23:18,531 [1003] DEBUG - InsertXmlLog(CMBPayment.MainController) Start
+2017-10-30 09:23:18,532 [1003] DEBUG - InsertXmlLog(CMBPayment.MainDataAccess) Start
+2017-10-30 09:23:18,532 [1003] DEBUG - insert into cmb_t_swift_log
+                   (swift_type,
+	                content,
+	                ins_id,
+	                ins_time)
+                values (
+	                'GetPaymentInfo_RESPONSE',
+	                '<?xml version="1.0" encoding="GBK"?><CMBSDKPGK><INFO><DATTYP>2</DATTYP><ERRMSG></ERRMSG><FUNNAM>GetPaymentInfo</FUNNAM><LGNNAM>银企直连测试用户110</LGNNAM><RETCOD>0</RETCOD></INFO></CMBSDKPGK>',
+	                '1560004',
+	                getdate()
+                );
+@swift_type:'GetPaymentInfo_RESPONSE'
+@ins_id:'1560004'
+@content:'<?xml version="1.0" encoding="GBK"?><CMBSDKPGK><INFO><DATTYP>2</DATTYP><ERRMSG></ERRMSG><FUNNAM>GetPaymentInfo</FUNNAM><LGNNAM>银企直连测试用户110</LGNNAM><RETCOD>0</RETCOD></INFO></CMBSDKPGK>'
+
+2017-10-30 09:23:18,624 [1003] DEBUG - InsertXmlLog(CMBPayment.MainDataAccess) End
+2017-10-30 09:23:18,624 [1003] DEBUG - InsertXmlLog(CMBPayment.MainController) End
+2017-10-30 09:23:44,010 [1003] ERROR - Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+   at System.ThrowHelper.ThrowArgumentOutOfRangeException(ExceptionArgument argument, ExceptionResource resource)
+   at System.Collections.Generic.List`1.get_Item(Int32 index)
+   at CMBPayment.batch.ViewPayResult() in C:\Users\GBS\Desktop\cmb\CO.CMBPayment\CMBPayment\batch.aspx.cs:line 492
+[Footer]
+[Header]
+2017-10-30 09:33:57,580 [1001] DEBUG - InitUserInfo(CMBPayment.CommonController) Start
+2017-10-30 09:33:59,231 [1001] DEBUG - GetUserBaseInfo(CMBPayment.CommonDataAccess) Start
+2017-10-30 09:33:59,232 [1001] DEBUG - SELECT 
+                            U.USER_ID,  
+                            U.ROLE_ID,
+                            R.ROLE_NM,
+                            U.cmb_account,
+                            R.amount_limit
+                       FROM 
+                            CMB_M_USER U
+                       LEFT JOIN CMB_M_ROLE R
+                       ON U.ROLE_ID = R.ROLE_ID
+                       WHERE 
+                            UPPER(U.USER_ID) = UPPER('1560004')
+@USER_ID:'1560004'
+
+2017-10-30 09:34:00,070 [1001] DEBUG - 1行处理完成。
+2017-10-30 09:34:00,071 [1001] DEBUG - GetUserBaseInfo(CMBPayment.CommonDataAccess) End
+2017-10-30 09:34:00,071 [1001] DEBUG - InitUserInfo(CMBPayment.CommonController) End
+2017-10-30 09:34:00,283 [999] DEBUG - GetSystemControlInfo(CMBPayment.CommonController) Start
+2017-10-30 09:34:00,283 [999] DEBUG - GetSystemConfigInfo(CMBPayment.CommonDataAccess) Start
+2017-10-30 09:34:00,283 [999] DEBUG - SELECT CONF_KEY,CONF_VALUE FROM CMB_M_SYSCONF
+
+2017-10-30 09:34:00,608 [999] DEBUG - 3行处理完成。
+2017-10-30 09:34:00,608 [999] DEBUG - GetSystemConfigInfo(CMBPayment.CommonDataAccess) End
+2017-10-30 09:34:00,609 [999] DEBUG - GetSystemControlInfo(CMBPayment.CommonController) End
+2017-10-30 09:34:00,609 [999] DEBUG - GetBatchList(CMBPayment.MainController) Start
+2017-10-30 09:34:00,610 [999] DEBUG - GetBatchList(CMBPayment.MainDataAccess) Start
+2017-10-30 09:34:00,611 [999] DEBUG - SP_WEB_PAGING(@TABLENAMES='	cmb_t_batch a
+ left join cmb_m_code mc1 ON mc1.type = 'BATCH_STATUS' AND mc1.cd = a.status_id
+',@COLUMNS='	  A.batch_id
+	, A.pay_cnt
+	, A.ttl_amt
+	, A.status_id
+	, MC1.CD_NM AS status
+	, A.maker_id
+	, convert(varchar,A.maker_time,103) maker_time
+	, A.appr1_id
+	, convert(varchar,A.appr1_time,103) appr1_time
+	, A.appr2_id
+	, convert(varchar,A.appr2_time,103) appr2_time
+	, A.rejc_id
+	, convert(varchar,A.rejc_time,103) rejc_time
+	, convert(varchar,A.update_time,121) update_time
+',@ORDERCOLUMNNAME='a.batch_id desc',@WHERE=' 1 = 1 ',@PAGECURRENTINDEX='1',@PAGEEACHSIZE='10',@PAGECOUNT='0',@ITEMSCOUNT='0',)
+@TABLENAMES:'	cmb_t_batch a
+ left join cmb_m_code mc1 ON mc1.type = 'BATCH_STATUS' AND mc1.cd = a.status_id
+'
+@COLUMNS:'	  A.batch_id
+	, A.pay_cnt
+	, A.ttl_amt
+	, A.status_id
+	, MC1.CD_NM AS status
+	, A.maker_id
+	, convert(varchar,A.maker_time,103) maker_time
+	, A.appr1_id
+	, convert(varchar,A.appr1_time,103) appr1_time
+	, A.appr2_id
+	, convert(varchar,A.appr2_time,103) appr2_time
+	, A.rejc_id
+	, convert(varchar,A.rejc_time,103) rejc_time
+	, convert(varchar,A.update_time,121) update_time
+'
+@ORDERCOLUMNNAME:'a.batch_id desc'
+@WHERE:' 1 = 1 '
+@PAGECURRENTINDEX:'1'
+@PAGEEACHSIZE:'10'
+@PAGECOUNT:'0'
+@ITEMSCOUNT:'0'
+
+2017-10-30 09:34:00,841 [999] DEBUG - 5行处理完成。
+2017-10-30 09:34:00,841 [999] DEBUG - GetBatchList(CMBPayment.MainDataAccess) End
+2017-10-30 09:34:00,841 [999] DEBUG - GetBatchList(CMBPayment.MainController) End
+2017-10-30 09:38:27,783 [1001] INFO  - 支付成功！
+2017-10-30 09:39:11,159 [1001] INFO  - 支付银行还在处理中！
+2017-10-30 09:39:26,450 [1001] INFO  - 支付银行还在处理中！
+2017-10-30 09:39:36,273 [1001] INFO  - 支付银行还在处理中！
+2017-10-30 09:39:49,716 [1001] INFO  - 支付成功！
+2017-10-30 09:40:07,125 [1001] DEBUG - InsertXmlLog(CMBPayment.MainController) Start
+2017-10-30 09:40:07,126 [1001] DEBUG - InsertXmlLog(CMBPayment.MainDataAccess) Start
+2017-10-30 09:40:07,127 [1001] DEBUG - insert into cmb_t_swift_log
+                   (swift_type,
+	                content,
+	                ins_id,
+	                ins_time)
+                values (
+	                'GetPaymentInfo_REQUEST',
+	                '<?xml version="1.0" encoding="gb2312"?>
+<CMBSDKPGK>
+  <INFO>
+    <FUNNAM>GetPaymentInfo</FUNNAM>
+    <DATTYP>2</DATTYP>
+    <LGNNAM>银企直连测试用户110</LGNNAM>
+  </INFO>
+  <SDKPAYQYX>
+    <BUSCOD>N02031</BUSCOD>
+    <BGNDAT>20161108</BGNDAT>
+    <ENDDAT>20161108</ENDDAT>
+  </SDKPAYQYX>
+</CMBSDKPGK>',
+	                '1560004',
+	                getdate()
+                );
+@swift_type:'GetPaymentInfo_REQUEST'
+@ins_id:'1560004'
+@content:'<?xml version="1.0" encoding="gb2312"?>
+<CMBSDKPGK>
+  <INFO>
+    <FUNNAM>GetPaymentInfo</FUNNAM>
+    <DATTYP>2</DATTYP>
+    <LGNNAM>银企直连测试用户110</LGNNAM>
+  </INFO>
+  <SDKPAYQYX>
+    <BUSCOD>N02031</BUSCOD>
+    <BGNDAT>20161108</BGNDAT>
+    <ENDDAT>20161108</ENDDAT>
+  </SDKPAYQYX>
+</CMBSDKPGK>'
+
+2017-10-30 09:40:07,203 [1001] DEBUG - InsertXmlLog(CMBPayment.MainDataAccess) End
+2017-10-30 09:40:07,216 [1001] DEBUG - InsertXmlLog(CMBPayment.MainController) End
+2017-10-30 09:40:07,623 [1001] DEBUG - InsertXmlLog(CMBPayment.MainController) Start
+2017-10-30 09:40:07,624 [1001] DEBUG - InsertXmlLog(CMBPayment.MainDataAccess) Start
+2017-10-30 09:40:07,624 [1001] DEBUG - insert into cmb_t_swift_log
+                   (swift_type,
+	                content,
+	                ins_id,
+	                ins_time)
+                values (
+	                'GetPaymentInfo_RESPONSE',
+	                '<?xml version="1.0" encoding="GBK"?><CMBSDKPGK><INFO><DATTYP>2</DATTYP><ERRMSG></ERRMSG><FUNNAM>GetPaymentInfo</FUNNAM><LGNNAM>银企直连测试用户110</LGNNAM><RETCOD>0</RETCOD></INFO><NTQPAYQYZ><ATHFLG>N</ATHFLG><BNKFLG>Y</BNKFLG><BUSCOD>N02031</BUSCOD><BUSMOD>00001</BUSMOD><BUSSTS>P</BUSSTS><CCYNBR>10</CCYNBR><CRTACC>6225885910000066</CRTACC><CRTADR>上海市上海市</CRTADR><CRTBBK>59</CRTBBK><CRTBNK>招商银行上海分行营业部</CRTBNK><CRTNAM>曾亮</CRTNAM><CRTREL></CRTREL><C_BUSCOD>直接支付</C_BUSCOD><C_CCYNBR>人民币</C_CCYNBR><C_CRTBBK>福州</C_CRTBBK><C_CRTREL>企业网银新20161397</C_CRTREL><C_DBTBBK>深圳</C_DBTBBK><C_DBTREL>企业网银新20161397</C_DBTREL><C_GRPBBK></C_GRPBBK><C_REQSTS>完成</C_REQSTS><C_RTNFLG>成功</C_RTNFLG><C_STLCHN>普通</C_STLCHN><DBTACC>755915712310104</DBTACC><DBTADR>广东省深圳市</DBTADR><DBTBBK>75</DBTBBK><DBTBNK>招商银行深圳分行营业部</DBTBNK><DBTNAM>企业网银新20161397</DBTNAM><DBTREL></DBTREL><EPTDAT>20161108</EPTDAT><EPTTIM>000000</EPTTIM><FEETYP>N</FEETYP><GRPBBK></GRPBBK><LGNNAM>银企直连测试用户110</LGNNAM><NTFCH1>a@a.a</NTFCH1><NUSAGE>TEST0913</NUSAGE><OPRDAT>20161108</OPRDAT><RCVTYP>P</RCVTYP><REGFLG>N</REGFLG><REQNBR>0029554482</REQNBR><REQSTS>FIN</REQSTS><RTNFLG>S</RTNFLG><STLCHN>N</STLCHN><TRSAMT>0.01</TRSAMT><TRSBRN>755598</TRSBRN><TRSTYP>100001</TRSTYP><USRNAM>一网通A</USRNAM><YURREF>000000000003</YURREF></NTQPAYQYZ><NTQPAYQYZ><ATHFLG>N</ATHFLG><BNKFLG>Y</BNKFLG><BUSCOD>N02031</BUSCOD><BUSMOD>00001</BUSMOD><BUSSTS>A</BUSSTS><CCYNBR>10</CCYNBR><CRTACC>6225885910000066</CRTACC><CRTADR>上海市上海市</CRTADR><CRTBBK>59</CRTBBK><CRTBNK>招商银行上海分行营业部</CRTBNK><CRTNAM>曾亮</CRTNAM><CRTREL></CRTREL><C_BUSCOD>直接支付</C_BUSCOD><C_CCYNBR>人民币</C_CCYNBR><C_CRTBBK>福州</C_CRTBBK><C_CRTREL>企业网银新20161397</C_CRTREL><C_DBTBBK>深圳</C_DBTBBK><C_DBTREL>企业网银新20161397</C_DBTREL><C_GRPBBK></C_GRPBBK><C_REQSTS>终审完毕</C_REQSTS><C_RTNFLG></C_RTNFLG><C_STLCHN>普通</C_STLCHN><DBTACC>755915712310104</DBTACC><DBTADR>广东省深圳市</DBTADR><DBTBBK>75</DBTBBK><DBTBNK>招商银行深圳分行营业部</DBTBNK><DBTNAM>企业网银新20161397</DBTNAM><DBTREL></DBTREL><EPTDAT>20171024</EPTDAT><EPTTIM>000000</EPTTIM><FEETYP>N</FEETYP><GRPBBK></GRPBBK><LGNNAM>银企直连测试用户110</LGNNAM><NTFCH1>a@a.a</NTFCH1><NUSAGE>TEST0913</NUSAGE><OPRDAT>20161108</OPRDAT><RCVBRD>308290003020</RCVBRD><RCVTYP>P</RCVTYP><REGFLG>N</REGFLG><REQNBR>0029554483</REQNBR><REQSTS>NTE</REQSTS><RTNFLG></RTNFLG><STLCHN>N</STLCHN><TRSAMT>0.01</TRSAMT><TRSBRN>755598</TRSBRN><TRSTYP>100001</TRSTYP><USRNAM>一网通A</USRNAM><YURREF>000000000004</YURREF></NTQPAYQYZ><NTQPAYQYZ><ATHFLG>N</ATHFLG><BNKFLG>Y</BNKFLG><BUSCOD>N02031</BUSCOD><BUSMOD>00001</BUSMOD><BUSSTS>A</BUSSTS><CCYNBR>10</CCYNBR><CRTACC>6225885910000066</CRTACC><CRTADR>上海市上海市</CRTADR><CRTBBK>59</CRTBBK><CRTBNK>招商银行上海分行营业部</CRTBNK><CRTNAM>曾亮</CRTNAM><CRTREL></CRTREL><C_BUSCOD>直接支付</C_BUSCOD><C_CCYNBR>人民币</C_CCYNBR><C_CRTBBK>福州</C_CRTBBK><C_CRTREL>企业网银新20161397</C_CRTREL><C_DBTBBK>深圳</C_DBTBBK><C_DBTREL>企业网银新20161397</C_DBTREL><C_GRPBBK></C_GRPBBK><C_REQSTS>终审完毕</C_REQSTS><C_RTNFLG></C_RTNFLG><C_STLCHN>普通</C_STLCHN><DBTACC>755915712310104</DBTACC><DBTADR>广东省深圳市</DBTADR><DBTBBK>75</DBTBBK><DBTBNK>招商银行深圳分行营业部</DBTBNK><DBTNAM>企业网银新20161397</DBTNAM><DBTREL></DBTREL><EPTDAT>20171024</EPTDAT><EPTTIM>000000</EPTTIM><FEETYP>N</FEETYP><GRPBBK></GRPBBK><LGNNAM>银企直连测试用户110</LGNNAM><NTFCH1>a@a.a</NTFCH1><NUSAGE>TEST0913</NUSAGE><OPRDAT>20161108</OPRDAT><RCVBRD>308290003020</RCVBRD><RCVTYP>P</RCVTYP><REGFLG>N</REGFLG><REQNBR>0029554544</REQNBR><REQSTS>NTE</REQSTS><RTNFLG></RTNFLG><STLCHN>N</STLCHN><TRSAMT>0.01</TRSAMT><TRSBRN>755598</TRSBRN><TRSTYP>100001</TRSTYP><USRNAM>一网通A</USRNAM><YURREF>201710241123335442</YURREF></NTQPAYQYZ><NTQPAYQYZ><ATHFLG>N</ATHFLG><BNKFLG>Y</BNKFLG><BUSCOD>N02031</BUSCOD><BUSMOD>00001</BUSMOD><BUSSTS>A</BUSSTS><CCYNBR>10</CCYNBR><CRTACC>6225885910000066</CRTACC><CRTADR>上海市上海市</CRTADR><CRTBBK>59</CRTBBK><CRTBNK>招商银行上海分行营业部</CRTBNK><CRTNAM>曾亮</CRTNAM><CRTREL></CRTREL><C_BUSCOD>直接支付</C_BUSCOD><C_CCYNBR>人民币</C_CCYNBR><C_CRTBBK>福州</C_CRTBBK><C_CRTREL>企业网银新20161397</C_CRTREL><C_DBTBBK>深圳</C_DBTBBK><C_DBTREL>企业网银新20161397</C_DBTREL><C_GRPBBK></C_GRPBBK><C_REQSTS>终审完毕</C_REQSTS><C_RTNFLG></C_RTNFLG><C_STLCHN>普通</C_STLCHN><DBTACC>755915712310104</DBTACC><DBTADR>广东省深圳市</DBTADR><DBTBBK>75</DBTBBK><DBTBNK>招商银行深圳分行营业部</DBTBNK><DBTNAM>企业网银新20161397</DBTNAM><DBTREL></DBTREL><EPTDAT>20171024</EPTDAT><EPTTIM>000000</EPTTIM><FEETYP>N</FEETYP><GRPBBK></GRPBBK><LGNNAM>银企直连测试用户110</LGNNAM><NTFCH1>a@a.a</NTFCH1><NUSAGE>TEST0913</NUSAGE><OPRDAT>20161108</OPRDAT><RCVBRD>308290003020</RCVBRD><RCVTYP>P</RCVTYP><REGFLG>N</REGFLG><REQNBR>0029554547</REQNBR><REQSTS>NTE</REQSTS><RTNFLG></RTNFLG><STLCHN>N</STLCHN><TRSAMT>0.01</TRSAMT><TRSBRN>755598</TRSBRN><TRSTYP>100001</TRSTYP><USRNAM>一网通A</USRNAM><YURREF>201710241123335443</YURREF></NTQPAYQYZ><NTQPAYQYZ><ATHFLG>N</ATHFLG><BNKFLG>Y</BNKFLG><BUSCOD>N02031</BUSCOD><BUSMOD>00001</BUSMOD><BUSSTS>P</BUSSTS><CCYNBR>10</CCYNBR><CRTACC>6225885910000066</CRTACC><CRTADR>上海市上海市</CRTADR><CRTBBK>59</CRTBBK><CRTBNK>招商银行上海分行营业部</CRTBNK><CRTNAM>曾亮</CRTNAM><CRTREL></CRTREL><C_BUSCOD>直接支付</C_BUSCOD><C_CCYNBR>人民币</C_CCYNBR><C_CRTBBK>福州</C_CRTBBK><C_CRTREL>企业网银新20161397</C_CRTREL><C_DBTBBK>深圳</C_DBTBBK><C_DBTREL>企业网银新20161397</C_DBTREL><C_GRPBBK></C_GRPBBK><C_REQSTS>完成</C_REQSTS><C_RTNFLG>成功</C_RTNFLG><C_STLCHN>普通</C_STLCHN><DBTACC>755915712310104</DBTACC><DBTADR>广东省深圳市</DBTADR><DBTBBK>75</DBTBBK><DBTBNK>招商银行深圳分行营业部</DBTBNK><DBTNAM>企业网银新20161397</DBTNAM><DBTREL></DBTREL><EPTDAT>20161109</EPTDAT><EPTTIM>000000</EPTTIM><FEETYP>N</FEETYP><GRPBBK></GRPBBK><LGNNAM>银企直连测试用户110</LGNNAM><NTFCH1>a@a.a</NTFCH1><NUSAGE>TEST0913</NUSAGE><OPRDAT>20161108</OPRDAT><RCVTYP>P</RCVTYP><REGFLG>N</REGFLG><REQNBR>0029554551</REQNBR><REQSTS>FIN</REQSTS><RTNFLG>S</RTNFLG><STLCHN>N</STLCHN><TRSAMT>0.01</TRSAMT><TRSBRN>755598</TRSBRN><TRSTYP>100001</TRSTYP><USRNAM>一网通A</USRNAM><YURREF>201710241137145872</YURREF></NTQPAYQYZ></CMBSDKPGK>',
+	                '1560004',
+	                getdate()
+                );
+@swift_type:'GetPaymentInfo_RESPONSE'
+@ins_id:'1560004'
+@content:'<?xml version="1.0" encoding="GBK"?><CMBSDKPGK><INFO><DATTYP>2</DATTYP><ERRMSG></ERRMSG><FUNNAM>GetPaymentInfo</FUNNAM><LGNNAM>银企直连测试用户110</LGNNAM><RETCOD>0</RETCOD></INFO><NTQPAYQYZ><ATHFLG>N</ATHFLG><BNKFLG>Y</BNKFLG><BUSCOD>N02031</BUSCOD><BUSMOD>00001</BUSMOD><BUSSTS>P</BUSSTS><CCYNBR>10</CCYNBR><CRTACC>6225885910000066</CRTACC><CRTADR>上海市上海市</CRTADR><CRTBBK>59</CRTBBK><CRTBNK>招商银行上海分行营业部</CRTBNK><CRTNAM>曾亮</CRTNAM><CRTREL></CRTREL><C_BUSCOD>直接支付</C_BUSCOD><C_CCYNBR>人民币</C_CCYNBR><C_CRTBBK>福州</C_CRTBBK><C_CRTREL>企业网银新20161397</C_CRTREL><C_DBTBBK>深圳</C_DBTBBK><C_DBTREL>企业网银新20161397</C_DBTREL><C_GRPBBK></C_GRPBBK><C_REQSTS>完成</C_REQSTS><C_RTNFLG>成功</C_RTNFLG><C_STLCHN>普通</C_STLCHN><DBTACC>755915712310104</DBTACC><DBTADR>广东省深圳市</DBTADR><DBTBBK>75</DBTBBK><DBTBNK>招商银行深圳分行营业部</DBTBNK><DBTNAM>企业网银新20161397</DBTNAM><DBTREL></DBTREL><EPTDAT>20161108</EPTDAT><EPTTIM>000000</EPTTIM><FEETYP>N</FEETYP><GRPBBK></GRPBBK><LGNNAM>银企直连测试用户110</LGNNAM><NTFCH1>a@a.a</NTFCH1><NUSAGE>TEST0913</NUSAGE><OPRDAT>20161108</OPRDAT><RCVTYP>P</RCVTYP><REGFLG>N</REGFLG><REQNBR>0029554482</REQNBR><REQSTS>FIN</REQSTS><RTNFLG>S</RTNFLG><STLCHN>N</STLCHN><TRSAMT>0.01</TRSAMT><TRSBRN>755598</TRSBRN><TRSTYP>100001</TRSTYP><USRNAM>一网通A</USRNAM><YURREF>000000000003</YURREF></NTQPAYQYZ><NTQPAYQYZ><ATHFLG>N</ATHFLG><BNKFLG>Y</BNKFLG><BUSCOD>N02031</BUSCOD><BUSMOD>00001</BUSMOD><BUSSTS>A</BUSSTS><CCYNBR>10</CCYNBR><CRTACC>6225885910000066</CRTACC><CRTADR>上海市上海市</CRTADR><CRTBBK>59</CRTBBK><CRTBNK>招商银行上海分行营业部</CRTBNK><CRTNAM>曾亮</CRTNAM><CRTREL></CRTREL><C_BUSCOD>直接支付</C_BUSCOD><C_CCYNBR>人民币</C_CCYNBR><C_CRTBBK>福州</C_CRTBBK><C_CRTREL>企业网银新20161397</C_CRTREL><C_DBTBBK>深圳</C_DBTBBK><C_DBTREL>企业网银新20161397</C_DBTREL><C_GRPBBK></C_GRPBBK><C_REQSTS>终审完毕</C_REQSTS><C_RTNFLG></C_RTNFLG><C_STLCHN>普通</C_STLCHN><DBTACC>755915712310104</DBTACC><DBTADR>广东省深圳市</DBTADR><DBTBBK>75</DBTBBK><DBTBNK>招商银行深圳分行营业部</DBTBNK><DBTNAM>企业网银新20161397</DBTNAM><DBTREL></DBTREL><EPTDAT>20171024</EPTDAT><EPTTIM>000000</EPTTIM><FEETYP>N</FEETYP><GRPBBK></GRPBBK><LGNNAM>银企直连测试用户110</LGNNAM><NTFCH1>a@a.a</NTFCH1><NUSAGE>TEST0913</NUSAGE><OPRDAT>20161108</OPRDAT><RCVBRD>308290003020</RCVBRD><RCVTYP>P</RCVTYP><REGFLG>N</REGFLG><REQNBR>0029554483</REQNBR><REQSTS>NTE</REQSTS><RTNFLG></RTNFLG><STLCHN>N</STLCHN><TRSAMT>0.01</TRSAMT><TRSBRN>755598</TRSBRN><TRSTYP>100001</TRSTYP><USRNAM>一网通A</USRNAM><YURREF>000000000004</YURREF></NTQPAYQYZ><NTQPAYQYZ><ATHFLG>N</ATHFLG><BNKFLG>Y</BNKFLG><BUSCOD>N02031</BUSCOD><BUSMOD>00001</BUSMOD><BUSSTS>A</BUSSTS><CCYNBR>10</CCYNBR><CRTACC>6225885910000066</CRTACC><CRTADR>上海市上海市</CRTADR><CRTBBK>59</CRTBBK><CRTBNK>招商银行上海分行营业部</CRTBNK><CRTNAM>曾亮</CRTNAM><CRTREL></CRTREL><C_BUSCOD>直接支付</C_BUSCOD><C_CCYNBR>人民币</C_CCYNBR><C_CRTBBK>福州</C_CRTBBK><C_CRTREL>企业网银新20161397</C_CRTREL><C_DBTBBK>深圳</C_DBTBBK><C_DBTREL>企业网银新20161397</C_DBTREL><C_GRPBBK></C_GRPBBK><C_REQSTS>终审完毕</C_REQSTS><C_RTNFLG></C_RTNFLG><C_STLCHN>普通</C_STLCHN><DBTACC>755915712310104</DBTACC><DBTADR>广东省深圳市</DBTADR><DBTBBK>75</DBTBBK><DBTBNK>招商银行深圳分行营业部</DBTBNK><DBTNAM>企业网银新20161397</DBTNAM><DBTREL></DBTREL><EPTDAT>20171024</EPTDAT><EPTTIM>000000</EPTTIM><FEETYP>N</FEETYP><GRPBBK></GRPBBK><LGNNAM>银企直连测试用户110</LGNNAM><NTFCH1>a@a.a</NTFCH1><NUSAGE>TEST0913</NUSAGE><OPRDAT>20161108</OPRDAT><RCVBRD>308290003020</RCVBRD><RCVTYP>P</RCVTYP><REGFLG>N</REGFLG><REQNBR>0029554544</REQNBR><REQSTS>NTE</REQSTS><RTNFLG></RTNFLG><STLCHN>N</STLCHN><TRSAMT>0.01</TRSAMT><TRSBRN>755598</TRSBRN><TRSTYP>100001</TRSTYP><USRNAM>一网通A</USRNAM><YURREF>201710241123335442</YURREF></NTQPAYQYZ><NTQPAYQYZ><ATHFLG>N</ATHFLG><BNKFLG>Y</BNKFLG><BUSCOD>N02031</BUSCOD><BUSMOD>00001</BUSMOD><BUSSTS>A</BUSSTS><CCYNBR>10</CCYNBR><CRTACC>6225885910000066</CRTACC><CRTADR>上海市上海市</CRTADR><CRTBBK>59</CRTBBK><CRTBNK>招商银行上海分行营业部</CRTBNK><CRTNAM>曾亮</CRTNAM><CRTREL></CRTREL><C_BUSCOD>直接支付</C_BUSCOD><C_CCYNBR>人民币</C_CCYNBR><C_CRTBBK>福州</C_CRTBBK><C_CRTREL>企业网银新20161397</C_CRTREL><C_DBTBBK>深圳</C_DBTBBK><C_DBTREL>企业网银新20161397</C_DBTREL><C_GRPBBK></C_GRPBBK><C_REQSTS>终审完毕</C_REQSTS><C_RTNFLG></C_RTNFLG><C_STLCHN>普通</C_STLCHN><DBTACC>755915712310104</DBTACC><DBTADR>广东省深圳市</DBTADR><DBTBBK>75</DBTBBK><DBTBNK>招商银行深圳分行营业部</DBTBNK><DBTNAM>企业网银新20161397</DBTNAM><DBTREL></DBTREL><EPTDAT>20171024</EPTDAT><EPTTIM>000000</EPTTIM><FEETYP>N</FEETYP><GRPBBK></GRPBBK><LGNNAM>银企直连测试用户110</LGNNAM><NTFCH1>a@a.a</NTFCH1><NUSAGE>TEST0913</NUSAGE><OPRDAT>20161108</OPRDAT><RCVBRD>308290003020</RCVBRD><RCVTYP>P</RCVTYP><REGFLG>N</REGFLG><REQNBR>0029554547</REQNBR><REQSTS>NTE</REQSTS><RTNFLG></RTNFLG><STLCHN>N</STLCHN><TRSAMT>0.01</TRSAMT><TRSBRN>755598</TRSBRN><TRSTYP>100001</TRSTYP><USRNAM>一网通A</USRNAM><YURREF>201710241123335443</YURREF></NTQPAYQYZ><NTQPAYQYZ><ATHFLG>N</ATHFLG><BNKFLG>Y</BNKFLG><BUSCOD>N02031</BUSCOD><BUSMOD>00001</BUSMOD><BUSSTS>P</BUSSTS><CCYNBR>10</CCYNBR><CRTACC>6225885910000066</CRTACC><CRTADR>上海市上海市</CRTADR><CRTBBK>59</CRTBBK><CRTBNK>招商银行上海分行营业部</CRTBNK><CRTNAM>曾亮</CRTNAM><CRTREL></CRTREL><C_BUSCOD>直接支付</C_BUSCOD><C_CCYNBR>人民币</C_CCYNBR><C_CRTBBK>福州</C_CRTBBK><C_CRTREL>企业网银新20161397</C_CRTREL><C_DBTBBK>深圳</C_DBTBBK><C_DBTREL>企业网银新20161397</C_DBTREL><C_GRPBBK></C_GRPBBK><C_REQSTS>完成</C_REQSTS><C_RTNFLG>成功</C_RTNFLG><C_STLCHN>普通</C_STLCHN><DBTACC>755915712310104</DBTACC><DBTADR>广东省深圳市</DBTADR><DBTBBK>75</DBTBBK><DBTBNK>招商银行深圳分行营业部</DBTBNK><DBTNAM>企业网银新20161397</DBTNAM><DBTREL></DBTREL><EPTDAT>20161109</EPTDAT><EPTTIM>000000</EPTTIM><FEETYP>N</FEETYP><GRPBBK></GRPBBK><LGNNAM>银企直连测试用户110</LGNNAM><NTFCH1>a@a.a</NTFCH1><NUSAGE>TEST0913</NUSAGE><OPRDAT>20161108</OPRDAT><RCVTYP>P</RCVTYP><REGFLG>N</REGFLG><REQNBR>0029554551</REQNBR><REQSTS>FIN</REQSTS><RTNFLG>S</RTNFLG><STLCHN>N</STLCHN><TRSAMT>0.01</TRSAMT><TRSBRN>755598</TRSBRN><TRSTYP>100001</TRSTYP><USRNAM>一网通A</USRNAM><YURREF>201710241137145872</YURREF></NTQPAYQYZ></CMBSDKPGK>'
+
+2017-10-30 09:40:08,269 [1001] DEBUG - InsertXmlLog(CMBPayment.MainDataAccess) End
+2017-10-30 09:40:08,287 [1001] DEBUG - InsertXmlLog(CMBPayment.MainController) End
+2017-10-30 09:40:13,304 [1001] DEBUG - UpdateBatchAndPaymentStatus(CMBPayment.MainController) Start
+2017-10-30 09:40:13,310 [1001] DEBUG - UpdatePaymentInfo(CMBPayment.MainDataAccess) Start
+2017-10-30 09:40:13,502 [1001] DEBUG - UpdatePaymentInfo(CMBPayment.MainDataAccess) End
+2017-10-30 09:40:13,502 [1001] DEBUG - UpdatePaymentInfo(CMBPayment.MainDataAccess) Start
+2017-10-30 09:40:13,521 [1001] DEBUG - UpdatePaymentInfo(CMBPayment.MainDataAccess) End
+2017-10-30 09:40:13,521 [1001] DEBUG - UpdatePaymentInfo(CMBPayment.MainDataAccess) Start
+2017-10-30 09:40:13,546 [1001] DEBUG - UpdatePaymentInfo(CMBPayment.MainDataAccess) End
+2017-10-30 09:40:13,546 [1001] DEBUG - UpdatePaymentInfo(CMBPayment.MainDataAccess) Start
+2017-10-30 09:40:13,546 [1001] DEBUG - UpdatePaymentInfo(CMBPayment.MainDataAccess) End
+2017-10-30 09:40:13,546 [1001] DEBUG - UpdatePaymentInfo(CMBPayment.MainDataAccess) Start
+2017-10-30 09:40:13,597 [1001] DEBUG - UpdatePaymentInfo(CMBPayment.MainDataAccess) End
+2017-10-30 09:40:13,600 [1001] DEBUG - UpdateBatchInfo(CMBPayment.MainDataAccess) Start
+2017-10-30 09:40:14,056 [1001] FATAL -  UPDATE cmb_t_batch
+ SET update_time = GETDATE()
+    ,update_id = '1560004'
+    ,status_id = '05'
+ WHERE batch_id = ''
+
+@UPD_ID:'1560004'
+@status_id:'05'
+@batch_id:''
+
+2017-10-30 09:40:26,566 [1001] DEBUG - UpdateBatchAndPaymentStatus(CMBPayment.MainController) Start
+2017-10-30 09:41:18,869 [1001] DEBUG - UpdatePaymentInfo(CMBPayment.MainDataAccess) Start
+2017-10-30 09:41:32,644 [1001] DEBUG - UpdatePaymentInfo(CMBPayment.MainDataAccess) End
+2017-10-30 09:41:37,423 [1001] DEBUG - UpdatePaymentInfo(CMBPayment.MainDataAccess) Start
+2017-10-30 09:41:37,429 [1001] DEBUG - UpdatePaymentInfo(CMBPayment.MainDataAccess) End
+2017-10-30 09:41:38,995 [1001] DEBUG - UpdatePaymentInfo(CMBPayment.MainDataAccess) Start
+2017-10-30 09:41:38,999 [1001] DEBUG - UpdatePaymentInfo(CMBPayment.MainDataAccess) End
+2017-10-30 09:41:41,120 [1001] DEBUG - UpdatePaymentInfo(CMBPayment.MainDataAccess) Start
+2017-10-30 09:41:41,121 [1001] DEBUG - UpdatePaymentInfo(CMBPayment.MainDataAccess) End
+2017-10-30 09:41:42,937 [1001] DEBUG - UpdatePaymentInfo(CMBPayment.MainDataAccess) Start
+2017-10-30 09:41:42,955 [1001] DEBUG - UpdatePaymentInfo(CMBPayment.MainDataAccess) End
+2017-10-30 09:43:21,219 [1001] DEBUG - UpdateBatchInfo(CMBPayment.MainDataAccess) Start
+2017-10-30 09:43:21,220 [1001] FATAL -  UPDATE cmb_t_batch
+ SET update_time = GETDATE()
+    ,update_id = '1560004'
+    ,status_id = '05'
+ WHERE batch_id = ''
+
+@UPD_ID:'1560004'
+@status_id:'05'
+@batch_id:''
+
+2017-10-30 09:43:21,221 [1001] ERROR - 发生数据访问错误。
+Common.DataAccessException: 发生数据访问错误。 ---> System.Data.SqlClient.SqlException: The parameterized query '(@batch_id nvarchar(4000),@UPD_ID nvarchar(7),@status_id nvarcha' expects the parameter '@batch_id', which was not supplied.
+   at Common.BaseDataAccess.ExecuteNonQuery(String cmdText, SqlParameter[] parameters) in C:\Users\GBS\Desktop\cmb\CO.CMBPayment\CMBPayment\Common\BaseDataAccess.cs:line 156
+   at CMBPayment.MainDataAccess.UpdateBatchInfo(BatchItemBean itemBean) in C:\Users\GBS\Desktop\cmb\CO.CMBPayment\CMBPayment\DataAccess\MainDataAccess.cs:line 541
+   --- End of inner exception stack trace ---
+   at CMBPayment.MainController.UpdateBatchAndPaymentStatus(List`1 payList, String batchId, String batchStatusId) in C:\Users\GBS\Desktop\cmb\CO.CMBPayment\CMBPayment\Controller\MainController.cs:line 374
+   at CMBPayment.batch.ViewPayResult() in C:\Users\GBS\Desktop\cmb\CO.CMBPayment\CMBPayment\batch.aspx.cs:line 495
+[Footer]
+[Header]
+2017-10-30 10:42:02,803 [9] DEBUG - InitUserInfo(CMBPayment.CommonController) Start
+2017-10-30 10:42:03,067 [9] DEBUG - GetUserBaseInfo(CMBPayment.CommonDataAccess) Start
+2017-10-30 10:42:03,068 [9] DEBUG - SELECT 
+                            U.USER_ID,  
+                            U.ROLE_ID,
+                            R.ROLE_NM,
+                            U.cmb_account,
+                            R.amount_limit
+                       FROM 
+                            CMB_M_USER U
+                       LEFT JOIN CMB_M_ROLE R
+                       ON U.ROLE_ID = R.ROLE_ID
+                       WHERE 
+                            UPPER(U.USER_ID) = UPPER('1560004')
+@USER_ID:'1560004'
+
+2017-10-30 10:42:03,106 [9] DEBUG - 1行处理完成。
+2017-10-30 10:42:03,106 [9] DEBUG - GetUserBaseInfo(CMBPayment.CommonDataAccess) End
+2017-10-30 10:42:03,107 [9] DEBUG - InitUserInfo(CMBPayment.CommonController) End
+2017-10-30 10:42:03,366 [7] DEBUG - GetSystemControlInfo(CMBPayment.CommonController) Start
+2017-10-30 10:42:03,366 [7] DEBUG - GetSystemConfigInfo(CMBPayment.CommonDataAccess) Start
+2017-10-30 10:42:03,367 [7] DEBUG - SELECT CONF_KEY,CONF_VALUE FROM CMB_M_SYSCONF
+
+2017-10-30 10:42:03,368 [7] DEBUG - 3行处理完成。
+2017-10-30 10:42:03,368 [7] DEBUG - GetSystemConfigInfo(CMBPayment.CommonDataAccess) End
+2017-10-30 10:42:03,368 [7] DEBUG - GetSystemControlInfo(CMBPayment.CommonController) End
+2017-10-30 10:42:03,369 [7] DEBUG - GetBatchList(CMBPayment.MainController) Start
+2017-10-30 10:42:03,369 [7] DEBUG - GetBatchList(CMBPayment.MainDataAccess) Start
+2017-10-30 10:42:03,371 [7] DEBUG - SP_WEB_PAGING(@TABLENAMES='	cmb_t_batch a
+ left join cmb_m_code mc1 ON mc1.type = 'BATCH_STATUS' AND mc1.cd = a.status_id
+',@COLUMNS='	  A.batch_id
+	, A.pay_cnt
+	, A.ttl_amt
+	, A.status_id
+	, MC1.CD_NM AS status
+	, A.maker_id
+	, convert(varchar,A.maker_time,103) maker_time
+	, A.appr1_id
+	, convert(varchar,A.appr1_time,103) appr1_time
+	, A.appr2_id
+	, convert(varchar,A.appr2_time,103) appr2_time
+	, A.rejc_id
+	, convert(varchar,A.rejc_time,103) rejc_time
+	, convert(varchar,A.update_time,121) update_time
+',@ORDERCOLUMNNAME='a.batch_id desc',@WHERE=' 1 = 1 ',@PAGECURRENTINDEX='1',@PAGEEACHSIZE='10',@PAGECOUNT='0',@ITEMSCOUNT='0',)
+@TABLENAMES:'	cmb_t_batch a
+ left join cmb_m_code mc1 ON mc1.type = 'BATCH_STATUS' AND mc1.cd = a.status_id
+'
+@COLUMNS:'	  A.batch_id
+	, A.pay_cnt
+	, A.ttl_amt
+	, A.status_id
+	, MC1.CD_NM AS status
+	, A.maker_id
+	, convert(varchar,A.maker_time,103) maker_time
+	, A.appr1_id
+	, convert(varchar,A.appr1_time,103) appr1_time
+	, A.appr2_id
+	, convert(varchar,A.appr2_time,103) appr2_time
+	, A.rejc_id
+	, convert(varchar,A.rejc_time,103) rejc_time
+	, convert(varchar,A.update_time,121) update_time
+'
+@ORDERCOLUMNNAME:'a.batch_id desc'
+@WHERE:' 1 = 1 '
+@PAGECURRENTINDEX:'1'
+@PAGEEACHSIZE:'10'
+@PAGECOUNT:'0'
+@ITEMSCOUNT:'0'
+
+2017-10-30 10:42:03,381 [7] DEBUG - 5行处理完成。
+2017-10-30 10:42:03,381 [7] DEBUG - GetBatchList(CMBPayment.MainDataAccess) End
+2017-10-30 10:42:03,381 [7] DEBUG - GetBatchList(CMBPayment.MainController) End
+2017-10-30 10:42:19,010 [8] INFO  - 支付成功！
+2017-10-30 10:42:19,011 [8] INFO  - 支付银行还在处理中！
+2017-10-30 10:42:19,011 [8] INFO  - 支付银行还在处理中！
+2017-10-30 10:42:19,011 [8] INFO  - 支付银行还在处理中！
+2017-10-30 10:42:19,011 [8] INFO  - 支付成功！
+2017-10-30 10:42:20,234 [8] DEBUG - InsertXmlLog(CMBPayment.MainController) Start
+2017-10-30 10:42:20,236 [8] DEBUG - InsertXmlLog(CMBPayment.MainDataAccess) Start
+2017-10-30 10:42:20,236 [8] DEBUG - insert into cmb_t_swift_log
+                   (swift_type,
+	                content,
+	                ins_id,
+	                ins_time)
+                values (
+	                'GetPaymentInfo_REQUEST',
+	                '<?xml version="1.0" encoding="gb2312"?>
+<CMBSDKPGK>
+  <INFO>
+    <FUNNAM>GetPaymentInfo</FUNNAM>
+    <DATTYP>2</DATTYP>
+    <LGNNAM>银企直连测试用户110</LGNNAM>
+  </INFO>
+  <SDKPAYQYX>
+    <BUSCOD>N02031</BUSCOD>
+    <BGNDAT>20161108</BGNDAT>
+    <ENDDAT>20161108</ENDDAT>
+  </SDKPAYQYX>
+</CMBSDKPGK>',
+	                '1560004',
+	                getdate()
+                );
+@swift_type:'GetPaymentInfo_REQUEST'
+@ins_id:'1560004'
+@content:'<?xml version="1.0" encoding="gb2312"?>
+<CMBSDKPGK>
+  <INFO>
+    <FUNNAM>GetPaymentInfo</FUNNAM>
+    <DATTYP>2</DATTYP>
+    <LGNNAM>银企直连测试用户110</LGNNAM>
+  </INFO>
+  <SDKPAYQYX>
+    <BUSCOD>N02031</BUSCOD>
+    <BGNDAT>20161108</BGNDAT>
+    <ENDDAT>20161108</ENDDAT>
+  </SDKPAYQYX>
+</CMBSDKPGK>'
+
+2017-10-30 10:42:20,247 [8] DEBUG - InsertXmlLog(CMBPayment.MainDataAccess) End
+2017-10-30 10:42:20,265 [8] DEBUG - InsertXmlLog(CMBPayment.MainController) End
+2017-10-30 10:42:20,387 [8] DEBUG - InsertXmlLog(CMBPayment.MainController) Start
+2017-10-30 10:42:20,387 [8] DEBUG - InsertXmlLog(CMBPayment.MainDataAccess) Start
+2017-10-30 10:42:20,387 [8] DEBUG - insert into cmb_t_swift_log
+                   (swift_type,
+	                content,
+	                ins_id,
+	                ins_time)
+                values (
+	                'GetPaymentInfo_RESPONSE',
+	                '<?xml version="1.0" encoding="GBK"?><CMBSDKPGK><INFO><DATTYP>2</DATTYP><ERRMSG></ERRMSG><FUNNAM>GetPaymentInfo</FUNNAM><LGNNAM>银企直连测试用户110</LGNNAM><RETCOD>0</RETCOD></INFO><NTQPAYQYZ><ATHFLG>N</ATHFLG><BNKFLG>Y</BNKFLG><BUSCOD>N02031</BUSCOD><BUSMOD>00001</BUSMOD><BUSSTS>P</BUSSTS><CCYNBR>10</CCYNBR><CRTACC>6225885910000066</CRTACC><CRTADR>上海市上海市</CRTADR><CRTBBK>59</CRTBBK><CRTBNK>招商银行上海分行营业部</CRTBNK><CRTNAM>曾亮</CRTNAM><CRTREL></CRTREL><C_BUSCOD>直接支付</C_BUSCOD><C_CCYNBR>人民币</C_CCYNBR><C_CRTBBK>福州</C_CRTBBK><C_CRTREL>企业网银新20161397</C_CRTREL><C_DBTBBK>深圳</C_DBTBBK><C_DBTREL>企业网银新20161397</C_DBTREL><C_GRPBBK></C_GRPBBK><C_REQSTS>完成</C_REQSTS><C_RTNFLG>成功</C_RTNFLG><C_STLCHN>普通</C_STLCHN><DBTACC>755915712310104</DBTACC><DBTADR>广东省深圳市</DBTADR><DBTBBK>75</DBTBBK><DBTBNK>招商银行深圳分行营业部</DBTBNK><DBTNAM>企业网银新20161397</DBTNAM><DBTREL></DBTREL><EPTDAT>20161108</EPTDAT><EPTTIM>000000</EPTTIM><FEETYP>N</FEETYP><GRPBBK></GRPBBK><LGNNAM>银企直连测试用户110</LGNNAM><NTFCH1>a@a.a</NTFCH1><NUSAGE>TEST0913</NUSAGE><OPRDAT>20161108</OPRDAT><RCVTYP>P</RCVTYP><REGFLG>N</REGFLG><REQNBR>0029554482</REQNBR><REQSTS>FIN</REQSTS><RTNFLG>S</RTNFLG><STLCHN>N</STLCHN><TRSAMT>0.01</TRSAMT><TRSBRN>755598</TRSBRN><TRSTYP>100001</TRSTYP><USRNAM>一网通A</USRNAM><YURREF>000000000003</YURREF></NTQPAYQYZ><NTQPAYQYZ><ATHFLG>N</ATHFLG><BNKFLG>Y</BNKFLG><BUSCOD>N02031</BUSCOD><BUSMOD>00001</BUSMOD><BUSSTS>A</BUSSTS><CCYNBR>10</CCYNBR><CRTACC>6225885910000066</CRTACC><CRTADR>上海市上海市</CRTADR><CRTBBK>59</CRTBBK><CRTBNK>招商银行上海分行营业部</CRTBNK><CRTNAM>曾亮</CRTNAM><CRTREL></CRTREL><C_BUSCOD>直接支付</C_BUSCOD><C_CCYNBR>人民币</C_CCYNBR><C_CRTBBK>福州</C_CRTBBK><C_CRTREL>企业网银新20161397</C_CRTREL><C_DBTBBK>深圳</C_DBTBBK><C_DBTREL>企业网银新20161397</C_DBTREL><C_GRPBBK></C_GRPBBK><C_REQSTS>终审完毕</C_REQSTS><C_RTNFLG></C_RTNFLG><C_STLCHN>普通</C_STLCHN><DBTACC>755915712310104</DBTACC><DBTADR>广东省深圳市</DBTADR><DBTBBK>75</DBTBBK><DBTBNK>招商银行深圳分行营业部</DBTBNK><DBTNAM>企业网银新20161397</DBTNAM><DBTREL></DBTREL><EPTDAT>20171024</EPTDAT><EPTTIM>000000</EPTTIM><FEETYP>N</FEETYP><GRPBBK></GRPBBK><LGNNAM>银企直连测试用户110</LGNNAM><NTFCH1>a@a.a</NTFCH1><NUSAGE>TEST0913</NUSAGE><OPRDAT>20161108</OPRDAT><RCVBRD>308290003020</RCVBRD><RCVTYP>P</RCVTYP><REGFLG>N</REGFLG><REQNBR>0029554483</REQNBR><REQSTS>NTE</REQSTS><RTNFLG></RTNFLG><STLCHN>N</STLCHN><TRSAMT>0.01</TRSAMT><TRSBRN>755598</TRSBRN><TRSTYP>100001</TRSTYP><USRNAM>一网通A</USRNAM><YURREF>000000000004</YURREF></NTQPAYQYZ><NTQPAYQYZ><ATHFLG>N</ATHFLG><BNKFLG>Y</BNKFLG><BUSCOD>N02031</BUSCOD><BUSMOD>00001</BUSMOD><BUSSTS>A</BUSSTS><CCYNBR>10</CCYNBR><CRTACC>6225885910000066</CRTACC><CRTADR>上海市上海市</CRTADR><CRTBBK>59</CRTBBK><CRTBNK>招商银行上海分行营业部</CRTBNK><CRTNAM>曾亮</CRTNAM><CRTREL></CRTREL><C_BUSCOD>直接支付</C_BUSCOD><C_CCYNBR>人民币</C_CCYNBR><C_CRTBBK>福州</C_CRTBBK><C_CRTREL>企业网银新20161397</C_CRTREL><C_DBTBBK>深圳</C_DBTBBK><C_DBTREL>企业网银新20161397</C_DBTREL><C_GRPBBK></C_GRPBBK><C_REQSTS>终审完毕</C_REQSTS><C_RTNFLG></C_RTNFLG><C_STLCHN>普通</C_STLCHN><DBTACC>755915712310104</DBTACC><DBTADR>广东省深圳市</DBTADR><DBTBBK>75</DBTBBK><DBTBNK>招商银行深圳分行营业部</DBTBNK><DBTNAM>企业网银新20161397</DBTNAM><DBTREL></DBTREL><EPTDAT>20171024</EPTDAT><EPTTIM>000000</EPTTIM><FEETYP>N</FEETYP><GRPBBK></GRPBBK><LGNNAM>银企直连测试用户110</LGNNAM><NTFCH1>a@a.a</NTFCH1><NUSAGE>TEST0913</NUSAGE><OPRDAT>20161108</OPRDAT><RCVBRD>308290003020</RCVBRD><RCVTYP>P</RCVTYP><REGFLG>N</REGFLG><REQNBR>0029554544</REQNBR><REQSTS>NTE</REQSTS><RTNFLG></RTNFLG><STLCHN>N</STLCHN><TRSAMT>0.01</TRSAMT><TRSBRN>755598</TRSBRN><TRSTYP>100001</TRSTYP><USRNAM>一网通A</USRNAM><YURREF>201710241123335442</YURREF></NTQPAYQYZ><NTQPAYQYZ><ATHFLG>N</ATHFLG><BNKFLG>Y</BNKFLG><BUSCOD>N02031</BUSCOD><BUSMOD>00001</BUSMOD><BUSSTS>A</BUSSTS><CCYNBR>10</CCYNBR><CRTACC>6225885910000066</CRTACC><CRTADR>上海市上海市</CRTADR><CRTBBK>59</CRTBBK><CRTBNK>招商银行上海分行营业部</CRTBNK><CRTNAM>曾亮</CRTNAM><CRTREL></CRTREL><C_BUSCOD>直接支付</C_BUSCOD><C_CCYNBR>人民币</C_CCYNBR><C_CRTBBK>福州</C_CRTBBK><C_CRTREL>企业网银新20161397</C_CRTREL><C_DBTBBK>深圳</C_DBTBBK><C_DBTREL>企业网银新20161397</C_DBTREL><C_GRPBBK></C_GRPBBK><C_REQSTS>终审完毕</C_REQSTS><C_RTNFLG></C_RTNFLG><C_STLCHN>普通</C_STLCHN><DBTACC>755915712310104</DBTACC><DBTADR>广东省深圳市</DBTADR><DBTBBK>75</DBTBBK><DBTBNK>招商银行深圳分行营业部</DBTBNK><DBTNAM>企业网银新20161397</DBTNAM><DBTREL></DBTREL><EPTDAT>20171024</EPTDAT><EPTTIM>000000</EPTTIM><FEETYP>N</FEETYP><GRPBBK></GRPBBK><LGNNAM>银企直连测试用户110</LGNNAM><NTFCH1>a@a.a</NTFCH1><NUSAGE>TEST0913</NUSAGE><OPRDAT>20161108</OPRDAT><RCVBRD>308290003020</RCVBRD><RCVTYP>P</RCVTYP><REGFLG>N</REGFLG><REQNBR>0029554547</REQNBR><REQSTS>NTE</REQSTS><RTNFLG></RTNFLG><STLCHN>N</STLCHN><TRSAMT>0.01</TRSAMT><TRSBRN>755598</TRSBRN><TRSTYP>100001</TRSTYP><USRNAM>一网通A</USRNAM><YURREF>201710241123335443</YURREF></NTQPAYQYZ><NTQPAYQYZ><ATHFLG>N</ATHFLG><BNKFLG>Y</BNKFLG><BUSCOD>N02031</BUSCOD><BUSMOD>00001</BUSMOD><BUSSTS>P</BUSSTS><CCYNBR>10</CCYNBR><CRTACC>6225885910000066</CRTACC><CRTADR>上海市上海市</CRTADR><CRTBBK>59</CRTBBK><CRTBNK>招商银行上海分行营业部</CRTBNK><CRTNAM>曾亮</CRTNAM><CRTREL></CRTREL><C_BUSCOD>直接支付</C_BUSCOD><C_CCYNBR>人民币</C_CCYNBR><C_CRTBBK>福州</C_CRTBBK><C_CRTREL>企业网银新20161397</C_CRTREL><C_DBTBBK>深圳</C_DBTBBK><C_DBTREL>企业网银新20161397</C_DBTREL><C_GRPBBK></C_GRPBBK><C_REQSTS>完成</C_REQSTS><C_RTNFLG>成功</C_RTNFLG><C_STLCHN>普通</C_STLCHN><DBTACC>755915712310104</DBTACC><DBTADR>广东省深圳市</DBTADR><DBTBBK>75</DBTBBK><DBTBNK>招商银行深圳分行营业部</DBTBNK><DBTNAM>企业网银新20161397</DBTNAM><DBTREL></DBTREL><EPTDAT>20161109</EPTDAT><EPTTIM>000000</EPTTIM><FEETYP>N</FEETYP><GRPBBK></GRPBBK><LGNNAM>银企直连测试用户110</LGNNAM><NTFCH1>a@a.a</NTFCH1><NUSAGE>TEST0913</NUSAGE><OPRDAT>20161108</OPRDAT><RCVTYP>P</RCVTYP><REGFLG>N</REGFLG><REQNBR>0029554551</REQNBR><REQSTS>FIN</REQSTS><RTNFLG>S</RTNFLG><STLCHN>N</STLCHN><TRSAMT>0.01</TRSAMT><TRSBRN>755598</TRSBRN><TRSTYP>100001</TRSTYP><USRNAM>一网通A</USRNAM><YURREF>201710241137145872</YURREF></NTQPAYQYZ></CMBSDKPGK>',
+	                '1560004',
+	                getdate()
+                );
+@swift_type:'GetPaymentInfo_RESPONSE'
+@ins_id:'1560004'
+@content:'<?xml version="1.0" encoding="GBK"?><CMBSDKPGK><INFO><DATTYP>2</DATTYP><ERRMSG></ERRMSG><FUNNAM>GetPaymentInfo</FUNNAM><LGNNAM>银企直连测试用户110</LGNNAM><RETCOD>0</RETCOD></INFO><NTQPAYQYZ><ATHFLG>N</ATHFLG><BNKFLG>Y</BNKFLG><BUSCOD>N02031</BUSCOD><BUSMOD>00001</BUSMOD><BUSSTS>P</BUSSTS><CCYNBR>10</CCYNBR><CRTACC>6225885910000066</CRTACC><CRTADR>上海市上海市</CRTADR><CRTBBK>59</CRTBBK><CRTBNK>招商银行上海分行营业部</CRTBNK><CRTNAM>曾亮</CRTNAM><CRTREL></CRTREL><C_BUSCOD>直接支付</C_BUSCOD><C_CCYNBR>人民币</C_CCYNBR><C_CRTBBK>福州</C_CRTBBK><C_CRTREL>企业网银新20161397</C_CRTREL><C_DBTBBK>深圳</C_DBTBBK><C_DBTREL>企业网银新20161397</C_DBTREL><C_GRPBBK></C_GRPBBK><C_REQSTS>完成</C_REQSTS><C_RTNFLG>成功</C_RTNFLG><C_STLCHN>普通</C_STLCHN><DBTACC>755915712310104</DBTACC><DBTADR>广东省深圳市</DBTADR><DBTBBK>75</DBTBBK><DBTBNK>招商银行深圳分行营业部</DBTBNK><DBTNAM>企业网银新20161397</DBTNAM><DBTREL></DBTREL><EPTDAT>20161108</EPTDAT><EPTTIM>000000</EPTTIM><FEETYP>N</FEETYP><GRPBBK></GRPBBK><LGNNAM>银企直连测试用户110</LGNNAM><NTFCH1>a@a.a</NTFCH1><NUSAGE>TEST0913</NUSAGE><OPRDAT>20161108</OPRDAT><RCVTYP>P</RCVTYP><REGFLG>N</REGFLG><REQNBR>0029554482</REQNBR><REQSTS>FIN</REQSTS><RTNFLG>S</RTNFLG><STLCHN>N</STLCHN><TRSAMT>0.01</TRSAMT><TRSBRN>755598</TRSBRN><TRSTYP>100001</TRSTYP><USRNAM>一网通A</USRNAM><YURREF>000000000003</YURREF></NTQPAYQYZ><NTQPAYQYZ><ATHFLG>N</ATHFLG><BNKFLG>Y</BNKFLG><BUSCOD>N02031</BUSCOD><BUSMOD>00001</BUSMOD><BUSSTS>A</BUSSTS><CCYNBR>10</CCYNBR><CRTACC>6225885910000066</CRTACC><CRTADR>上海市上海市</CRTADR><CRTBBK>59</CRTBBK><CRTBNK>招商银行上海分行营业部</CRTBNK><CRTNAM>曾亮</CRTNAM><CRTREL></CRTREL><C_BUSCOD>直接支付</C_BUSCOD><C_CCYNBR>人民币</C_CCYNBR><C_CRTBBK>福州</C_CRTBBK><C_CRTREL>企业网银新20161397</C_CRTREL><C_DBTBBK>深圳</C_DBTBBK><C_DBTREL>企业网银新20161397</C_DBTREL><C_GRPBBK></C_GRPBBK><C_REQSTS>终审完毕</C_REQSTS><C_RTNFLG></C_RTNFLG><C_STLCHN>普通</C_STLCHN><DBTACC>755915712310104</DBTACC><DBTADR>广东省深圳市</DBTADR><DBTBBK>75</DBTBBK><DBTBNK>招商银行深圳分行营业部</DBTBNK><DBTNAM>企业网银新20161397</DBTNAM><DBTREL></DBTREL><EPTDAT>20171024</EPTDAT><EPTTIM>000000</EPTTIM><FEETYP>N</FEETYP><GRPBBK></GRPBBK><LGNNAM>银企直连测试用户110</LGNNAM><NTFCH1>a@a.a</NTFCH1><NUSAGE>TEST0913</NUSAGE><OPRDAT>20161108</OPRDAT><RCVBRD>308290003020</RCVBRD><RCVTYP>P</RCVTYP><REGFLG>N</REGFLG><REQNBR>0029554483</REQNBR><REQSTS>NTE</REQSTS><RTNFLG></RTNFLG><STLCHN>N</STLCHN><TRSAMT>0.01</TRSAMT><TRSBRN>755598</TRSBRN><TRSTYP>100001</TRSTYP><USRNAM>一网通A</USRNAM><YURREF>000000000004</YURREF></NTQPAYQYZ><NTQPAYQYZ><ATHFLG>N</ATHFLG><BNKFLG>Y</BNKFLG><BUSCOD>N02031</BUSCOD><BUSMOD>00001</BUSMOD><BUSSTS>A</BUSSTS><CCYNBR>10</CCYNBR><CRTACC>6225885910000066</CRTACC><CRTADR>上海市上海市</CRTADR><CRTBBK>59</CRTBBK><CRTBNK>招商银行上海分行营业部</CRTBNK><CRTNAM>曾亮</CRTNAM><CRTREL></CRTREL><C_BUSCOD>直接支付</C_BUSCOD><C_CCYNBR>人民币</C_CCYNBR><C_CRTBBK>福州</C_CRTBBK><C_CRTREL>企业网银新20161397</C_CRTREL><C_DBTBBK>深圳</C_DBTBBK><C_DBTREL>企业网银新20161397</C_DBTREL><C_GRPBBK></C_GRPBBK><C_REQSTS>终审完毕</C_REQSTS><C_RTNFLG></C_RTNFLG><C_STLCHN>普通</C_STLCHN><DBTACC>755915712310104</DBTACC><DBTADR>广东省深圳市</DBTADR><DBTBBK>75</DBTBBK><DBTBNK>招商银行深圳分行营业部</DBTBNK><DBTNAM>企业网银新20161397</DBTNAM><DBTREL></DBTREL><EPTDAT>20171024</EPTDAT><EPTTIM>000000</EPTTIM><FEETYP>N</FEETYP><GRPBBK></GRPBBK><LGNNAM>银企直连测试用户110</LGNNAM><NTFCH1>a@a.a</NTFCH1><NUSAGE>TEST0913</NUSAGE><OPRDAT>20161108</OPRDAT><RCVBRD>308290003020</RCVBRD><RCVTYP>P</RCVTYP><REGFLG>N</REGFLG><REQNBR>0029554544</REQNBR><REQSTS>NTE</REQSTS><RTNFLG></RTNFLG><STLCHN>N</STLCHN><TRSAMT>0.01</TRSAMT><TRSBRN>755598</TRSBRN><TRSTYP>100001</TRSTYP><USRNAM>一网通A</USRNAM><YURREF>201710241123335442</YURREF></NTQPAYQYZ><NTQPAYQYZ><ATHFLG>N</ATHFLG><BNKFLG>Y</BNKFLG><BUSCOD>N02031</BUSCOD><BUSMOD>00001</BUSMOD><BUSSTS>A</BUSSTS><CCYNBR>10</CCYNBR><CRTACC>6225885910000066</CRTACC><CRTADR>上海市上海市</CRTADR><CRTBBK>59</CRTBBK><CRTBNK>招商银行上海分行营业部</CRTBNK><CRTNAM>曾亮</CRTNAM><CRTREL></CRTREL><C_BUSCOD>直接支付</C_BUSCOD><C_CCYNBR>人民币</C_CCYNBR><C_CRTBBK>福州</C_CRTBBK><C_CRTREL>企业网银新20161397</C_CRTREL><C_DBTBBK>深圳</C_DBTBBK><C_DBTREL>企业网银新20161397</C_DBTREL><C_GRPBBK></C_GRPBBK><C_REQSTS>终审完毕</C_REQSTS><C_RTNFLG></C_RTNFLG><C_STLCHN>普通</C_STLCHN><DBTACC>755915712310104</DBTACC><DBTADR>广东省深圳市</DBTADR><DBTBBK>75</DBTBBK><DBTBNK>招商银行深圳分行营业部</DBTBNK><DBTNAM>企业网银新20161397</DBTNAM><DBTREL></DBTREL><EPTDAT>20171024</EPTDAT><EPTTIM>000000</EPTTIM><FEETYP>N</FEETYP><GRPBBK></GRPBBK><LGNNAM>银企直连测试用户110</LGNNAM><NTFCH1>a@a.a</NTFCH1><NUSAGE>TEST0913</NUSAGE><OPRDAT>20161108</OPRDAT><RCVBRD>308290003020</RCVBRD><RCVTYP>P</RCVTYP><REGFLG>N</REGFLG><REQNBR>0029554547</REQNBR><REQSTS>NTE</REQSTS><RTNFLG></RTNFLG><STLCHN>N</STLCHN><TRSAMT>0.01</TRSAMT><TRSBRN>755598</TRSBRN><TRSTYP>100001</TRSTYP><USRNAM>一网通A</USRNAM><YURREF>201710241123335443</YURREF></NTQPAYQYZ><NTQPAYQYZ><ATHFLG>N</ATHFLG><BNKFLG>Y</BNKFLG><BUSCOD>N02031</BUSCOD><BUSMOD>00001</BUSMOD><BUSSTS>P</BUSSTS><CCYNBR>10</CCYNBR><CRTACC>6225885910000066</CRTACC><CRTADR>上海市上海市</CRTADR><CRTBBK>59</CRTBBK><CRTBNK>招商银行上海分行营业部</CRTBNK><CRTNAM>曾亮</CRTNAM><CRTREL></CRTREL><C_BUSCOD>直接支付</C_BUSCOD><C_CCYNBR>人民币</C_CCYNBR><C_CRTBBK>福州</C_CRTBBK><C_CRTREL>企业网银新20161397</C_CRTREL><C_DBTBBK>深圳</C_DBTBBK><C_DBTREL>企业网银新20161397</C_DBTREL><C_GRPBBK></C_GRPBBK><C_REQSTS>完成</C_REQSTS><C_RTNFLG>成功</C_RTNFLG><C_STLCHN>普通</C_STLCHN><DBTACC>755915712310104</DBTACC><DBTADR>广东省深圳市</DBTADR><DBTBBK>75</DBTBBK><DBTBNK>招商银行深圳分行营业部</DBTBNK><DBTNAM>企业网银新20161397</DBTNAM><DBTREL></DBTREL><EPTDAT>20161109</EPTDAT><EPTTIM>000000</EPTTIM><FEETYP>N</FEETYP><GRPBBK></GRPBBK><LGNNAM>银企直连测试用户110</LGNNAM><NTFCH1>a@a.a</NTFCH1><NUSAGE>TEST0913</NUSAGE><OPRDAT>20161108</OPRDAT><RCVTYP>P</RCVTYP><REGFLG>N</REGFLG><REQNBR>0029554551</REQNBR><REQSTS>FIN</REQSTS><RTNFLG>S</RTNFLG><STLCHN>N</STLCHN><TRSAMT>0.01</TRSAMT><TRSBRN>755598</TRSBRN><TRSTYP>100001</TRSTYP><USRNAM>一网通A</USRNAM><YURREF>201710241137145872</YURREF></NTQPAYQYZ></CMBSDKPGK>'
+
+2017-10-30 10:42:20,426 [8] DEBUG - InsertXmlLog(CMBPayment.MainDataAccess) End
+2017-10-30 10:42:20,428 [8] DEBUG - InsertXmlLog(CMBPayment.MainController) End
+2017-10-30 10:42:21,029 [8] DEBUG - UpdatePaymentStatus(CMBPayment.MainController) Start
+2017-10-30 10:42:21,035 [8] DEBUG - UpdatePaymentInfo(CMBPayment.MainDataAccess) Start
+2017-10-30 10:42:21,039 [8] DEBUG - UpdatePaymentInfo(CMBPayment.MainDataAccess) End
+2017-10-30 10:42:21,039 [8] DEBUG - UpdatePaymentInfo(CMBPayment.MainDataAccess) Start
+2017-10-30 10:42:21,049 [8] DEBUG - UpdatePaymentInfo(CMBPayment.MainDataAccess) End
+2017-10-30 10:42:21,049 [8] DEBUG - UpdatePaymentInfo(CMBPayment.MainDataAccess) Start
+2017-10-30 10:42:21,052 [8] DEBUG - UpdatePaymentInfo(CMBPayment.MainDataAccess) End
+2017-10-30 10:42:21,052 [8] DEBUG - UpdatePaymentInfo(CMBPayment.MainDataAccess) Start
+2017-10-30 10:42:21,052 [8] DEBUG - UpdatePaymentInfo(CMBPayment.MainDataAccess) End
+2017-10-30 10:42:21,052 [8] DEBUG - UpdatePaymentInfo(CMBPayment.MainDataAccess) Start
+2017-10-30 10:42:21,054 [8] DEBUG - UpdatePaymentInfo(CMBPayment.MainDataAccess) End
+2017-10-30 10:42:21,055 [8] DEBUG - UpdatePaymentStatus(CMBPayment.MainController) End
+2017-10-30 10:42:25,634 [8] DEBUG - GetBatchList(CMBPayment.MainController) Start
+2017-10-30 10:42:25,634 [8] DEBUG - GetBatchList(CMBPayment.MainDataAccess) Start
+2017-10-30 10:42:25,634 [8] DEBUG - SP_WEB_PAGING(@TABLENAMES='	cmb_t_batch a
+ left join cmb_m_code mc1 ON mc1.type = 'BATCH_STATUS' AND mc1.cd = a.status_id
+',@COLUMNS='	  A.batch_id
+	, A.pay_cnt
+	, A.ttl_amt
+	, A.status_id
+	, MC1.CD_NM AS status
+	, A.maker_id
+	, convert(varchar,A.maker_time,103) maker_time
+	, A.appr1_id
+	, convert(varchar,A.appr1_time,103) appr1_time
+	, A.appr2_id
+	, convert(varchar,A.appr2_time,103) appr2_time
+	, A.rejc_id
+	, convert(varchar,A.rejc_time,103) rejc_time
+	, convert(varchar,A.update_time,121) update_time
+',@ORDERCOLUMNNAME='a.batch_id desc',@WHERE=' 1 = 1 ',@PAGECURRENTINDEX='1',@PAGEEACHSIZE='10',@PAGECOUNT='0',@ITEMSCOUNT='0',)
+@TABLENAMES:'	cmb_t_batch a
+ left join cmb_m_code mc1 ON mc1.type = 'BATCH_STATUS' AND mc1.cd = a.status_id
+'
+@COLUMNS:'	  A.batch_id
+	, A.pay_cnt
+	, A.ttl_amt
+	, A.status_id
+	, MC1.CD_NM AS status
+	, A.maker_id
+	, convert(varchar,A.maker_time,103) maker_time
+	, A.appr1_id
+	, convert(varchar,A.appr1_time,103) appr1_time
+	, A.appr2_id
+	, convert(varchar,A.appr2_time,103) appr2_time
+	, A.rejc_id
+	, convert(varchar,A.rejc_time,103) rejc_time
+	, convert(varchar,A.update_time,121) update_time
+'
+@ORDERCOLUMNNAME:'a.batch_id desc'
+@WHERE:' 1 = 1 '
+@PAGECURRENTINDEX:'1'
+@PAGEEACHSIZE:'10'
+@PAGECOUNT:'0'
+@ITEMSCOUNT:'0'
+
+2017-10-30 10:42:25,642 [8] DEBUG - 5行处理完成。
+2017-10-30 10:42:25,642 [8] DEBUG - GetBatchList(CMBPayment.MainDataAccess) End
+2017-10-30 10:42:25,642 [8] DEBUG - GetBatchList(CMBPayment.MainController) End
+2017-10-30 10:42:30,426 [8] DEBUG - GetBatchInfo(CMBPayment.MainController) Start
+2017-10-30 10:42:30,427 [8] DEBUG - GetBatchInfo(CMBPayment.MainDataAccess) Start
+2017-10-30 10:42:30,427 [8] DEBUG -  select A.batch_id
+	, A.pay_cnt
+	, A.ttl_amt
+	, A.status_id
+	, MC1.CD_NM AS status
+	, A.maker_id
+	, convert(varchar,A.maker_time,103) maker_time
+	, A.appr1_id
+	, convert(varchar,A.appr1_time,103) appr1_time
+	, A.appr2_id
+	, convert(varchar,A.appr2_time,103) appr2_time
+	, A.rejc_id
+	, convert(varchar,A.rejc_time,103) rejc_time
+	, convert(varchar,A.update_time,121) update_time
+ from cmb_t_batch a
+ left join cmb_m_code mc1 ON mc1.type = 'BATCH_STATUS' AND mc1.cd = a.status_id
+ where a.batch_id = '0000000005'; 
+
+@batch_id:'0000000005'
+
+2017-10-30 10:42:30,431 [8] DEBUG - 1行处理完成。
+2017-10-30 10:42:30,431 [8] DEBUG - GetBatchInfo(CMBPayment.MainDataAccess) End
+2017-10-30 10:42:30,432 [8] DEBUG - GetBatchInfo(CMBPayment.MainController) End
+2017-10-30 10:42:30,432 [8] DEBUG - GetPaymentList(CMBPayment.MainController) Start
+2017-10-30 10:42:30,433 [8] DEBUG - GetPaymentList(CMBPayment.MainDataAccess) Start
+2017-10-30 10:42:30,434 [8] DEBUG - SP_WEB_PAGING(@TABLENAMES='	cmb_t_payment a
+ left join cmb_m_code mc1 ON mc1.type = 'PAY_STATUS' AND mc1.cd = a.status_id
+',@COLUMNS='	  A.batch_id
+	, A.YURREF
+	, A.status_id
+	, A.comment
+	, A.EPTDAT
+	, A.OPRDAT
+	, A.DBTACC
+	, A.DBTBBK
+	, A.TRSAMT
+	, A.CCYNBR
+	, A.NUSAGE
+	, A.BUSNAR
+	, A.CRTACC
+	, A.CRTNAM
+	, A.LRVEAN
+	, A.BRDNBR
+	, A.BNKFLG
+	, A.CRTBNK
+	, A.CTYCOD
+	, A.CRTADR
+	, A.NTFCH1
+	, A.update_id
+	, convert(varchar,A.update_time,121) update_time
+	, mc1.cd_nm as status
+',@ORDERCOLUMNNAME='a.YURREF desc',@WHERE=' 1 = 1 and a.del_flg = '0'  AND A.batch_id  = '0000000005'',@PAGECURRENTINDEX='1',@PAGEEACHSIZE='10',@PAGECOUNT='0',@ITEMSCOUNT='0',)
+@TABLENAMES:'	cmb_t_payment a
+ left join cmb_m_code mc1 ON mc1.type = 'PAY_STATUS' AND mc1.cd = a.status_id
+'
+@COLUMNS:'	  A.batch_id
+	, A.YURREF
+	, A.status_id
+	, A.comment
+	, A.EPTDAT
+	, A.OPRDAT
+	, A.DBTACC
+	, A.DBTBBK
+	, A.TRSAMT
+	, A.CCYNBR
+	, A.NUSAGE
+	, A.BUSNAR
+	, A.CRTACC
+	, A.CRTNAM
+	, A.LRVEAN
+	, A.BRDNBR
+	, A.BNKFLG
+	, A.CRTBNK
+	, A.CTYCOD
+	, A.CRTADR
+	, A.NTFCH1
+	, A.update_id
+	, convert(varchar,A.update_time,121) update_time
+	, mc1.cd_nm as status
+'
+@ORDERCOLUMNNAME:'a.YURREF desc'
+@WHERE:' 1 = 1 and a.del_flg = '0'  AND A.batch_id  = '0000000005''
+@PAGECURRENTINDEX:'1'
+@PAGEEACHSIZE:'10'
+@PAGECOUNT:'0'
+@ITEMSCOUNT:'0'
+
+2017-10-30 10:42:30,464 [8] DEBUG - 1行处理完成。
+2017-10-30 10:42:30,464 [8] DEBUG - GetPaymentList(CMBPayment.MainDataAccess) End
+2017-10-30 10:42:30,464 [8] DEBUG - GetPaymentList(CMBPayment.MainController) End
+2017-10-30 10:42:35,559 [6] DEBUG - btnReturn_Click(CMBPayment.payment) Start
+2017-10-30 10:42:35,587 [9] DEBUG - GetBatchList(CMBPayment.MainController) Start
+2017-10-30 10:42:35,587 [9] DEBUG - GetBatchList(CMBPayment.MainDataAccess) Start
+2017-10-30 10:42:35,587 [9] DEBUG - SP_WEB_PAGING(@TABLENAMES='	cmb_t_batch a
+ left join cmb_m_code mc1 ON mc1.type = 'BATCH_STATUS' AND mc1.cd = a.status_id
+',@COLUMNS='	  A.batch_id
+	, A.pay_cnt
+	, A.ttl_amt
+	, A.status_id
+	, MC1.CD_NM AS status
+	, A.maker_id
+	, convert(varchar,A.maker_time,103) maker_time
+	, A.appr1_id
+	, convert(varchar,A.appr1_time,103) appr1_time
+	, A.appr2_id
+	, convert(varchar,A.appr2_time,103) appr2_time
+	, A.rejc_id
+	, convert(varchar,A.rejc_time,103) rejc_time
+	, convert(varchar,A.update_time,121) update_time
+',@ORDERCOLUMNNAME='a.batch_id desc',@WHERE=' 1 = 1 ',@PAGECURRENTINDEX='1',@PAGEEACHSIZE='10',@PAGECOUNT='0',@ITEMSCOUNT='0',)
+@TABLENAMES:'	cmb_t_batch a
+ left join cmb_m_code mc1 ON mc1.type = 'BATCH_STATUS' AND mc1.cd = a.status_id
+'
+@COLUMNS:'	  A.batch_id
+	, A.pay_cnt
+	, A.ttl_amt
+	, A.status_id
+	, MC1.CD_NM AS status
+	, A.maker_id
+	, convert(varchar,A.maker_time,103) maker_time
+	, A.appr1_id
+	, convert(varchar,A.appr1_time,103) appr1_time
+	, A.appr2_id
+	, convert(varchar,A.appr2_time,103) appr2_time
+	, A.rejc_id
+	, convert(varchar,A.rejc_time,103) rejc_time
+	, convert(varchar,A.update_time,121) update_time
+'
+@ORDERCOLUMNNAME:'a.batch_id desc'
+@WHERE:' 1 = 1 '
+@PAGECURRENTINDEX:'1'
+@PAGEEACHSIZE:'10'
+@PAGECOUNT:'0'
+@ITEMSCOUNT:'0'
+
+2017-10-30 10:42:35,588 [9] DEBUG - 5行处理完成。
+2017-10-30 10:42:35,588 [9] DEBUG - GetBatchList(CMBPayment.MainDataAccess) End
+2017-10-30 10:42:35,588 [9] DEBUG - GetBatchList(CMBPayment.MainController) End
+2017-10-30 10:42:37,755 [8] DEBUG - GetBatchInfo(CMBPayment.MainController) Start
+2017-10-30 10:42:37,756 [8] DEBUG - GetBatchInfo(CMBPayment.MainDataAccess) Start
+2017-10-30 10:42:37,756 [8] DEBUG -  select A.batch_id
+	, A.pay_cnt
+	, A.ttl_amt
+	, A.status_id
+	, MC1.CD_NM AS status
+	, A.maker_id
+	, convert(varchar,A.maker_time,103) maker_time
+	, A.appr1_id
+	, convert(varchar,A.appr1_time,103) appr1_time
+	, A.appr2_id
+	, convert(varchar,A.appr2_time,103) appr2_time
+	, A.rejc_id
+	, convert(varchar,A.rejc_time,103) rejc_time
+	, convert(varchar,A.update_time,121) update_time
+ from cmb_t_batch a
+ left join cmb_m_code mc1 ON mc1.type = 'BATCH_STATUS' AND mc1.cd = a.status_id
+ where a.batch_id = '0000000003'; 
+
+@batch_id:'0000000003'
+
+2017-10-30 10:42:37,756 [8] DEBUG - 1行处理完成。
+2017-10-30 10:42:37,757 [8] DEBUG - GetBatchInfo(CMBPayment.MainDataAccess) End
+2017-10-30 10:42:37,757 [8] DEBUG - GetBatchInfo(CMBPayment.MainController) End
+2017-10-30 10:42:37,757 [8] DEBUG - GetPaymentList(CMBPayment.MainController) Start
+2017-10-30 10:42:37,757 [8] DEBUG - GetPaymentList(CMBPayment.MainDataAccess) Start
+2017-10-30 10:42:37,757 [8] DEBUG - SP_WEB_PAGING(@TABLENAMES='	cmb_t_payment a
+ left join cmb_m_code mc1 ON mc1.type = 'PAY_STATUS' AND mc1.cd = a.status_id
+',@COLUMNS='	  A.batch_id
+	, A.YURREF
+	, A.status_id
+	, A.comment
+	, A.EPTDAT
+	, A.OPRDAT
+	, A.DBTACC
+	, A.DBTBBK
+	, A.TRSAMT
+	, A.CCYNBR
+	, A.NUSAGE
+	, A.BUSNAR
+	, A.CRTACC
+	, A.CRTNAM
+	, A.LRVEAN
+	, A.BRDNBR
+	, A.BNKFLG
+	, A.CRTBNK
+	, A.CTYCOD
+	, A.CRTADR
+	, A.NTFCH1
+	, A.update_id
+	, convert(varchar,A.update_time,121) update_time
+	, mc1.cd_nm as status
+',@ORDERCOLUMNNAME='a.YURREF desc',@WHERE=' 1 = 1 and a.del_flg = '0'  AND A.batch_id  = '0000000003'',@PAGECURRENTINDEX='1',@PAGEEACHSIZE='10',@PAGECOUNT='0',@ITEMSCOUNT='0',)
+@TABLENAMES:'	cmb_t_payment a
+ left join cmb_m_code mc1 ON mc1.type = 'PAY_STATUS' AND mc1.cd = a.status_id
+'
+@COLUMNS:'	  A.batch_id
+	, A.YURREF
+	, A.status_id
+	, A.comment
+	, A.EPTDAT
+	, A.OPRDAT
+	, A.DBTACC
+	, A.DBTBBK
+	, A.TRSAMT
+	, A.CCYNBR
+	, A.NUSAGE
+	, A.BUSNAR
+	, A.CRTACC
+	, A.CRTNAM
+	, A.LRVEAN
+	, A.BRDNBR
+	, A.BNKFLG
+	, A.CRTBNK
+	, A.CTYCOD
+	, A.CRTADR
+	, A.NTFCH1
+	, A.update_id
+	, convert(varchar,A.update_time,121) update_time
+	, mc1.cd_nm as status
+'
+@ORDERCOLUMNNAME:'a.YURREF desc'
+@WHERE:' 1 = 1 and a.del_flg = '0'  AND A.batch_id  = '0000000003''
+@PAGECURRENTINDEX:'1'
+@PAGEEACHSIZE:'10'
+@PAGECOUNT:'0'
+@ITEMSCOUNT:'0'
+
+2017-10-30 10:42:37,794 [8] DEBUG - 1行处理完成。
+2017-10-30 10:42:37,794 [8] DEBUG - GetPaymentList(CMBPayment.MainDataAccess) End
+2017-10-30 10:42:37,794 [8] DEBUG - GetPaymentList(CMBPayment.MainController) End
+2017-10-30 10:42:40,756 [6] DEBUG - btnReturn_Click(CMBPayment.payment) Start
+2017-10-30 10:42:40,778 [12] DEBUG - GetBatchList(CMBPayment.MainController) Start
+2017-10-30 10:42:40,779 [12] DEBUG - GetBatchList(CMBPayment.MainDataAccess) Start
+2017-10-30 10:42:40,779 [12] DEBUG - SP_WEB_PAGING(@TABLENAMES='	cmb_t_batch a
+ left join cmb_m_code mc1 ON mc1.type = 'BATCH_STATUS' AND mc1.cd = a.status_id
+',@COLUMNS='	  A.batch_id
+	, A.pay_cnt
+	, A.ttl_amt
+	, A.status_id
+	, MC1.CD_NM AS status
+	, A.maker_id
+	, convert(varchar,A.maker_time,103) maker_time
+	, A.appr1_id
+	, convert(varchar,A.appr1_time,103) appr1_time
+	, A.appr2_id
+	, convert(varchar,A.appr2_time,103) appr2_time
+	, A.rejc_id
+	, convert(varchar,A.rejc_time,103) rejc_time
+	, convert(varchar,A.update_time,121) update_time
+',@ORDERCOLUMNNAME='a.batch_id desc',@WHERE=' 1 = 1 ',@PAGECURRENTINDEX='1',@PAGEEACHSIZE='10',@PAGECOUNT='0',@ITEMSCOUNT='0',)
+@TABLENAMES:'	cmb_t_batch a
+ left join cmb_m_code mc1 ON mc1.type = 'BATCH_STATUS' AND mc1.cd = a.status_id
+'
+@COLUMNS:'	  A.batch_id
+	, A.pay_cnt
+	, A.ttl_amt
+	, A.status_id
+	, MC1.CD_NM AS status
+	, A.maker_id
+	, convert(varchar,A.maker_time,103) maker_time
+	, A.appr1_id
+	, convert(varchar,A.appr1_time,103) appr1_time
+	, A.appr2_id
+	, convert(varchar,A.appr2_time,103) appr2_time
+	, A.rejc_id
+	, convert(varchar,A.rejc_time,103) rejc_time
+	, convert(varchar,A.update_time,121) update_time
+'
+@ORDERCOLUMNNAME:'a.batch_id desc'
+@WHERE:' 1 = 1 '
+@PAGECURRENTINDEX:'1'
+@PAGEEACHSIZE:'10'
+@PAGECOUNT:'0'
+@ITEMSCOUNT:'0'
+
+2017-10-30 10:42:40,780 [12] DEBUG - 5行处理完成。
+2017-10-30 10:42:40,780 [12] DEBUG - GetBatchList(CMBPayment.MainDataAccess) End
+2017-10-30 10:42:40,780 [12] DEBUG - GetBatchList(CMBPayment.MainController) End
+2017-10-30 10:42:45,800 [7] DEBUG - GetBatchInfo(CMBPayment.MainController) Start
+2017-10-30 10:42:45,800 [7] DEBUG - GetBatchInfo(CMBPayment.MainDataAccess) Start
+2017-10-30 10:42:45,800 [7] DEBUG -  select A.batch_id
+	, A.pay_cnt
+	, A.ttl_amt
+	, A.status_id
+	, MC1.CD_NM AS status
+	, A.maker_id
+	, convert(varchar,A.maker_time,103) maker_time
+	, A.appr1_id
+	, convert(varchar,A.appr1_time,103) appr1_time
+	, A.appr2_id
+	, convert(varchar,A.appr2_time,103) appr2_time
+	, A.rejc_id
+	, convert(varchar,A.rejc_time,103) rejc_time
+	, convert(varchar,A.update_time,121) update_time
+ from cmb_t_batch a
+ left join cmb_m_code mc1 ON mc1.type = 'BATCH_STATUS' AND mc1.cd = a.status_id
+ where a.batch_id = '0000000001'; 
+
+@batch_id:'0000000001'
+
+2017-10-30 10:42:45,802 [7] DEBUG - 1行处理完成。
+2017-10-30 10:42:45,802 [7] DEBUG - GetBatchInfo(CMBPayment.MainDataAccess) End
+2017-10-30 10:42:45,802 [7] DEBUG - GetBatchInfo(CMBPayment.MainController) End
+2017-10-30 10:42:45,802 [7] DEBUG - GetPaymentList(CMBPayment.MainController) Start
+2017-10-30 10:42:45,803 [7] DEBUG - GetPaymentList(CMBPayment.MainDataAccess) Start
+2017-10-30 10:42:45,803 [7] DEBUG - SP_WEB_PAGING(@TABLENAMES='	cmb_t_payment a
+ left join cmb_m_code mc1 ON mc1.type = 'PAY_STATUS' AND mc1.cd = a.status_id
+',@COLUMNS='	  A.batch_id
+	, A.YURREF
+	, A.status_id
+	, A.comment
+	, A.EPTDAT
+	, A.OPRDAT
+	, A.DBTACC
+	, A.DBTBBK
+	, A.TRSAMT
+	, A.CCYNBR
+	, A.NUSAGE
+	, A.BUSNAR
+	, A.CRTACC
+	, A.CRTNAM
+	, A.LRVEAN
+	, A.BRDNBR
+	, A.BNKFLG
+	, A.CRTBNK
+	, A.CTYCOD
+	, A.CRTADR
+	, A.NTFCH1
+	, A.update_id
+	, convert(varchar,A.update_time,121) update_time
+	, mc1.cd_nm as status
+',@ORDERCOLUMNNAME='a.YURREF desc',@WHERE=' 1 = 1 and a.del_flg = '0'  AND A.batch_id  = '0000000001'',@PAGECURRENTINDEX='1',@PAGEEACHSIZE='10',@PAGECOUNT='0',@ITEMSCOUNT='0',)
+@TABLENAMES:'	cmb_t_payment a
+ left join cmb_m_code mc1 ON mc1.type = 'PAY_STATUS' AND mc1.cd = a.status_id
+'
+@COLUMNS:'	  A.batch_id
+	, A.YURREF
+	, A.status_id
+	, A.comment
+	, A.EPTDAT
+	, A.OPRDAT
+	, A.DBTACC
+	, A.DBTBBK
+	, A.TRSAMT
+	, A.CCYNBR
+	, A.NUSAGE
+	, A.BUSNAR
+	, A.CRTACC
+	, A.CRTNAM
+	, A.LRVEAN
+	, A.BRDNBR
+	, A.BNKFLG
+	, A.CRTBNK
+	, A.CTYCOD
+	, A.CRTADR
+	, A.NTFCH1
+	, A.update_id
+	, convert(varchar,A.update_time,121) update_time
+	, mc1.cd_nm as status
+'
+@ORDERCOLUMNNAME:'a.YURREF desc'
+@WHERE:' 1 = 1 and a.del_flg = '0'  AND A.batch_id  = '0000000001''
+@PAGECURRENTINDEX:'1'
+@PAGEEACHSIZE:'10'
+@PAGECOUNT:'0'
+@ITEMSCOUNT:'0'
+
+2017-10-30 10:42:45,840 [7] DEBUG - 1行处理完成。
+2017-10-30 10:42:45,840 [7] DEBUG - GetPaymentList(CMBPayment.MainDataAccess) End
+2017-10-30 10:42:45,840 [7] DEBUG - GetPaymentList(CMBPayment.MainController) End
+2017-10-30 10:42:50,501 [6] DEBUG - btnReturn_Click(CMBPayment.payment) Start
+2017-10-30 10:42:50,517 [12] DEBUG - GetBatchList(CMBPayment.MainController) Start
+2017-10-30 10:42:50,517 [12] DEBUG - GetBatchList(CMBPayment.MainDataAccess) Start
+2017-10-30 10:42:50,517 [12] DEBUG - SP_WEB_PAGING(@TABLENAMES='	cmb_t_batch a
+ left join cmb_m_code mc1 ON mc1.type = 'BATCH_STATUS' AND mc1.cd = a.status_id
+',@COLUMNS='	  A.batch_id
+	, A.pay_cnt
+	, A.ttl_amt
+	, A.status_id
+	, MC1.CD_NM AS status
+	, A.maker_id
+	, convert(varchar,A.maker_time,103) maker_time
+	, A.appr1_id
+	, convert(varchar,A.appr1_time,103) appr1_time
+	, A.appr2_id
+	, convert(varchar,A.appr2_time,103) appr2_time
+	, A.rejc_id
+	, convert(varchar,A.rejc_time,103) rejc_time
+	, convert(varchar,A.update_time,121) update_time
+',@ORDERCOLUMNNAME='a.batch_id desc',@WHERE=' 1 = 1 ',@PAGECURRENTINDEX='1',@PAGEEACHSIZE='10',@PAGECOUNT='0',@ITEMSCOUNT='0',)
+@TABLENAMES:'	cmb_t_batch a
+ left join cmb_m_code mc1 ON mc1.type = 'BATCH_STATUS' AND mc1.cd = a.status_id
+'
+@COLUMNS:'	  A.batch_id
+	, A.pay_cnt
+	, A.ttl_amt
+	, A.status_id
+	, MC1.CD_NM AS status
+	, A.maker_id
+	, convert(varchar,A.maker_time,103) maker_time
+	, A.appr1_id
+	, convert(varchar,A.appr1_time,103) appr1_time
+	, A.appr2_id
+	, convert(varchar,A.appr2_time,103) appr2_time
+	, A.rejc_id
+	, convert(varchar,A.rejc_time,103) rejc_time
+	, convert(varchar,A.update_time,121) update_time
+'
+@ORDERCOLUMNNAME:'a.batch_id desc'
+@WHERE:' 1 = 1 '
+@PAGECURRENTINDEX:'1'
+@PAGEEACHSIZE:'10'
+@PAGECOUNT:'0'
+@ITEMSCOUNT:'0'
+
+2017-10-30 10:42:50,531 [12] DEBUG - 5行处理完成。
+2017-10-30 10:42:50,531 [12] DEBUG - GetBatchList(CMBPayment.MainDataAccess) End
+2017-10-30 10:42:50,531 [12] DEBUG - GetBatchList(CMBPayment.MainController) End
+2017-10-30 10:42:51,534 [9] DEBUG - GetBatchInfo(CMBPayment.MainController) Start
+2017-10-30 10:42:51,534 [9] DEBUG - GetBatchInfo(CMBPayment.MainDataAccess) Start
+2017-10-30 10:42:51,534 [9] DEBUG -  select A.batch_id
+	, A.pay_cnt
+	, A.ttl_amt
+	, A.status_id
+	, MC1.CD_NM AS status
+	, A.maker_id
+	, convert(varchar,A.maker_time,103) maker_time
+	, A.appr1_id
+	, convert(varchar,A.appr1_time,103) appr1_time
+	, A.appr2_id
+	, convert(varchar,A.appr2_time,103) appr2_time
+	, A.rejc_id
+	, convert(varchar,A.rejc_time,103) rejc_time
+	, convert(varchar,A.update_time,121) update_time
+ from cmb_t_batch a
+ left join cmb_m_code mc1 ON mc1.type = 'BATCH_STATUS' AND mc1.cd = a.status_id
+ where a.batch_id = '0000000002'; 
+
+@batch_id:'0000000002'
+
+2017-10-30 10:42:51,535 [9] DEBUG - 1行处理完成。
+2017-10-30 10:42:51,535 [9] DEBUG - GetBatchInfo(CMBPayment.MainDataAccess) End
+2017-10-30 10:42:51,535 [9] DEBUG - GetBatchInfo(CMBPayment.MainController) End
+2017-10-30 10:42:51,535 [9] DEBUG - GetPaymentList(CMBPayment.MainController) Start
+2017-10-30 10:42:51,535 [9] DEBUG - GetPaymentList(CMBPayment.MainDataAccess) Start
+2017-10-30 10:42:51,535 [9] DEBUG - SP_WEB_PAGING(@TABLENAMES='	cmb_t_payment a
+ left join cmb_m_code mc1 ON mc1.type = 'PAY_STATUS' AND mc1.cd = a.status_id
+',@COLUMNS='	  A.batch_id
+	, A.YURREF
+	, A.status_id
+	, A.comment
+	, A.EPTDAT
+	, A.OPRDAT
+	, A.DBTACC
+	, A.DBTBBK
+	, A.TRSAMT
+	, A.CCYNBR
+	, A.NUSAGE
+	, A.BUSNAR
+	, A.CRTACC
+	, A.CRTNAM
+	, A.LRVEAN
+	, A.BRDNBR
+	, A.BNKFLG
+	, A.CRTBNK
+	, A.CTYCOD
+	, A.CRTADR
+	, A.NTFCH1
+	, A.update_id
+	, convert(varchar,A.update_time,121) update_time
+	, mc1.cd_nm as status
+',@ORDERCOLUMNNAME='a.YURREF desc',@WHERE=' 1 = 1 and a.del_flg = '0'  AND A.batch_id  = '0000000002'',@PAGECURRENTINDEX='1',@PAGEEACHSIZE='10',@PAGECOUNT='0',@ITEMSCOUNT='0',)
+@TABLENAMES:'	cmb_t_payment a
+ left join cmb_m_code mc1 ON mc1.type = 'PAY_STATUS' AND mc1.cd = a.status_id
+'
+@COLUMNS:'	  A.batch_id
+	, A.YURREF
+	, A.status_id
+	, A.comment
+	, A.EPTDAT
+	, A.OPRDAT
+	, A.DBTACC
+	, A.DBTBBK
+	, A.TRSAMT
+	, A.CCYNBR
+	, A.NUSAGE
+	, A.BUSNAR
+	, A.CRTACC
+	, A.CRTNAM
+	, A.LRVEAN
+	, A.BRDNBR
+	, A.BNKFLG
+	, A.CRTBNK
+	, A.CTYCOD
+	, A.CRTADR
+	, A.NTFCH1
+	, A.update_id
+	, convert(varchar,A.update_time,121) update_time
+	, mc1.cd_nm as status
+'
+@ORDERCOLUMNNAME:'a.YURREF desc'
+@WHERE:' 1 = 1 and a.del_flg = '0'  AND A.batch_id  = '0000000002''
+@PAGECURRENTINDEX:'1'
+@PAGEEACHSIZE:'10'
+@PAGECOUNT:'0'
+@ITEMSCOUNT:'0'
+
+2017-10-30 10:42:51,573 [9] DEBUG - 1行处理完成。
+2017-10-30 10:42:51,573 [9] DEBUG - GetPaymentList(CMBPayment.MainDataAccess) End
+2017-10-30 10:42:51,573 [9] DEBUG - GetPaymentList(CMBPayment.MainController) End
+2017-10-30 10:42:53,157 [12] DEBUG - btnReturn_Click(CMBPayment.payment) Start
+2017-10-30 10:42:53,169 [6] DEBUG - GetBatchList(CMBPayment.MainController) Start
+2017-10-30 10:42:53,169 [6] DEBUG - GetBatchList(CMBPayment.MainDataAccess) Start
+2017-10-30 10:42:53,169 [6] DEBUG - SP_WEB_PAGING(@TABLENAMES='	cmb_t_batch a
+ left join cmb_m_code mc1 ON mc1.type = 'BATCH_STATUS' AND mc1.cd = a.status_id
+',@COLUMNS='	  A.batch_id
+	, A.pay_cnt
+	, A.ttl_amt
+	, A.status_id
+	, MC1.CD_NM AS status
+	, A.maker_id
+	, convert(varchar,A.maker_time,103) maker_time
+	, A.appr1_id
+	, convert(varchar,A.appr1_time,103) appr1_time
+	, A.appr2_id
+	, convert(varchar,A.appr2_time,103) appr2_time
+	, A.rejc_id
+	, convert(varchar,A.rejc_time,103) rejc_time
+	, convert(varchar,A.update_time,121) update_time
+',@ORDERCOLUMNNAME='a.batch_id desc',@WHERE=' 1 = 1 ',@PAGECURRENTINDEX='1',@PAGEEACHSIZE='10',@PAGECOUNT='0',@ITEMSCOUNT='0',)
+@TABLENAMES:'	cmb_t_batch a
+ left join cmb_m_code mc1 ON mc1.type = 'BATCH_STATUS' AND mc1.cd = a.status_id
+'
+@COLUMNS:'	  A.batch_id
+	, A.pay_cnt
+	, A.ttl_amt
+	, A.status_id
+	, MC1.CD_NM AS status
+	, A.maker_id
+	, convert(varchar,A.maker_time,103) maker_time
+	, A.appr1_id
+	, convert(varchar,A.appr1_time,103) appr1_time
+	, A.appr2_id
+	, convert(varchar,A.appr2_time,103) appr2_time
+	, A.rejc_id
+	, convert(varchar,A.rejc_time,103) rejc_time
+	, convert(varchar,A.update_time,121) update_time
+'
+@ORDERCOLUMNNAME:'a.batch_id desc'
+@WHERE:' 1 = 1 '
+@PAGECURRENTINDEX:'1'
+@PAGEEACHSIZE:'10'
+@PAGECOUNT:'0'
+@ITEMSCOUNT:'0'
+
+2017-10-30 10:42:53,171 [6] DEBUG - 5行处理完成。
+2017-10-30 10:42:53,171 [6] DEBUG - GetBatchList(CMBPayment.MainDataAccess) End
+2017-10-30 10:42:53,171 [6] DEBUG - GetBatchList(CMBPayment.MainController) End
+2017-10-30 10:42:54,423 [12] DEBUG - GetBatchInfo(CMBPayment.MainController) Start
+2017-10-30 10:42:54,423 [12] DEBUG - GetBatchInfo(CMBPayment.MainDataAccess) Start
+2017-10-30 10:42:54,423 [12] DEBUG -  select A.batch_id
+	, A.pay_cnt
+	, A.ttl_amt
+	, A.status_id
+	, MC1.CD_NM AS status
+	, A.maker_id
+	, convert(varchar,A.maker_time,103) maker_time
+	, A.appr1_id
+	, convert(varchar,A.appr1_time,103) appr1_time
+	, A.appr2_id
+	, convert(varchar,A.appr2_time,103) appr2_time
+	, A.rejc_id
+	, convert(varchar,A.rejc_time,103) rejc_time
+	, convert(varchar,A.update_time,121) update_time
+ from cmb_t_batch a
+ left join cmb_m_code mc1 ON mc1.type = 'BATCH_STATUS' AND mc1.cd = a.status_id
+ where a.batch_id = '0000000001'; 
+
+@batch_id:'0000000001'
+
+2017-10-30 10:42:54,424 [12] DEBUG - 1行处理完成。
+2017-10-30 10:42:54,424 [12] DEBUG - GetBatchInfo(CMBPayment.MainDataAccess) End
+2017-10-30 10:42:54,424 [12] DEBUG - GetBatchInfo(CMBPayment.MainController) End
+2017-10-30 10:42:54,424 [12] DEBUG - GetPaymentList(CMBPayment.MainController) Start
+2017-10-30 10:42:54,424 [12] DEBUG - GetPaymentList(CMBPayment.MainDataAccess) Start
+2017-10-30 10:42:54,424 [12] DEBUG - SP_WEB_PAGING(@TABLENAMES='	cmb_t_payment a
+ left join cmb_m_code mc1 ON mc1.type = 'PAY_STATUS' AND mc1.cd = a.status_id
+',@COLUMNS='	  A.batch_id
+	, A.YURREF
+	, A.status_id
+	, A.comment
+	, A.EPTDAT
+	, A.OPRDAT
+	, A.DBTACC
+	, A.DBTBBK
+	, A.TRSAMT
+	, A.CCYNBR
+	, A.NUSAGE
+	, A.BUSNAR
+	, A.CRTACC
+	, A.CRTNAM
+	, A.LRVEAN
+	, A.BRDNBR
+	, A.BNKFLG
+	, A.CRTBNK
+	, A.CTYCOD
+	, A.CRTADR
+	, A.NTFCH1
+	, A.update_id
+	, convert(varchar,A.update_time,121) update_time
+	, mc1.cd_nm as status
+',@ORDERCOLUMNNAME='a.YURREF desc',@WHERE=' 1 = 1 and a.del_flg = '0'  AND A.batch_id  = '0000000001'',@PAGECURRENTINDEX='1',@PAGEEACHSIZE='10',@PAGECOUNT='0',@ITEMSCOUNT='0',)
+@TABLENAMES:'	cmb_t_payment a
+ left join cmb_m_code mc1 ON mc1.type = 'PAY_STATUS' AND mc1.cd = a.status_id
+'
+@COLUMNS:'	  A.batch_id
+	, A.YURREF
+	, A.status_id
+	, A.comment
+	, A.EPTDAT
+	, A.OPRDAT
+	, A.DBTACC
+	, A.DBTBBK
+	, A.TRSAMT
+	, A.CCYNBR
+	, A.NUSAGE
+	, A.BUSNAR
+	, A.CRTACC
+	, A.CRTNAM
+	, A.LRVEAN
+	, A.BRDNBR
+	, A.BNKFLG
+	, A.CRTBNK
+	, A.CTYCOD
+	, A.CRTADR
+	, A.NTFCH1
+	, A.update_id
+	, convert(varchar,A.update_time,121) update_time
+	, mc1.cd_nm as status
+'
+@ORDERCOLUMNNAME:'a.YURREF desc'
+@WHERE:' 1 = 1 and a.del_flg = '0'  AND A.batch_id  = '0000000001''
+@PAGECURRENTINDEX:'1'
+@PAGEEACHSIZE:'10'
+@PAGECOUNT:'0'
+@ITEMSCOUNT:'0'
+
+2017-10-30 10:42:54,426 [12] DEBUG - 1行处理完成。
+2017-10-30 10:42:54,426 [12] DEBUG - GetPaymentList(CMBPayment.MainDataAccess) End
+2017-10-30 10:42:54,426 [12] DEBUG - GetPaymentList(CMBPayment.MainController) End
+2017-10-30 10:42:59,762 [12] DEBUG - btnReturn_Click(CMBPayment.payment) Start
+2017-10-30 10:42:59,776 [9] DEBUG - GetBatchList(CMBPayment.MainController) Start
+2017-10-30 10:42:59,777 [9] DEBUG - GetBatchList(CMBPayment.MainDataAccess) Start
+2017-10-30 10:42:59,777 [9] DEBUG - SP_WEB_PAGING(@TABLENAMES='	cmb_t_batch a
+ left join cmb_m_code mc1 ON mc1.type = 'BATCH_STATUS' AND mc1.cd = a.status_id
+',@COLUMNS='	  A.batch_id
+	, A.pay_cnt
+	, A.ttl_amt
+	, A.status_id
+	, MC1.CD_NM AS status
+	, A.maker_id
+	, convert(varchar,A.maker_time,103) maker_time
+	, A.appr1_id
+	, convert(varchar,A.appr1_time,103) appr1_time
+	, A.appr2_id
+	, convert(varchar,A.appr2_time,103) appr2_time
+	, A.rejc_id
+	, convert(varchar,A.rejc_time,103) rejc_time
+	, convert(varchar,A.update_time,121) update_time
+',@ORDERCOLUMNNAME='a.batch_id desc',@WHERE=' 1 = 1 ',@PAGECURRENTINDEX='1',@PAGEEACHSIZE='10',@PAGECOUNT='0',@ITEMSCOUNT='0',)
+@TABLENAMES:'	cmb_t_batch a
+ left join cmb_m_code mc1 ON mc1.type = 'BATCH_STATUS' AND mc1.cd = a.status_id
+'
+@COLUMNS:'	  A.batch_id
+	, A.pay_cnt
+	, A.ttl_amt
+	, A.status_id
+	, MC1.CD_NM AS status
+	, A.maker_id
+	, convert(varchar,A.maker_time,103) maker_time
+	, A.appr1_id
+	, convert(varchar,A.appr1_time,103) appr1_time
+	, A.appr2_id
+	, convert(varchar,A.appr2_time,103) appr2_time
+	, A.rejc_id
+	, convert(varchar,A.rejc_time,103) rejc_time
+	, convert(varchar,A.update_time,121) update_time
+'
+@ORDERCOLUMNNAME:'a.batch_id desc'
+@WHERE:' 1 = 1 '
+@PAGECURRENTINDEX:'1'
+@PAGEEACHSIZE:'10'
+@PAGECOUNT:'0'
+@ITEMSCOUNT:'0'
+
+2017-10-30 10:42:59,779 [9] DEBUG - 5行处理完成。
+2017-10-30 10:42:59,779 [9] DEBUG - GetBatchList(CMBPayment.MainDataAccess) End
+2017-10-30 10:42:59,779 [9] DEBUG - GetBatchList(CMBPayment.MainController) End
+2017-10-30 10:43:01,492 [8] DEBUG - GetBatchInfo(CMBPayment.MainController) Start
+2017-10-30 10:43:01,493 [8] DEBUG - GetBatchInfo(CMBPayment.MainDataAccess) Start
+2017-10-30 10:43:01,493 [8] DEBUG -  select A.batch_id
+	, A.pay_cnt
+	, A.ttl_amt
+	, A.status_id
+	, MC1.CD_NM AS status
+	, A.maker_id
+	, convert(varchar,A.maker_time,103) maker_time
+	, A.appr1_id
+	, convert(varchar,A.appr1_time,103) appr1_time
+	, A.appr2_id
+	, convert(varchar,A.appr2_time,103) appr2_time
+	, A.rejc_id
+	, convert(varchar,A.rejc_time,103) rejc_time
+	, convert(varchar,A.update_time,121) update_time
+ from cmb_t_batch a
+ left join cmb_m_code mc1 ON mc1.type = 'BATCH_STATUS' AND mc1.cd = a.status_id
+ where a.batch_id = '0000000001'; 
+
+@batch_id:'0000000001'
+
+2017-10-30 10:43:01,493 [8] DEBUG - 1行处理完成。
+2017-10-30 10:43:01,493 [8] DEBUG - GetBatchInfo(CMBPayment.MainDataAccess) End
+2017-10-30 10:43:01,493 [8] DEBUG - GetBatchInfo(CMBPayment.MainController) End
+2017-10-30 10:43:01,493 [8] DEBUG - GetPaymentList(CMBPayment.MainController) Start
+2017-10-30 10:43:01,493 [8] DEBUG - GetPaymentList(CMBPayment.MainDataAccess) Start
+2017-10-30 10:43:01,493 [8] DEBUG - SP_WEB_PAGING(@TABLENAMES='	cmb_t_payment a
+ left join cmb_m_code mc1 ON mc1.type = 'PAY_STATUS' AND mc1.cd = a.status_id
+',@COLUMNS='	  A.batch_id
+	, A.YURREF
+	, A.status_id
+	, A.comment
+	, A.EPTDAT
+	, A.OPRDAT
+	, A.DBTACC
+	, A.DBTBBK
+	, A.TRSAMT
+	, A.CCYNBR
+	, A.NUSAGE
+	, A.BUSNAR
+	, A.CRTACC
+	, A.CRTNAM
+	, A.LRVEAN
+	, A.BRDNBR
+	, A.BNKFLG
+	, A.CRTBNK
+	, A.CTYCOD
+	, A.CRTADR
+	, A.NTFCH1
+	, A.update_id
+	, convert(varchar,A.update_time,121) update_time
+	, mc1.cd_nm as status
+',@ORDERCOLUMNNAME='a.YURREF desc',@WHERE=' 1 = 1 and a.del_flg = '0'  AND A.batch_id  = '0000000001'',@PAGECURRENTINDEX='1',@PAGEEACHSIZE='10',@PAGECOUNT='0',@ITEMSCOUNT='0',)
+@TABLENAMES:'	cmb_t_payment a
+ left join cmb_m_code mc1 ON mc1.type = 'PAY_STATUS' AND mc1.cd = a.status_id
+'
+@COLUMNS:'	  A.batch_id
+	, A.YURREF
+	, A.status_id
+	, A.comment
+	, A.EPTDAT
+	, A.OPRDAT
+	, A.DBTACC
+	, A.DBTBBK
+	, A.TRSAMT
+	, A.CCYNBR
+	, A.NUSAGE
+	, A.BUSNAR
+	, A.CRTACC
+	, A.CRTNAM
+	, A.LRVEAN
+	, A.BRDNBR
+	, A.BNKFLG
+	, A.CRTBNK
+	, A.CTYCOD
+	, A.CRTADR
+	, A.NTFCH1
+	, A.update_id
+	, convert(varchar,A.update_time,121) update_time
+	, mc1.cd_nm as status
+'
+@ORDERCOLUMNNAME:'a.YURREF desc'
+@WHERE:' 1 = 1 and a.del_flg = '0'  AND A.batch_id  = '0000000001''
+@PAGECURRENTINDEX:'1'
+@PAGEEACHSIZE:'10'
+@PAGECOUNT:'0'
+@ITEMSCOUNT:'0'
+
+2017-10-30 10:43:01,494 [8] DEBUG - 1行处理完成。
+2017-10-30 10:43:01,495 [8] DEBUG - GetPaymentList(CMBPayment.MainDataAccess) End
+2017-10-30 10:43:01,495 [8] DEBUG - GetPaymentList(CMBPayment.MainController) End
+2017-10-30 10:43:02,501 [9] DEBUG - btnReturn_Click(CMBPayment.payment) Start
+2017-10-30 10:43:02,513 [6] DEBUG - GetBatchList(CMBPayment.MainController) Start
+2017-10-30 10:43:02,513 [6] DEBUG - GetBatchList(CMBPayment.MainDataAccess) Start
+2017-10-30 10:43:02,513 [6] DEBUG - SP_WEB_PAGING(@TABLENAMES='	cmb_t_batch a
+ left join cmb_m_code mc1 ON mc1.type = 'BATCH_STATUS' AND mc1.cd = a.status_id
+',@COLUMNS='	  A.batch_id
+	, A.pay_cnt
+	, A.ttl_amt
+	, A.status_id
+	, MC1.CD_NM AS status
+	, A.maker_id
+	, convert(varchar,A.maker_time,103) maker_time
+	, A.appr1_id
+	, convert(varchar,A.appr1_time,103) appr1_time
+	, A.appr2_id
+	, convert(varchar,A.appr2_time,103) appr2_time
+	, A.rejc_id
+	, convert(varchar,A.rejc_time,103) rejc_time
+	, convert(varchar,A.update_time,121) update_time
+',@ORDERCOLUMNNAME='a.batch_id desc',@WHERE=' 1 = 1 ',@PAGECURRENTINDEX='1',@PAGEEACHSIZE='10',@PAGECOUNT='0',@ITEMSCOUNT='0',)
+@TABLENAMES:'	cmb_t_batch a
+ left join cmb_m_code mc1 ON mc1.type = 'BATCH_STATUS' AND mc1.cd = a.status_id
+'
+@COLUMNS:'	  A.batch_id
+	, A.pay_cnt
+	, A.ttl_amt
+	, A.status_id
+	, MC1.CD_NM AS status
+	, A.maker_id
+	, convert(varchar,A.maker_time,103) maker_time
+	, A.appr1_id
+	, convert(varchar,A.appr1_time,103) appr1_time
+	, A.appr2_id
+	, convert(varchar,A.appr2_time,103) appr2_time
+	, A.rejc_id
+	, convert(varchar,A.rejc_time,103) rejc_time
+	, convert(varchar,A.update_time,121) update_time
+'
+@ORDERCOLUMNNAME:'a.batch_id desc'
+@WHERE:' 1 = 1 '
+@PAGECURRENTINDEX:'1'
+@PAGEEACHSIZE:'10'
+@PAGECOUNT:'0'
+@ITEMSCOUNT:'0'
+
+2017-10-30 10:43:02,514 [6] DEBUG - 5行处理完成。
+2017-10-30 10:43:02,514 [6] DEBUG - GetBatchList(CMBPayment.MainDataAccess) End
+2017-10-30 10:43:02,514 [6] DEBUG - GetBatchList(CMBPayment.MainController) End

@@ -14,23 +14,20 @@ CREATE TABLE [dbo].[cmb_m_user](
 
 GO
 
+insert into cmb_m_user values('1560002','maker',N'');
+insert into cmb_m_user values('1560003','checker1',N'银企直连测试用户110');
+insert into cmb_m_user values('1560004','checker2',N'银企直连测试用户110');
+
+--update cmb_t_batch set appr1_id = '1560001'
+--where batch_id = '0000000009'
+
 delete from cmb_m_user;
---insert into cmb_m_user values('1560003','checker1',N'学科园科兴学537');
---insert into cmb_m_user values('1560003','checker2',N'学科园科兴学537');
---insert into cmb_m_user values('1560003','maker',N'学科园科兴学537');
---insert into cmb_m_user values('1568058','checker1',N'学科园科兴学537');
-
-update cmb_m_user set role_id = 'maker' where user_id = '1560003';
-
-update cmb_t_batch set appr1_id = '1560001'
-where batch_id = '0000000009'
-
-insert into cmb_m_user values('1441154','maker',N'学科园科兴学537');
-insert into cmb_m_user values('1455079','maker',N'学科园科兴学537');
-insert into cmb_m_user values('1416021','checker1',N'学科园科兴学537');
-insert into cmb_m_user values('1305931','checker1',N'学科园科兴学537');
-insert into cmb_m_user values('1441180','checker2',N'学科园科兴学537');
-insert into cmb_m_user values('1510855','checker2',N'学科园科兴学537');
+insert into cmb_m_user values('1441154','maker',N'');
+insert into cmb_m_user values('1455079','maker',N'');
+insert into cmb_m_user values('1416021','checker1',N'');
+insert into cmb_m_user values('1305931','checker1',N'');
+insert into cmb_m_user values('1441180','checker2',N'');
+insert into cmb_m_user values('1510855','checker2',N'');
 
 
 

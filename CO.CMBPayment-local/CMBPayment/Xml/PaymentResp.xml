@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding = "gb2312"?>
+<CMBSDKPGK>
+  <INFO>
+    <FUNNAM></FUNNAM>
+    <DATTYP>2</DATTYP>
+    <RETCOD></RETCOD>
+    <ERRMSG></ERRMSG>
+  </INFO>
+  <NTQPAYRQZ>
+    <ERRCOD></ERRCOD>
+    <ERRTXT></ERRTXT>
+    <REQNBR></REQNBR>
+    <REQSTS></REQSTS>
+    <RTNFLG></RTNFLG>
+    <SQRNBR></SQRNBR>
+    <YURREF></YURREF>
+  </NTQPAYRQZ>
+</CMBSDKPGK>
+

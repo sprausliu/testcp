@@ -1,0 +1,621 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ACTION_AUTH_CHECK" xml:space="preserve">
+    <value>操作权限检查</value>
+  </data>
+  <data name="ACTION_BUTTON_CLICK" xml:space="preserve">
+    <value>{0}点击</value>
+  </data>
+  <data name="ACTION_DATA_SHOW" xml:space="preserve">
+    <value>{0}处理</value>
+  </data>
+  <data name="ACTION_LOAD" xml:space="preserve">
+    <value>初期表示</value>
+  </data>
+  <data name="ERROR_DATAACCESS" xml:space="preserve">
+    <value>发生数据访问错误。</value>
+  </data>
+  <data name="ERROR_LOGIC" xml:space="preserve">
+    <value>发生逻辑判断错误。</value>
+  </data>
+  <data name="ERROR_PAGE" xml:space="preserve">
+    <value>发生页面访问错误。</value>
+  </data>
+  <data name="IMSG0001" xml:space="preserve">
+    <value>数据已经保存到数据库。</value>
+  </data>
+  <data name="IMSG0002" xml:space="preserve">
+    <value>[?]</value>
+  </data>
+  <data name="IMSG0003" xml:space="preserve">
+    <value>----/--/--</value>
+  </data>
+  <data name="IMSG0004" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="IMSG0005" xml:space="preserve">
+    <value>(</value>
+  </data>
+  <data name="IMSG0006" xml:space="preserve">
+    <value>)</value>
+  </data>
+  <data name="IMSG0007" xml:space="preserve">
+    <value>～</value>
+  </data>
+  <data name="IMSG0008" xml:space="preserve">
+    <value>-</value>
+  </data>
+  <data name="IMSG0009" xml:space="preserve">
+    <value>#FFFFCC</value>
+  </data>
+  <data name="IMSG0010" xml:space="preserve">
+    <value>新建</value>
+  </data>
+  <data name="IMSG0011" xml:space="preserve">
+    <value>--:--:--</value>
+  </data>
+  <data name="IMSG0012" xml:space="preserve">
+    <value>----/--/-- --:--:--</value>
+  </data>
+  <data name="IMSG0013" xml:space="preserve">
+    <value>数据已添加成功。</value>
+  </data>
+  <data name="INFO_BUTTON_ADD" xml:space="preserve">
+    <value>添加</value>
+  </data>
+  <data name="INFO_BUTTON_AUTHSET" xml:space="preserve">
+    <value>权限设定</value>
+  </data>
+  <data name="INFO_BUTTON_BATCHNEWENTRY" xml:space="preserve">
+    <value>批量添加</value>
+  </data>
+  <data name="INFO_BUTTON_CANCEL" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="INFO_BUTTON_CHANGE" xml:space="preserve">
+    <value>变更</value>
+  </data>
+  <data name="INFO_BUTTON_CLEAR" xml:space="preserve">
+    <value>清除</value>
+  </data>
+  <data name="INFO_BUTTON_CLOSE" xml:space="preserve">
+    <value>关闭</value>
+  </data>
+  <data name="INFO_BUTTON_CONFIRM" xml:space="preserve">
+    <value>确认</value>
+  </data>
+  <data name="INFO_BUTTON_CSVDOWNLOAD" xml:space="preserve">
+    <value>CSV FileDownload</value>
+  </data>
+  <data name="INFO_BUTTON_DELETE" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="INFO_BUTTON_DETAILLINK" xml:space="preserve">
+    <value>明细连接</value>
+  </data>
+  <data name="INFO_BUTTON_EDIT" xml:space="preserve">
+    <value>编辑</value>
+  </data>
+  <data name="INFO_BUTTON_FILEDOWNLOAD" xml:space="preserve">
+    <value>文件下载</value>
+  </data>
+  <data name="INFO_BUTTON_GRAPHDATADOWNLOAD" xml:space="preserve">
+    <value>数据源形式下载(EXCEL)</value>
+  </data>
+  <data name="INFO_BUTTON_GRAPHDOWNLOAD" xml:space="preserve">
+    <value>图片形式下载(PNG)</value>
+  </data>
+  <data name="INFO_BUTTON_GRIDDOWNLOAD" xml:space="preserve">
+    <value>表格数据下载</value>
+  </data>
+  <data name="INFO_BUTTON_INSERT" xml:space="preserve">
+    <value>添加</value>
+  </data>
+  <data name="INFO_BUTTON_LOGIN" xml:space="preserve">
+    <value>登录</value>
+  </data>
+  <data name="INFO_BUTTON_MAILLINK" xml:space="preserve">
+    <value>邮件连接</value>
+  </data>
+  <data name="INFO_BUTTON_MESSAGECREATE" xml:space="preserve">
+    <value>消息生成</value>
+  </data>
+  <data name="INFO_BUTTON_NEWENTRY" xml:space="preserve">
+    <value>添加</value>
+  </data>
+  <data name="INFO_BUTTON_OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="INFO_BUTTON_OUTPUT" xml:space="preserve">
+    <value>输出</value>
+  </data>
+  <data name="INFO_BUTTON_PAGGING" xml:space="preserve">
+    <value>分页</value>
+  </data>
+  <data name="INFO_BUTTON_REPLACEUSER" xml:space="preserve">
+    <value>切换到当前用户</value>
+  </data>
+  <data name="INFO_BUTTON_REPORTCREATE" xml:space="preserve">
+    <value>报表生成</value>
+  </data>
+  <data name="INFO_BUTTON_REPORTDOWNLOAD" xml:space="preserve">
+    <value>报表下载</value>
+  </data>
+  <data name="INFO_BUTTON_REPORTUPLOAD" xml:space="preserve">
+    <value>文件上传</value>
+  </data>
+  <data name="INFO_BUTTON_RETURN" xml:space="preserve">
+    <value>返回</value>
+  </data>
+  <data name="INFO_BUTTON_ROLE_CLEAR" xml:space="preserve">
+    <value>用户角色清除</value>
+  </data>
+  <data name="INFO_BUTTON_ROLE_SET" xml:space="preserve">
+    <value>用户角色设定</value>
+  </data>
+  <data name="INFO_BUTTON_SEARCH" xml:space="preserve">
+    <value>查询</value>
+  </data>
+  <data name="INFO_BUTTON_SELECT" xml:space="preserve">
+    <value>选择</value>
+  </data>
+  <data name="INFO_BUTTON_SEND" xml:space="preserve">
+    <value>发送</value>
+  </data>
+  <data name="INFO_BUTTON_SET" xml:space="preserve">
+    <value>设定</value>
+  </data>
+  <data name="INFO_BUTTON_SHOW" xml:space="preserve">
+    <value>显示</value>
+  </data>
+  <data name="INFO_BUTTON_SHOWREPORT" xml:space="preserve">
+    <value>显示报表</value>
+  </data>
+  <data name="INFO_BUTTON_SONIN" xml:space="preserve">
+    <value>承认</value>
+  </data>
+  <data name="INFO_BUTTON_SORT" xml:space="preserve">
+    <value>排序</value>
+  </data>
+  <data name="INFO_BUTTON_TABCHANGE" xml:space="preserve">
+    <value>TAB切换</value>
+  </data>
+  <data name="INFO_BUTTON_UPDATE" xml:space="preserve">
+    <value>更新</value>
+  </data>
+  <data name="INFO_CANLENDAR_BUTTON_NEXT" xml:space="preserve">
+    <value>次月</value>
+  </data>
+  <data name="INFO_CANLENDAR_BUTTON_PRE" xml:space="preserve">
+    <value>前月</value>
+  </data>
+  <data name="INFO_CANLENDAR_BUTTON_YEAR_NEXT" xml:space="preserve">
+    <value>次年度</value>
+  </data>
+  <data name="INFO_CANLENDAR_BUTTON_YEAR_PRE" xml:space="preserve">
+    <value>前年度</value>
+  </data>
+  <data name="INFO_CANLENDAR_MONTH_1" xml:space="preserve">
+    <value>1月</value>
+  </data>
+  <data name="INFO_CANLENDAR_MONTH_10" xml:space="preserve">
+    <value>10月</value>
+  </data>
+  <data name="INFO_CANLENDAR_MONTH_11" xml:space="preserve">
+    <value>11月</value>
+  </data>
+  <data name="INFO_CANLENDAR_MONTH_12" xml:space="preserve">
+    <value>12月</value>
+  </data>
+  <data name="INFO_CANLENDAR_MONTH_2" xml:space="preserve">
+    <value>2月</value>
+  </data>
+  <data name="INFO_CANLENDAR_MONTH_3" xml:space="preserve">
+    <value>3月</value>
+  </data>
+  <data name="INFO_CANLENDAR_MONTH_4" xml:space="preserve">
+    <value>4月</value>
+  </data>
+  <data name="INFO_CANLENDAR_MONTH_5" xml:space="preserve">
+    <value>5月</value>
+  </data>
+  <data name="INFO_CANLENDAR_MONTH_6" xml:space="preserve">
+    <value>6月</value>
+  </data>
+  <data name="INFO_CANLENDAR_MONTH_7" xml:space="preserve">
+    <value>7月</value>
+  </data>
+  <data name="INFO_CANLENDAR_MONTH_8" xml:space="preserve">
+    <value>8月</value>
+  </data>
+  <data name="INFO_CANLENDAR_MONTH_9" xml:space="preserve">
+    <value>9月</value>
+  </data>
+  <data name="INFO_CANLENDAR_WEEK_0" xml:space="preserve">
+    <value>日</value>
+  </data>
+  <data name="INFO_CANLENDAR_WEEK_1" xml:space="preserve">
+    <value>一</value>
+  </data>
+  <data name="INFO_CANLENDAR_WEEK_2" xml:space="preserve">
+    <value>二</value>
+  </data>
+  <data name="INFO_CANLENDAR_WEEK_3" xml:space="preserve">
+    <value>三</value>
+  </data>
+  <data name="INFO_CANLENDAR_WEEK_4" xml:space="preserve">
+    <value>四</value>
+  </data>
+  <data name="INFO_CANLENDAR_WEEK_5" xml:space="preserve">
+    <value>五</value>
+  </data>
+  <data name="INFO_CANLENDAR_WEEK_6" xml:space="preserve">
+    <value>六</value>
+  </data>
+  <data name="INFO_CANLENDAR_YEAR_SUBFIX" xml:space="preserve">
+    <value>年</value>
+  </data>
+  <data name="INFO_COMBOLIST_ALL" xml:space="preserve">
+    <value>全选</value>
+  </data>
+  <data name="INFO_HEADER_LOGIN" xml:space="preserve">
+    <value>当前用户：</value>
+  </data>
+  <data name="INFO_PAGE_REPORTSHOW" xml:space="preserve">
+    <value>参照报表数据</value>
+  </data>
+  <data name="INFO_PROCCESSING" xml:space="preserve">
+    <value>处理中...</value>
+  </data>
+  <data name="INFO_SEARCH_NODATA" xml:space="preserve">
+    <value>没有查询到数据。</value>
+  </data>
+  <data name="LMSG0001" xml:space="preserve">
+    <value>{0}行处理完成。</value>
+  </data>
+  <data name="LMSG0002" xml:space="preserve">
+    <value>{0}正常结束。</value>
+  </data>
+  <data name="LMSG0003" xml:space="preserve">
+    <value>{0}访问了{1}。</value>
+  </data>
+  <data name="LMSG0004" xml:space="preserve">
+    <value>{0}按下了{1}。</value>
+  </data>
+  <data name="LMSG0005" xml:space="preserve">
+    <value>{0}没有{1}访问权限。</value>
+  </data>
+  <data name="LMSG0006" xml:space="preserve">
+    <value>存储过程[{0}]被执行。返回值 : {1}</value>
+  </data>
+  <data name="LMSG0007" xml:space="preserve">
+    <value>{0}没有{1}变更权限。</value>
+  </data>
+  <data name="LMSG0008" xml:space="preserve">
+    <value>{0}session已过期。</value>
+  </data>
+  <data name="LMSG0009" xml:space="preserve">
+    <value>授权人1、2不能相同。</value>
+  </data>
+  <data name="PAGING_PAGEUNITNAME" xml:space="preserve">
+    <value>页</value>
+  </data>
+  <data name="PAGING_SUMTITLE" xml:space="preserve">
+    <value>合计:</value>
+  </data>
+  <data name="PAGING_TOOLTIP_END" xml:space="preserve">
+    <value>最末</value>
+  </data>
+  <data name="PAGING_TOOLTIP_NEXT" xml:space="preserve">
+    <value>次</value>
+  </data>
+  <data name="PAGING_TOOLTIP_PREV" xml:space="preserve">
+    <value>前</value>
+  </data>
+  <data name="PAGING_TOOLTIP_START" xml:space="preserve">
+    <value>最初</value>
+  </data>
+  <data name="PAGING_UNITNAME" xml:space="preserve">
+    <value>件</value>
+  </data>
+  <data name="WMSG0001" xml:space="preserve">
+    <value>请填写{0}。</value>
+  </data>
+  <data name="WMSG0002" xml:space="preserve">
+    <value>{0}和{1}不一致。</value>
+  </data>
+  <data name="WMSG0003" xml:space="preserve">
+    <value>{0}需要包含{1}个字符的字幕・数字・符号三种文字。</value>
+  </data>
+  <data name="WMSG0004" xml:space="preserve">
+    <value>确定要进行更新操作吗？</value>
+  </data>
+  <data name="WMSG0005" xml:space="preserve">
+    <value>确定要进行删除操作吗？</value>
+  </data>
+  <data name="WMSG0006" xml:space="preserve">
+    <value>确定要进行添加操作吗？</value>
+  </data>
+  <data name="WMSG0007" xml:space="preserve">
+    <value>确定要进行取消操作吗？</value>
+  </data>
+  <data name="WMSG0008" xml:space="preserve">
+    <value>数据已经存在。</value>
+  </data>
+  <data name="WMSG0009" xml:space="preserve">
+    <value>{0}请输入{1}个以内的文字。</value>
+  </data>
+  <data name="WMSG0010" xml:space="preserve">
+    <value>{0}请输入{1}个以内的字母或数字。</value>
+  </data>
+  <data name="WMSG0011" xml:space="preserve">
+    <value>数据已经被其他用户更新，请刷新画面。</value>
+  </data>
+  <data name="WMSG0012" xml:space="preserve">
+    <value>{0}不存在。</value>
+  </data>
+  <data name="WMSG0013" xml:space="preserve">
+    <value>{0}的格式不正确。</value>
+  </data>
+  <data name="WMSG0014" xml:space="preserve">
+    <value>{0}的锁定已解除。</value>
+  </data>
+  <data name="WMSG0015" xml:space="preserve">
+    <value>{0}的密码再发行已成功。</value>
+  </data>
+  <data name="WMSG0016" xml:space="preserve">
+    <value>请选择{0}。</value>
+  </data>
+  <data name="WMSG0017" xml:space="preserve">
+    <value>请点击{0}。</value>
+  </data>
+  <data name="WMSG0020" xml:space="preserve">
+    <value>系统发生错误，无法进行删除。</value>
+  </data>
+  <data name="WMSG0021" xml:space="preserve">
+    <value>{0}的顺序关系不正确。</value>
+  </data>
+  <data name="WMSG0022" xml:space="preserve">
+    <value>第{0}行和第{1}行的顺序关系不正确。</value>
+  </data>
+  <data name="WMSG0023" xml:space="preserve">
+    <value>{0}不是有效日期。</value>
+  </data>
+  <data name="WMSG0024" xml:space="preserve">
+    <value>第{0}行的{1}不是有效日期。</value>
+  </data>
+  <data name="WMSG0025" xml:space="preserve">
+    <value>请选择第{0}行的{1}。</value>
+  </data>
+  <data name="WMSG0026" xml:space="preserve">
+    <value>请在{0}中输入正确的整数。</value>
+  </data>
+  <data name="WMSG0027" xml:space="preserve">
+    <value>请输入第{0}行的{1}。</value>
+  </data>
+  <data name="WMSG0028" xml:space="preserve">
+    <value>确定要进行发信操作吗？</value>
+  </data>
+  <data name="WMSG0029" xml:space="preserve">
+    <value>{0}被锁定。&lt;br/&gt;错误次数：{1}、最后访问日期：{2}</value>
+  </data>
+  <data name="WMSG0030" xml:space="preserve">
+    <value>{0}的密码有效期限已过期。</value>
+  </data>
+  <data name="WMSG0031" xml:space="preserve">
+    <value>{0}中请输入今天之前的日期。</value>
+  </data>
+  <data name="WMSG0033" xml:space="preserve">
+    <value>第{0}行的{1}中请输入今天之前的日期。</value>
+  </data>
+  <data name="WMSG0035" xml:space="preserve">
+    <value>输入的内容确认可以吗？</value>
+  </data>
+  <data name="WMSG0038" xml:space="preserve">
+    <value>在{0}中请输入{1}位之内的整数。</value>
+  </data>
+  <data name="WMSG0039" xml:space="preserve">
+    <value>{0}中请输入正确的开始日期和截至日期。</value>
+  </data>
+  <data name="WMSG0040" xml:space="preserve">
+    <value>请添加到{0}中。</value>
+  </data>
+  <data name="WMSG0041" xml:space="preserve">
+    <value>{0}({1})不存在，请选择别的数据。</value>
+  </data>
+  <data name="WMSG0042" xml:space="preserve">
+    <value>确定要新生成？</value>
+  </data>
+  <data name="WMSG0043" xml:space="preserve">
+    <value>{0}已经失败。</value>
+  </data>
+  <data name="WMSG0044" xml:space="preserve">
+    <value>显示只读权限的弹出窗口。</value>
+  </data>
+  <data name="WMSG0046" xml:space="preserve">
+    <value>确定要舍弃修改的内容吗？</value>
+  </data>
+  <data name="WMSG0047" xml:space="preserve">
+    <value>已超过添加可能件数的上限。</value>
+  </data>
+  <data name="WMSG0048" xml:space="preserve">
+    <value>输入值{0}中不能使用「'」。</value>
+  </data>
+  <data name="WMSG0049" xml:space="preserve">
+    <value>重复的用户ID已经存在，不能进行添加。</value>
+  </data>
+  <data name="WMSG0050" xml:space="preserve">
+    <value>{0}中不能输入过去的日期。</value>
+  </data>
+  <data name="WMSG0051" xml:space="preserve">
+    <value>※因为分页过多，画面只显示开始的{0}页。</value>
+  </data>
+  <data name="WMSG0052" xml:space="preserve">
+    <value>系统登录失败，请再试一次。</value>
+  </data>
+  <data name="WMSG0053" xml:space="preserve">
+    <value>文件上传成功。</value>
+  </data>
+  <data name="WMSG0054" xml:space="preserve">
+    <value>已超时。</value>
+  </data>
+  <data name="WMSG0060" xml:space="preserve">
+    <value>只有只读权限，不能进行其他操作。</value>
+  </data>
+  <data name="WMSG0061" xml:space="preserve">
+    <value>{0}中请输入{1}位以内的数字。</value>
+  </data>
+  <data name="WMSG0064" xml:space="preserve">
+    <value>指定的文件不存在。</value>
+  </data>
+  <data name="WMSG0065" xml:space="preserve">
+    <value>文件上传失败。</value>
+  </data>
+  <data name="WMSG0067" xml:space="preserve">
+    <value>不能输入将来的日期。</value>
+  </data>
+  <data name="WMSG0068" xml:space="preserve">
+    <value>不能输入将来的日期（第{0}行）。</value>
+  </data>
+  <data name="WMSG0069" xml:space="preserve">
+    <value>０字节大小的文件不能上传。</value>
+  </data>
+  <data name="WMSG0070" xml:space="preserve">
+    <value>文件名长度过长。</value>
+  </data>
+  <data name="WMSG0072" xml:space="preserve">
+    <value>{1}中请输入{0}之后的日期。</value>
+  </data>
+  <data name="WMSG0077" xml:space="preserve">
+    <value>{0}中请输入正确的邮件地址(XXX@XXX.XXX)。</value>
+  </data>
+  <data name="WMSG0080" xml:space="preserve">
+    <value>{0}中请输入比{1}大的数字。</value>
+  </data>
+  <data name="WMSG0081" xml:space="preserve">
+    <value>{0}({1})的用户信息不存在。</value>
+  </data>
+  <data name="WMSG0082" xml:space="preserve">
+    <value>{0}({1})的邮件地址不能设定。</value>
+  </data>
+  <data name="WMSG0083" xml:space="preserve">
+    <value>{0}中请输入正确的数字。</value>
+  </data>
+</root>
