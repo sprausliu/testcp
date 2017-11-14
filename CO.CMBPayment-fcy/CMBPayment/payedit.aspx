@@ -16,21 +16,26 @@
             <br />
             <div class="box box-primary">
                 <div class="box-header with-border">
-                    <h3 class="box-title">交易附言：</h3>
+                    <h3 class="box-title">交易信息：</h3>
                 </div>
                 <div class="box-body">
                     <div class="form-group">
-                        <table>
-                            <tr>
-                                <th class="tesx-left" style="width: 100px;">
-                                    <asp:Label ID="Label1" runat="server" Text="附言:"></asp:Label>
-                                </th>
-                                <td class="tesx-left" style="width: 200px;">
-                                    <asp:TextBox ID="txtUsage" runat="server" Text='<%#Eval("NUSAGE") %>' MaxLength="30" TextMode="MultiLine" Rows="3" Width="257px"></asp:TextBox>
-                                </td>
-
-                            </tr>
-                        </table>
+                        <asp:Label ID="lblBRDNBR" runat="server" Text="收方行号:"></asp:Label>
+                        <asp:TextBox ID="txtBRDNBR" runat="server"  CssClass="form-control"></asp:TextBox>
+                    </div>
+                    <div class="form-group">
+                        <asp:Label ID="lblTRSCD1" runat="server" Text="交易编码:">
+                        </asp:Label>
+                        <asp:TextBox ID="txtTRSCD1" CssClass="form-control" runat="server"></asp:TextBox>
+                    </div>
+                    <div class="form-group">
+                        <asp:Label ID="lblCNTNBR" runat="server" Text="合同号:">
+                        </asp:Label>
+                        <asp:TextBox ID="txtCNBNBR" runat="server"  CssClass="form-control"></asp:TextBox>
+                    </div>
+                    <div class="form-group">
+                        <asp:Label ID="Label1" runat="server" Text="附言:"></asp:Label>
+                        <asp:TextBox ID="txtUsage" CssClass="form-control" runat="server" Text='<%#Eval("NUSAGE") %>' MaxLength="30" TextMode="MultiLine" Rows="3" Width="257px"></asp:TextBox>
                     </div>
                 </div>
                 <!-- /.box-body -->

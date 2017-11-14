@@ -11,6 +11,9 @@ namespace CMBPayment
         public string BatchId { get; set; }
         public string PaymentId { get; set; }
         public string Usage { get; set; }
+        public string BRDNBR { get; set; }
+        public string TRSCD1 { get; set; }
+        public string CNTNBR { get; set; }
     }
 
     public class PaymentItemBean : BaseInfoBean

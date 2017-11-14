@@ -122,9 +122,21 @@ namespace CMBPayment
                 row = (GridViewRow)((Button)e.CommandSource).Parent.Parent;
                 string paymentId = ((HiddenField)row.FindControl("hidPaymentId")).Value;
                 string usage = ((Label)row.FindControl("lblNUSAGE")).Text;
+                var ctl = new MainController();
+                var pmnt=ctl.GetPaymentsByBatchId(this.CurrentBean.BatchId).FirstOrDefault(x => x.YURREF == paymentId);
                 PaymentBean infoBean = this.CurrentBean;
                 infoBean.PaymentId = paymentId;
-                infoBean.Usage = usage;
+                if (pmnt != null)
+                {
+                    infoBean.Usage = pmnt.NUSAGE;
+                    infoBean.BRDNBR = pmnt.BRDNBR;
+                    infoBean.CNTNBR = pmnt.CNTNBR;
+                    infoBean.TRSCD1 = pmnt.TRSCD1;
+                }
+                else
+                {
+                    infoBean.Usage = usage;
+                }
                 infoBean.IsEditMode = true;
                 this.CurrentBean = infoBean;
                 Response.Redirect(ComUtil.GetPageURL(Constant.PagesURL.URL_PAYEDIT));

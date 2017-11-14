@@ -3,6 +3,7 @@ using Constant;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -36,7 +37,9 @@ namespace CMBPayment
             if (!IsPostBack)
             {
                 UserInfoBean user = base.LoginUser;
-
+                txtCNBNBR.Text = CurrentBean.CNTNBR;
+                txtTRSCD1.Text = CurrentBean.TRSCD1;
+                txtBRDNBR.Text = CurrentBean.BRDNBR;
                 this.txtUsage.Text = CurrentBean.Usage;
 
             }
@@ -54,6 +57,16 @@ namespace CMBPayment
         private void SavePayment()
         {
             string usage = txtUsage.Text.Trim();
+            if (!Regex.IsMatch(txtTRSCD1.Text, @"^\d{6}$"))
+            {
+                lblError.Text = "交易编码格式不正确";
+                return;
+            }
+            if(txtCNBNBR.Text.Length>20)
+            {
+                lblError.Text = "合同号不得超过20位";
+                return;
+            }
             if (string.IsNullOrEmpty(usage))
             {
                 lblError.Text = "请填写交易附言内容！";
@@ -68,6 +81,14 @@ namespace CMBPayment
 
             PaymentReqt pay = new PaymentReqt();
             pay.NUSAGE = usage;
+            var cfctl = new ConvertFileController();
+            var bank = cfctl.GetBankName(pay.BRDNBR);
+            pay.CNTNBR = txtCNBNBR.Text;
+            pay.TRSCD1 = txtTRSCD1.Text;
+            pay.BRDNBR = txtBRDNBR.Text;
+            pay.CRTBNK = bank.bank_name;   //Payee Bank Code
+            pay.BNKFLG = (bank.cmb_flg == "1" ? "Y" : "N");
+            pay.CRTADR = bank.bank_prov + bank.bank_city;
             pay.YURREF = this.CurrentBean.PaymentId;
             pay.user_id = base.LoginUser.UserId;
 

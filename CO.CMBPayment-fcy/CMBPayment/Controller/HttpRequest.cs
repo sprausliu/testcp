@@ -67,8 +67,12 @@ namespace CMBPayment
         }
 
         #region "Payement"
-
-        public string GetPayRequestStr(List<PaymentReqt> list)
+        public string GetPayRequestStr(List<PaymentReqt> list) {
+            if (list.Count == 0 || list.FirstOrDefault().CCYNBR == "CNY")
+                return GetPayLCYRequestStr(list);
+            return GetPayFCYRequestStr(list);
+        }
+        public string GetPayLCYRequestStr(List<PaymentReqt> list)
         {
             XmlDocument xmlDoc = new XmlDocument();
             xmlDoc.CreateXmlDeclaration("1.0", "GBK", "");

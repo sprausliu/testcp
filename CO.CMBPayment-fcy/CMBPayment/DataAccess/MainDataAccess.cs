@@ -440,6 +440,8 @@ namespace CMBPayment
             sb.AppendLine("	, A.CRTBNK");
             sb.AppendLine("	, A.CRTADR");
             sb.AppendLine("	, A.NTFCH1");
+            sb.AppendLine(" , A.TRSCD1");
+            sb.AppendLine(" , A.CNTNBR");
             sb.AppendLine(" from cmb_t_payment a");
             sb.AppendLine(" where A.batch_id  = @batch_id and a.del_flg = '0' ");
             string sql = sb.ToString();
@@ -879,6 +881,13 @@ namespace CMBPayment
             sb.AppendLine(" SET update_time = GETDATE()");
             sb.AppendLine("    ,update_id = @UPD_ID");
             sb.AppendLine("    ,NUSAGE = @NUSAGE");
+            sb.AppendLine("    ,CNTNBR = @CNTNBR");
+            sb.AppendLine("    ,TRSCD1 = @TRSCD1");
+            sb.AppendLine("    ,BRDNBR = @BRDNBR");
+            sb.AppendLine("    ,CRTBNK = @CRTBNK");
+            sb.AppendLine("    ,BNKFLG = @BNKFLG");
+            sb.AppendLine("    ,CRTADR = @CRTADR");
+
             sb.AppendLine(" WHERE YURREF = @YURREF ");
 
             string updateSql = sb.ToString();
@@ -894,6 +903,12 @@ namespace CMBPayment
                 lsParas.Add(new SqlParameter("@YURREF", pay.YURREF));
                 lsParas.Add(new SqlParameter("@NUSAGE", pay.NUSAGE));
                 lsParas.Add(new SqlParameter("@UPD_ID", pay.user_id));
+                lsParas.Add(new SqlParameter("@CNTNBR", pay.CNTNBR));
+                lsParas.Add(new SqlParameter("@TRSCD1", pay.TRSCD1));
+                lsParas.Add(new SqlParameter("@BRDNBR", pay.BRDNBR));
+                lsParas.Add(new SqlParameter("@CRTBNK", pay.CRTBNK));
+                lsParas.Add(new SqlParameter("@BNKFLG", pay.BNKFLG));
+                lsParas.Add(new SqlParameter("@CRTADR", pay.CRTADR));
                 paras = lsParas.ToArray();
 
                 effectCount = base.ExecuteNonQuery(updateSql, paras);

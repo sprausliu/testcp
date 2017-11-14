@@ -66,7 +66,12 @@ namespace CMBPayment
                         bool hasErr = false;
 
                         PaymentReqt pay = new PaymentReqt();
-                        Vendor v = GetBankName(arr[15]);
+                        var bankCd = arr[15];
+                        if (bankCd.Equals("SCBLCNSXSHA"))
+                        {
+                            bankCd = "671110000017";
+                        }
+                        Vendor v = GetBankName(bankCd);
 
                         // 业务参考号 否
                         pay.YURREF = DateTime.Now.ToString("yyyyMMdd") + GetRandom(i);    //Customer Reference
@@ -118,7 +123,8 @@ namespace CMBPayment
                         // 系统内外标志 Y：招行；N：非招行； 否
                         pay.BNKFLG = (v.cmb_flg == "1" ? "Y" : "N");
                         // 人行自动支付收方联行号
-                        pay.BRDNBR = arr[15];
+                        pay.BRDNBR = bankCd;
+
                         // 收方开户行 跨行支付（BNKFLG=N）必填
                         pay.CRTBNK = v.bank_name;   //Payee Bank Code
                         if (pay.BNKFLG.Equals("N"))
@@ -199,7 +205,7 @@ namespace CMBPayment
             return list;
         }
 
-        private Vendor GetBankName(string bankCd)
+        public Vendor GetBankName(string bankCd)
         {
             Vendor v = new Vendor();
 

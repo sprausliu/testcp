@@ -22,6 +22,60 @@ namespace CMBPayment {
         protected global::System.Web.UI.WebControls.Label lblError;
         
         /// <summary>
+        /// lblBRDNBR control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblBRDNBR;
+        
+        /// <summary>
+        /// txtBRDNBR control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtBRDNBR;
+        
+        /// <summary>
+        /// lblTRSCD1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTRSCD1;
+        
+        /// <summary>
+        /// txtTRSCD1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtTRSCD1;
+        
+        /// <summary>
+        /// lblCNTNBR control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCNTNBR;
+        
+        /// <summary>
+        /// txtCNBNBR control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCNBNBR;
+        
+        /// <summary>
         /// Label1 control.
         /// </summary>
         /// <remarks>
