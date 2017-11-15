@@ -1,4 +1,5 @@
 ﻿using CMBPayment;
+using CMBPayment.Common;
 using Common;
 using System;
 using System.Collections.Generic;
@@ -493,7 +494,40 @@ namespace CMBPayment
             return retDt;
         }
         #endregion
+        #region "获取前置机列表"
+        public List<QZJMachine> GetQZJ() {
+            List<QZJMachine> qzjList = new List<QZJMachine>();
 
+            try
+            {
+                // DEBUG LOG START
+                LogUtil.WriteDebugStartMessage();
+
+                SqlConnection cnn = this.GetConnection();
+                CommonDataAccess cda = new CommonDataAccess(cnn);
+                this.OpenConnection();
+
+                qzjList = cda.GetQZJ();
+                // DEBUG LOG END
+                LogUtil.WriteDebugEndMessage();
+            }
+            catch (DataAccessException daex)
+            {
+                throw daex;
+            }
+            catch (Exception ex)
+            {
+                LogicException le = new LogicException(ex);
+                throw le;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+
+            return qzjList;
+        }
+        #endregion
         #endregion
 
     }

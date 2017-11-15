@@ -995,6 +995,7 @@
     <Compile Include="Common\ExceptionBean.cs" />
     <Compile Include="Common\LogUtil.cs" />
     <Compile Include="Common\NameValueBean.cs" />
+    <Compile Include="Common\QZJMachine.cs" />
     <Compile Include="Common\Staff.cs" />
     <Compile Include="Constant\FormatInfo.cs" />
     <Compile Include="Constant\PageType.cs" />

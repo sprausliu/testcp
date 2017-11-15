@@ -4,7 +4,10 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Net;
+using System.Net.Sockets;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -42,9 +45,15 @@ namespace CMBPayment
                 UserInfoBean user = base.LoginUser;
 
                 InitDisplayInfo();
+                var ctl = new CommonController();
+                var pclist = ctl.GetQZJ();
+                ddlQZJ.Items.AddRange(pclist.Select(x => new ListItem
+                {
+                    Text = string.Format("{0}({1})", x.DisplayName, x.BankId),
+                    Value = x.ComputerName
+                }).ToArray());
 
             }
-
             lblError.Text = "";
             // 添加分页事件
             this.GPG00001.PageChanged += new GPG0000.PageChangedHander(GPG00001_PageChanged);
@@ -396,16 +405,17 @@ namespace CMBPayment
 
         private void DoPayment(string batchId, string updDateKey)
         {
-            string ipAddr = txtIpAddr.Text.Trim();
+           
             string port = txtPort.Text.Trim();
-            if (string.IsNullOrEmpty(ipAddr) || string.IsNullOrEmpty(port))
-            {
-                lblError.Text = "请填写前置机的IP地址及端口号。";
-                return;
-            }
+            //if (string.IsNullOrEmpty(ipAddr) || string.IsNullOrEmpty(port))
+            //{
+            //    lblError.Text = "请填写前置机的IP地址及端口号。";
+            //    return;
+            //}
 
             try
             {
+                string ipAddr = ResolvePCName(ddlQZJ.SelectedValue).ToString();
                 List<List<PaymentReqt>> all = new List<List<PaymentReqt>>();
                 MainController ctrl = new MainController();
                 List<PaymentReqt> payList = ctrl.GetPaymentsByBatchId(batchId);
@@ -452,14 +462,34 @@ namespace CMBPayment
             }
             catch (Exception ex)
             {
+                lblError.Text = ex.Message;
                 LogUtil.WriteErrorMessage(ex);
-                throw ex;
+                //throw ex;
             }
         }
-
+        private IPAddress ResolvePCName(string pcname)
+        {
+            try
+            {
+                var addresses = Dns.GetHostAddresses(pcname);
+                return addresses.First();
+            }
+            catch(SocketException ex)
+            {
+                throw new Exception("无法连接指定的主机");
+            }
+            catch (Exception)
+            {
+#if DEBUG
+                //var b = new byte[] { 127, 0, 0, 1 };
+                //return new IPAddress(b);
+#endif
+                throw;
+            }
+        }
         private void ViewPayResult()
         {
-            string ipAddr = txtIpAddr.Text.Trim();
+            string ipAddr = ResolvePCName(ddlQZJ.SelectedValue).ToString();
             string port = txtPort.Text.Trim();
             string start = txtDayStart.Text;
             string end = txtDayEnd.Text;

@@ -1,4 +1,5 @@
-﻿using Common;
+﻿using CMBPayment.Common;
+using Common;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -435,7 +436,48 @@ namespace CMBPayment
             return returnDt;
         }
         #endregion
+        #region 取得前置机列表
+        public List<QZJMachine> GetQZJ() {
+            var result = new List<QZJMachine>();
+            var sql = @"select [bankid]
+                          ,[DisplayName]
+                          ,[ComputerName]
+                      FROM [oe_robotics].[dbo].[cmb_m_qzj]";
+            try
+            {
+                // DEBUG LOG START
+                LogUtil.WriteDebugStartMessage();
 
+                // 执行前，在LOG中输出SQL文。
+                LogUtil.WriteDebugMessage(base.GetLogSQL(sql, null));
+
+                var dt = this.ExecuteWithDataTable(sql, null);
+                if (dt != null)
+                {
+                    foreach(DataRow row in dt.Rows)
+                    {
+                        result.Add(new QZJMachine
+                        {
+                            BankId = row[0].ToString(),
+                            DisplayName = row[1].ToString(),
+                            ComputerName = row[2].ToString()
+                        });
+                    }
+                }
+                // 执行后，在LOG中输出执行结果。
+                LogUtil.WriteDebugMessage(base.GetExecuteLog(result.Count));
+
+                // DEBUG LOG END
+                LogUtil.WriteDebugEndMessage();
+            }
+            catch (Exception ex)
+            {
+                DataAccessException dae = new DataAccessException(ex);
+                throw;
+            }
+            return result;
+        }
+        #endregion
         #endregion
     }
 }

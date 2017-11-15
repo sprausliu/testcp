@@ -44,10 +44,12 @@
                             <table style="float: right;">
                                 <tr>
                                     <th class="text-left" style="width: 120px;">
-                                        <asp:Label ID="Label1" runat="server" Text="IP地址及端口号:"></asp:Label>
+                                        <asp:Label ID="Label1" runat="server" Text="选择前置机:"></asp:Label>
                                     </th>
                                     <td class="text-left" style="width: 300px;">
-                                        <asp:TextBox ID="txtIpAddr" runat="server" MaxLength="15" Width="120px" Text=""></asp:TextBox>&nbsp;&nbsp;<asp:TextBox ID="txtPort" runat="server" MaxLength="5" Width="40px" Text="8080"></asp:TextBox>
+                                        <asp:DropDownList runat="server" ID="ddlQZJ" CssClass="select2"></asp:DropDownList>
+                                        <%--<asp:TextBox ID="txtIpAddr" runat="server" MaxLength="15" Width="120px" Text=""></asp:TextBox>--%>
+                                        <asp:TextBox ID="txtPort" runat="server" MaxLength="5" Width="40px" Text="8080" Enabled="false"></asp:TextBox>
                                     </td>
                                 </tr>
                                 <tr>
