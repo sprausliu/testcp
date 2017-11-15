@@ -82,10 +82,10 @@ namespace CMBPayment
             PaymentReqt pay = new PaymentReqt();
             pay.NUSAGE = usage;
             var cfctl = new ConvertFileController();
+            pay.BRDNBR = txtBRDNBR.Text;
             var bank = cfctl.GetBankName(pay.BRDNBR);
             pay.CNTNBR = txtCNBNBR.Text;
             pay.TRSCD1 = txtTRSCD1.Text;
-            pay.BRDNBR = txtBRDNBR.Text;
             pay.CRTBNK = bank.bank_name;   //Payee Bank Code
             pay.BNKFLG = (bank.cmb_flg == "1" ? "Y" : "N");
             pay.CRTADR = bank.bank_prov + bank.bank_city;

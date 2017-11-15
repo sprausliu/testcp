@@ -120,27 +120,8 @@
     <Content Include="dist\img\avatar5.png" />
     <Content Include="dist\img\boxed-bg.jpg" />
     <Content Include="dist\img\boxed-bg.png" />
-    <Content Include="dist\img\credit\american-express.png" />
-    <Content Include="dist\img\credit\cirrus.png" />
-    <Content Include="dist\img\credit\mastercard.png" />
-    <Content Include="dist\img\credit\mestro.png" />
-    <Content Include="dist\img\credit\paypal.png" />
-    <Content Include="dist\img\credit\paypal2.png" />
-    <Content Include="dist\img\credit\visa.png" />
     <Content Include="dist\img\default-50x50.gif" />
     <Content Include="dist\img\icons.png" />
-    <Content Include="dist\img\photo1.png" />
-    <Content Include="dist\img\photo2.png" />
-    <Content Include="dist\img\photo3.jpg" />
-    <Content Include="dist\img\photo4.jpg" />
-    <Content Include="dist\img\user1-128x128.jpg" />
-    <Content Include="dist\img\user2-160x160.jpg" />
-    <Content Include="dist\img\user3-128x128.jpg" />
-    <Content Include="dist\img\user4-128x128.jpg" />
-    <Content Include="dist\img\user5-128x128.jpg" />
-    <Content Include="dist\img\user6-128x128.jpg" />
-    <Content Include="dist\img\user7-128x128.jpg" />
-    <Content Include="dist\img\user8-128x128.jpg" />
     <Content Include="dist\js\app.js" />
     <Content Include="dist\js\app.min.js" />
     <Content Include="dist\js\pages\dashboard.js" />
@@ -1084,7 +1065,6 @@
     <Content Include="bootstrap\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="bootstrap\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="bootstrap\fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="dist\img\Thumbs.db" />
     <Content Include="plugins\ckeditor\CHANGES.md" />
     <Content Include="plugins\ckeditor\LICENSE.md" />
     <Content Include="plugins\ckeditor\plugins\scayt\CHANGELOG.md" />
@@ -1123,6 +1103,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="dist\img\credit\" />
     <Folder Include="File\" />
     <Folder Include="fin_payment_file\history\" />
     <Folder Include="fin_payment_file\incoming\" />
