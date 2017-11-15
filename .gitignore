@@ -298,3 +298,5 @@ __pycache__/
 *.odx.cs
 *.xsd.cs
 *.suo
+CO.CMBPayment-fcy/CMBPayment/fin_payment_file/history/*
+fcy*.txt
